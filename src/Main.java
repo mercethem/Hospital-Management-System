@@ -1,5 +1,7 @@
 public class Main {
     public static void main(String[] args) {
-    person ahmet = new person();
+        Add.addPerson();
+        Person person1 = new Person();
+        person1.setName("Ethem");
     }
 }
