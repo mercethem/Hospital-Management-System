@@ -29,9 +29,11 @@ public class Person {
             System.out.println("Please do not use punctuation character!");
         } else if(Pattern.matches("\\d", citizenId)){ //isdigit
             System.out.println();
-        }else if(Pattern.matches("\\", citizenId)){ //todo FIX IT FIX IT FIX IT FIX IT FIX IT FIX IT
+        }else if(Pattern.matches("\\s", citizenId)){ //isspace
             System.out.println();
-        } else {
+        } else if(Pattern.matches("\\p{Lower}\\p{Upper}", citizenId)){ //isalpha
+            System.out.println();
+        }else {
             this.name = name;
         }
     }
@@ -67,24 +69,62 @@ public class Person {
         return surname;
     }
     public void setBirthdate_day(int birthdate_day){
-        this.birthdate_day = birthdate_day;
+        if(birthdate_day < 0){
+            birthdate_day = 1;
+        }else if(birthdate_day >=31) {
+            birthdate_day = 31;
+        } else {
+            this.birthdate_day = birthdate_day;
+        }
     }
     public int getBirthdate_day(){
         return birthdate_day;
     }
     public void setBirthdate_month(int birthdate_month){
-        this.birthdate_month = birthdate_month;
+        if(birthdate_month < 0){
+            birthdate_month = 1;
+        }else if(birthdate_month >=12) {
+            birthdate_month = 12;
+        } else {
+            this.birthdate_month = birthdate_month;
+        }
+
     }
     public int getBirthdate_month(){
         return birthdate_month;
     }
     public void setBirthdate_year(int birthdate_year){
-        this.birthdate_year = birthdate_year;
+        if(birthdate_year <= 1900){
+            birthdate_year = 1900;
+        }else if(birthdate_year >=Year.now().getValue()) {
+            birthdate_year = Year.now().getValue();
+        } else {
+            this.birthdate_year = birthdate_year;
+        }
+
     }
     public int getBirthdate_year(){
         return birthdate_year;
     }
     public void setBloodGroup(String bloodGroup){
+        bloodGroup=bloodGroup.toUpperCase();
+        if(bloodGroup == "arh+"){
+            bloodGroup = "arh+";
+        }else if(bloodGroup == "arh-") {
+            bloodGroup = "arh-";
+        }else if(bloodGroup == "brh+") {
+            bloodGroup = "brh+";
+        }else if(bloodGroup == "brh-") {
+            bloodGroup = "brh-";
+        }else if(bloodGroup == "abrh+") {
+            bloodGroup = "abrh+";
+        }else if(bloodGroup == "abrh-") {
+            bloodGroup = "abrh-";
+        }else if(bloodGroup == "0rh+") {
+            bloodGroup = "0rh+";
+        }else if(bloodGroup == "0rh-") {
+            bloodGroup = "0rh-";
+        }
         this.bloodGroup = bloodGroup;
     }
     public String getBloodGroup(){
