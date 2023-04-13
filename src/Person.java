@@ -3,6 +3,7 @@ import java.time.Year;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
 import java.time.temporal.ChronoUnit;
+import java.util.regex.Pattern;
 
 public class Person {
     //private Scanner keyboard = new Scanner(System.in);
@@ -19,19 +20,48 @@ public class Person {
     private String Email;
 
     public void setCitizenId(String citizenId){
-        this.citizenId = citizenId;
+        long id = Long.parseLong(citizenId);
+        if(citizenId.length() < 11){
+            System.out.println("Please enter 11 characters!");
+        } else if(id<0){
+            System.out.println("Please do not use negative numbers");
+        }else if(Pattern.matches("\\p{Punct}", citizenId)) {
+            System.out.println("Please do not use punctuation character!");
+        } else if(Pattern.matches("\\d", citizenId)){ //isdigit
+            System.out.println();
+        }else if(Pattern.matches("\\", citizenId)){ //todo FIX IT FIX IT FIX IT FIX IT FIX IT FIX IT
+            System.out.println();
+        } else {
+            this.name = name;
+        }
     }
     public String getCitizenId(){
         return citizenId;
     }
     public void setName(String name){
+        if(name.length() < 2){
+            System.out.println("Please enter your true name!");
+        }else if(Pattern.matches("\\p{Punct}", name)) {
+            System.out.println("Please do not use punctuation character!");
+        } else if(Pattern.matches("\\p{Digit}", name)){
+            System.out.println();
+        } else {
         this.name = name;
+        }
     }
     public String getName(){
         return name;
     }
     public void setSurname(String surname){
-        this.surname = surname;
+        if(name.length() < 2){
+            System.out.println("Please enter your true name!");
+        }else if(Pattern.matches("\\p{Punct}", surname)) {
+            System.out.println("Please do not use punctuation character!");
+        } else if(Pattern.matches("\\p{Digit}", surname)){
+            System.out.println("Please do not use numbers!");
+        } else {
+            this.surname = surname;
+        }
     }
     public String getSurname(){
         return surname;
