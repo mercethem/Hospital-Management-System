@@ -1,11 +1,11 @@
-public class employee extends person {
+public class Employee extends Person {
 
     private long employeeId;
     private String department;
     private int dateOfStart;
     private int dismissalDate;
 
-    public employee(){
-        System.out.println("New employee created.");
+    public Employee(){
+        System.out.println("New Employee created.");
     }
 }
