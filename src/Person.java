@@ -88,7 +88,6 @@ public class Person {
         } else {
             this.birthdate_month = birthdate_month;
         }
-
     }
     public int getBirthdate_month(){
         return birthdate_month;
@@ -101,7 +100,6 @@ public class Person {
         } else {
             this.birthdate_year = birthdate_year;
         }
-
     }
     public int getBirthdate_year(){
         return birthdate_year;
