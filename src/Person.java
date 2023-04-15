@@ -3,11 +3,13 @@ import java.time.Year;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
 import java.time.temporal.ChronoUnit;
-import java.util.regex.Pattern;
+import java.util.Scanner;
 
 public class Person {
-    //private Scanner keyboard = new Scanner(System.in);
-
+    Scanner keyboard = new Scanner(System.in);
+    final int CITIZEN_ID_DIGIT = 11;
+    final int PHONE_NUMBER_DIGIT = 10;
+    final String PHONE_CODE = "0090";
     private String citizenId;
     private String name;
     private String surname;
@@ -19,133 +21,248 @@ public class Person {
     private String phoneNumber;
     private String Email;
 
-    public void setCitizenId(String citizenId){
-        long id = Long.parseLong(citizenId);
-        if(citizenId.length() < 11){
-            System.out.println("Please enter 11 characters!");
-        } else if(id<0){
-            System.out.println("Please do not use negative numbers");
-        }else if(Pattern.matches("\\p{Punct}", citizenId)) {
-            System.out.println("Please do not use punctuation character!");
-        } else if(Pattern.matches("\\d", citizenId)){ //isdigit
-            System.out.println();
-        }else if(Pattern.matches("\\s", citizenId)){ //isspace
-            System.out.println();
-        } else if(Pattern.matches("\\p{Lower}\\p{Upper}", citizenId)){ //isalpha
-            System.out.println();
-        }else {
-            this.name = name;
+    public void setCitizenId(String citizenId) throws NumberFormatException {
+
+        System.out.println("Please enter citizen ID : ");
+        citizenId = keyboard.next();
+
+
+        if (citizenId.matches("[0-9]*") && citizenId.length() == CITIZEN_ID_DIGIT) {
+            this.citizenId = keyboard.nextLine();
+        } else {
+            System.out.println("Please just use numeric and 11 digit !");
+            setCitizenId("");
         }
     }
-    public String getCitizenId(){
+
+    public String getCitizenId() {
         return citizenId;
     }
-    public void setName(String name){
-        if(name.length() < 2){
+
+    public void setName(String name) {
+        int count = 0;
+        System.out.println("Please enter name : ");
+        name = keyboard.nextLine();
+
+        if (name.length() < 2) {
             System.out.println("Please enter your true name!");
-        }else if(Pattern.matches("\\p{Punct}", name)) {
+            ++count;
+        } else if (name.matches(".*\\p{Punct}.*")) {
             System.out.println("Please do not use punctuation character!");
-        } else if(Pattern.matches("\\p{Digit}", name)){
-            System.out.println();
+            ++count;
+        } else if (name.matches(".*[0-9].*")) {
+            System.out.println("Please do not use digit!");
+            ++count;
         } else {
-        this.name = name;
+            this.name = name;
+        }
+        if (count == 1) {
+            setName("");
         }
     }
-    public String getName(){
+
+    public String getName() {
         return name;
     }
-    public void setSurname(String surname){
-        if(name.length() < 2){
+
+    public void setSurname(String surname) {
+        int count = 0;
+        System.out.println("Please enter surname : ");
+        surname = keyboard.nextLine();
+
+        if (surname.length() < 2) {
             System.out.println("Please enter your true name!");
-        }else if(Pattern.matches("\\p{Punct}", surname)) {
+            ++count;
+        } else if (surname.matches(".*\\p{Punct}.*")) {
             System.out.println("Please do not use punctuation character!");
-        } else if(Pattern.matches("\\p{Digit}", surname)){
-            System.out.println("Please do not use numbers!");
+            ++count;
+        } else if (surname.matches(".*[0-9].*")) {
+            System.out.println("Please do not use digit!");
+            ++count;
         } else {
             this.surname = surname;
         }
+        if (count == 1) {
+            setSurname("");
+        }
     }
-    public String getSurname(){
+
+    public String getSurname() {
         return surname;
     }
-    public void setBirthdate_day(int birthdate_day){
-        if(birthdate_day < 0){
-            birthdate_day = 1;
-        }else if(birthdate_day >=31) {
-            birthdate_day = 31;
-        } else {
-            this.birthdate_day = birthdate_day;
+
+    public void setBirthdate_day(int birthdate_day) {
+        try {
+            System.out.println("Please enter birthdate day : ");
+            String sDay = keyboard.nextLine();
+            birthdate_day = Integer.parseInt(sDay);
+            if (!sDay.matches(".*[0-9].*")) {
+                System.out.println("Please use just digits.");
+                setBirthdate_day(0);
+            } else if (birthdate_day < 0) {
+                this.birthdate_day = 1;
+            } else if (birthdate_day >= 31) {
+                this.birthdate_day = 31;
+            } else {
+                this.birthdate_day = birthdate_day;
+            }
+        } catch (Exception e) {
+            System.out.println("Please enter just digit!");
+            setBirthdate_day(0);
         }
     }
-    public int getBirthdate_day(){
+
+    public int getBirthdate_day() {
         return birthdate_day;
     }
-    public void setBirthdate_month(int birthdate_month){
-        if(birthdate_month < 0){
-            birthdate_month = 1;
-        }else if(birthdate_month >=12) {
-            birthdate_month = 12;
-        } else {
-            this.birthdate_month = birthdate_month;
+
+    public void setBirthdate_month(int birthdate_month) {
+        try {
+            System.out.println("Please enter birthdate month : ");
+            String sMonth = keyboard.nextLine();
+            birthdate_month = Integer.parseInt(sMonth);
+            if (!sMonth.matches(".*[0-9].*")) {
+                System.out.println("Please use just digits.");
+                setBirthdate_month(1);
+            } else if (birthdate_month < 0) {
+                this.birthdate_month = 1;
+            } else if (birthdate_month >= 12) {
+                this.birthdate_month = 12;
+            } else {
+                this.birthdate_month = birthdate_month;
+            }
+        } catch (Exception e) {
+            System.out.println("Please enter just digit!");
+            setBirthdate_month(1);
         }
     }
-    public int getBirthdate_month(){
+
+    public int getBirthdate_month() {
         return birthdate_month;
     }
-    public void setBirthdate_year(int birthdate_year){
-        if(birthdate_year <= 1900){
-            birthdate_year = 1900;
-        }else if(birthdate_year >=Year.now().getValue()) {
-            birthdate_year = Year.now().getValue();
-        } else {
-            this.birthdate_year = birthdate_year;
+
+    public void setBirthdate_year(int birthdate_year) {
+        try {
+            System.out.println("Please enter birthdate year : ");
+            String sYear = keyboard.nextLine();
+            birthdate_year = Integer.parseInt(sYear);
+            if (!sYear.matches(".*[0-9].*")) {
+                System.out.println("Please use just digits.");
+                setBirthdate_year(1);
+            } else if (birthdate_year < 1900) {
+                this.birthdate_year = 1900;
+            } else if (birthdate_year >= Year.now().getValue()) {
+                this.birthdate_year = Year.now().getValue();
+            } else {
+                this.birthdate_year = birthdate_year;
+            }
+        } catch (Exception e) {
+            System.out.println("Please enter just digit!");
+            setBirthdate_year(1);
         }
     }
-    public int getBirthdate_year(){
+
+    public int getBirthdate_year() {
         return birthdate_year;
     }
-    public void setBloodGroup(String bloodGroup){
-        bloodGroup=bloodGroup.toUpperCase();
-        if(bloodGroup == "arh+"){
-            bloodGroup = "arh+";
-        }else if(bloodGroup == "arh-") {
-            bloodGroup = "arh-";
-        }else if(bloodGroup == "brh+") {
-            bloodGroup = "brh+";
-        }else if(bloodGroup == "brh-") {
-            bloodGroup = "brh-";
-        }else if(bloodGroup == "abrh+") {
-            bloodGroup = "abrh+";
-        }else if(bloodGroup == "abrh-") {
-            bloodGroup = "abrh-";
-        }else if(bloodGroup == "0rh+") {
-            bloodGroup = "0rh+";
-        }else if(bloodGroup == "0rh-") {
-            bloodGroup = "0rh-";
+
+    public void setBloodGroup(String bloodGroup) {
+        System.out.println("Please enter blood group : ");
+        bloodGroup = keyboard.nextLine();
+        bloodGroup = bloodGroup.toLowerCase().replace(" ", "");
+
+        if (bloodGroup.equals("arh+")) {
+            bloodGroup = "A Rh+";
+            this.bloodGroup = bloodGroup;
+        } else if (bloodGroup.equals("arh-")) {
+            bloodGroup = "A Rh-";
+            this.bloodGroup = bloodGroup;
+        } else if (bloodGroup.equals("brh+")) {
+            bloodGroup = "B Rh+";
+            this.bloodGroup = bloodGroup;
+        } else if (bloodGroup.equals("brh-")) {
+            bloodGroup = "B Rh-";
+            this.bloodGroup = bloodGroup;
+        } else if (bloodGroup.equals("abrh+")) {
+            bloodGroup = "AB Rh+";
+            this.bloodGroup = bloodGroup;
+        } else if (bloodGroup.equals("abrh-")) {
+            bloodGroup = "AB Rh-";
+            this.bloodGroup = bloodGroup;
+        } else if (bloodGroup.equals("0rh+")) {
+            bloodGroup = "0 Rh+";
+            this.bloodGroup = bloodGroup;
+        } else if (bloodGroup.equals("0rh-")) {
+            bloodGroup = "0 Rh-";
+            this.bloodGroup = bloodGroup;
+        } else {
+            System.out.println("Please enter your true blood group!");
+            setBloodGroup("");
         }
-        this.bloodGroup = bloodGroup;
+
     }
-    public String getBloodGroup(){
+
+    public String getBloodGroup() {
         return bloodGroup;
     }
-    public void setAddress(String address){
-        this.address = address;
+
+    public void setAddress(String address) {
+        System.out.println("Please enter address : ");
+        address = keyboard.nextLine();
+        address = address.trim().replace("  ", "");// 2 Space to 1 space
+
+        if (address.length() < 10) {
+            System.out.println("Please enter your true address!");
+            setAddress("");
+        } else {
+            this.address = address;
+        }
+
     }
-    public String getAddress(){
+
+    public String getAddress() {
         return address;
     }
-    public void setPhoneNumber(String phoneNumber){
-        this.phoneNumber = phoneNumber;
+
+    public void setPhoneNumber(String phoneNumber) {
+        System.out.println("Please enter phone number without leading zeros: ");
+        phoneNumber = keyboard.nextLine();
+        phoneNumber = phoneNumber.replace(" ", "");
+
+        if (phoneNumber.length() != PHONE_NUMBER_DIGIT) {
+            System.out.println("Please enter your phone number such as " + PHONE_NUMBER_DIGIT + " digits!");
+            setPhoneNumber("");
+        } else if (!phoneNumber.matches(".*[0-9].*")){
+            System.out.println("Please enter just digits!");
+            setPhoneNumber("");
+        }else {
+            this.phoneNumber = PHONE_CODE + phoneNumber;
+        }
     }
-    public String getPhoneNumber(){
+
+    public String getPhoneNumber() {
         return phoneNumber;
     }
-    public void setEmail(String Email){
-        this.Email = Email;
+
+    public void setEmail(String Email) {
+        System.out.println("Please enter E-Mail : ");
+        Email = keyboard.nextLine();
+        Email = Email.trim().replace(" ", "");
+        if (!Email.contains("@")) {
+            System.out.println("You did not use \"@\" ");
+            setEmail("");
+        } else if (Email.length() < 3) {
+            System.out.println("Please enter your true E-mail address!");
+            setEmail("");
+        } else {
+            this.Email = Email;
+        }
     }
-    public String getEmail(){
+
+    public String getEmail() {
         return Email;
     }
+
     public void birthdate() {
         LocalDate today = LocalDate.now();
         LocalDate birthday = LocalDate.of(getBirthdate_year(), getBirthdate_month(), getBirthdate_day());
@@ -153,9 +270,11 @@ public class Person {
         String formattedDate = birthday.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT));   //17 February 2022
         long age = ChronoUnit.YEARS.between(birthday, today);
     }
+
     public Person() {
     }
-    public String toString(){
+
+    public String toString() {
 
         LocalDate today = LocalDate.now();
         LocalDate birthday = LocalDate.of(getBirthdate_year(), getBirthdate_month(), getBirthdate_day());
@@ -164,7 +283,7 @@ public class Person {
 
         return "Citizen ID : " + getCitizenId() + "\nName : " + getName() + "\nSurname : " + getSurname() + "\nBirthdate : " +
                 formattedDate + "\nAge : " + age + "\nBlood Group : " + getBloodGroup() + "\nAddress : " + getAddress() +
-                "\nPhone Number : " + getPhoneNumber()+ "\nE-Mail : " + getEmail();
+                "\nPhone Number : " + getPhoneNumber() + "\nE-Mail : " + getEmail();
     }
 
     public Person(String citizenId, String name, String surname, int birthdate_day, int birthdate_month,
