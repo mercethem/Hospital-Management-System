@@ -299,5 +299,21 @@ public class Person {
         this.phoneNumber = phoneNumber;
         this.Email = Email;
     }
+    public void addPerson(){
+        Person person = new Person();
 
+        person.setCitizenId("");
+        person.setName("");
+        person.setSurname("");
+        person.setBirthdate_day(0);
+        person.setBirthdate_month(0);
+        person.setBirthdate_year(0);
+        person.setBloodGroup("");
+        person.setAddress("");
+        person.setPhoneNumber("");
+        person.setEmail("");
+
+        System.out.println(person);
+
+    }
 }
