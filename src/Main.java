@@ -2,9 +2,8 @@ public class Main {
     public static void main(String[] args) {
 
         Person person = new Person();
-        person.addPerson();
-        System.out.println(person.toString());
-
+        person.addPerson();//todo check name!
+        System.out.println(person);
 
     }
 }
