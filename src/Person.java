@@ -21,14 +21,14 @@ public class Person {
     private String phoneNumber;
     private String Email;
 
-    public void setCitizenId(String citizenId) throws NumberFormatException {
+    public void setCitizenId(String citizenId) {
 
         System.out.println("Please enter citizen ID : ");
         citizenId = keyboard.next();
 
 
         if (citizenId.matches("[0-9]*") && citizenId.length() == CITIZEN_ID_DIGIT) {
-            this.citizenId = keyboard.nextLine();
+            this.citizenId = citizenId;
         } else {
             System.out.println("Please just use numeric and 11 digit !");
             setCitizenId("");
@@ -44,7 +44,7 @@ public class Person {
         System.out.println("Please enter name : ");
         name = keyboard.nextLine();
 
-        if (name.length() < 2) {
+        if (name.matches(" ")) {
             System.out.println("Please enter your true name!");
             ++count;
         } else if (name.matches(".*\\p{Punct}.*")) {
@@ -232,10 +232,10 @@ public class Person {
         if (phoneNumber.length() != PHONE_NUMBER_DIGIT) {
             System.out.println("Please enter your phone number such as " + PHONE_NUMBER_DIGIT + " digits!");
             setPhoneNumber("");
-        } else if (!phoneNumber.matches(".*[0-9].*")){
+        } else if (!phoneNumber.matches("-?\\d+(\\.\\d+)?")) {
             System.out.println("Please enter just digits!");
             setPhoneNumber("");
-        }else {
+        } else {
             this.phoneNumber = PHONE_CODE + phoneNumber;
         }
     }
@@ -299,19 +299,20 @@ public class Person {
         this.phoneNumber = phoneNumber;
         this.Email = Email;
     }
-    public void addPerson(){
+
+    public void addPerson() {
         Person person = new Person();
 
-        person.setCitizenId("");
-        person.setName("");
-        person.setSurname("");
+        person.setCitizenId("Unknown");
+        person.setName("Unknown");
+        person.setSurname("Unknown");
         person.setBirthdate_day(0);
         person.setBirthdate_month(0);
         person.setBirthdate_year(0);
-        person.setBloodGroup("");
-        person.setAddress("");
-        person.setPhoneNumber("");
-        person.setEmail("");
+        person.setBloodGroup("Unknown");
+        person.setAddress("Unknown");
+        person.setPhoneNumber("Unknown");
+        person.setEmail("Unknown");
 
         System.out.println(person);
 
