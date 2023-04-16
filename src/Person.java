@@ -269,22 +269,23 @@ public class Person {
         LocalDate today = LocalDate.now();
         LocalDate birthday = LocalDate.of(getBirthdate_year(), getBirthdate_month(), getBirthdate_day());
         LocalDate thisYearsBirthday = birthday.with(Year.now());
-        String formattedDate = birthday.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT));   //17 February 2022
+        String birthdate = birthday.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT));   //17 February 2022
         long age = ChronoUnit.YEARS.between(birthday, today);
+
     }
 
     public Person() {
     }
 
-    public String toString() {
+    public String toString() { //TODO Check functional format is wrong create an another function and call in this function!!!
 
         LocalDate today = LocalDate.now();
-        LocalDate birthday = LocalDate.of(getBirthdate_year(), getBirthdate_month(), getBirthdate_day());
-        String formattedDate = birthday.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT));
+        LocalDate birthday = LocalDate.of(this.birthdate_year, this.birthdate_month, this.birthdate_day);
+        String birthdate = birthday.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT));
         long age = ChronoUnit.YEARS.between(birthday, today);
 
         return "Citizen ID : " + getCitizenId() + "\nName : " + getName() + "\nSurname : " + getSurname() + "\nBirthdate : " +
-                formattedDate + "\nAge : " + age + "\nBlood Group : " + getBloodGroup() + "\nAddress : " + getAddress() +
+                birthdate + "\nAge : " + age + "\nBlood Group : " + getBloodGroup() + "\nAddress : " + getAddress() +
                 "\nPhone Number : " + getPhoneNumber() + "\nE-Mail : " + getEmail();
     }
 
