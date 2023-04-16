@@ -7,9 +7,9 @@ import java.util.Scanner;
 
 public class Person {
     Scanner keyboard = new Scanner(System.in);
-    final int CITIZEN_ID_DIGIT = 11;
-    final int PHONE_NUMBER_DIGIT = 10;
-    final String PHONE_CODE = "0090";
+    final private int CITIZEN_ID_DIGIT = 11;
+    final private int PHONE_NUMBER_DIGIT = 10;
+    final private String PHONE_CODE = "0090";
     private String citizenId;
     private String name;
     private String surname;
