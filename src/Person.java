@@ -22,10 +22,9 @@ public class Person {
     private String Email;
 
     public void setCitizenId(String citizenId) {
-
+    try{
         System.out.println("Please enter citizen ID : ");
-        citizenId = keyboard.next();
-
+        citizenId = keyboard.nextLine();
 
         if (citizenId.matches("[0-9]*") && citizenId.length() == CITIZEN_ID_DIGIT) {
             this.citizenId = citizenId;
@@ -33,6 +32,9 @@ public class Person {
             System.out.println("Please just use numeric and 11 digit !");
             setCitizenId("");
         }
+    }catch (Exception e){
+        System.out.println(e);
+    }
     }
 
     public String getCitizenId() {
@@ -44,7 +46,7 @@ public class Person {
         System.out.println("Please enter name : ");
         name = keyboard.nextLine();
 
-        if (name.matches(" ")) {
+        if (name.length() < 3) {
             System.out.println("Please enter your true name!");
             ++count;
         } else if (name.matches(".*\\p{Punct}.*")) {
@@ -288,6 +290,7 @@ public class Person {
 
     public Person(String citizenId, String name, String surname, int birthdate_day, int birthdate_month,
                   int birthdate_year, String bloodGroup, String address, String phoneNumber, String Email) {
+
         this.citizenId = citizenId;
         this.name = name;
         this.surname = surname;
@@ -306,15 +309,12 @@ public class Person {
         person.setCitizenId("Unknown");
         person.setName("Unknown");
         person.setSurname("Unknown");
-        person.setBirthdate_day(0);
-        person.setBirthdate_month(0);
-        person.setBirthdate_year(0);
+        person.setBirthdate_day(1);
+        person.setBirthdate_month(1);
+        person.setBirthdate_year(1);
         person.setBloodGroup("Unknown");
         person.setAddress("Unknown");
         person.setPhoneNumber("Unknown");
         person.setEmail("Unknown");
-
-        System.out.println(person);
-
     }
 }
