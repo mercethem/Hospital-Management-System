@@ -3,7 +3,7 @@ public class Main {
 
         Person person = new Person();
         person.addPerson();//todo check name!
-        System.out.println(person);
+
 
     }
 }
