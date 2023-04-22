@@ -22,19 +22,19 @@ public class Person {
     private String Email;
 
     public void setCitizenId(String citizenId) {
-    try{
-        System.out.println("Please enter citizen ID : ");
-        citizenId = keyboard.nextLine();
+        try {
+            System.out.println("Please enter citizen ID : ");
+            citizenId = keyboard.nextLine();
 
-        if (citizenId.matches("[0-9]*") && citizenId.length() == CITIZEN_ID_DIGIT) {
-            this.citizenId = citizenId;
-        } else {
-            System.out.println("Please just use numeric and 11 digit !");
-            setCitizenId("");
+            if (citizenId.matches("[0-9]*") && citizenId.length() == CITIZEN_ID_DIGIT) {
+                this.citizenId = citizenId;
+            } else {
+                System.out.println("Please just use numeric and 11 digit !");
+                setCitizenId("");
+            }
+        } catch (Exception e) {
+            System.out.println(e);
         }
-    }catch (Exception e){
-        System.out.println(e);
-    }
     }
 
     public String getCitizenId() {
@@ -265,27 +265,29 @@ public class Person {
         return Email;
     }
 
-    public void birthdate() {
+    public long birthdate() {
         LocalDate today = LocalDate.now();
         LocalDate birthday = LocalDate.of(getBirthdate_year(), getBirthdate_month(), getBirthdate_day());
         LocalDate thisYearsBirthday = birthday.with(Year.now());
         String birthdate = birthday.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT));   //17 February 2022
         long age = ChronoUnit.YEARS.between(birthday, today);
-
+        return age;
     }
+
 
     public Person() {
     }
 
     public String toString() { //TODO Check functional format is wrong create an another function and call in this function!!!
 
-        LocalDate today = LocalDate.now();
-        LocalDate birthday = LocalDate.of(this.birthdate_year, this.birthdate_month, this.birthdate_day);
-        String birthdate = birthday.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT));
-        long age = ChronoUnit.YEARS.between(birthday, today);
+//        LocalDate today = LocalDate.now();
+//        LocalDate birthday = LocalDate.of(this.birthdate_year, this.birthdate_month, this.birthdate_day);
+//        String birthdate = birthday.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT));
+//        long age = ChronoUnit.YEARS.between(birthday, today);
 
         return "Citizen ID : " + getCitizenId() + "\nName : " + getName() + "\nSurname : " + getSurname() + "\nBirthdate : " +
-                birthdate + "\nAge : " + age + "\nBlood Group : " + getBloodGroup() + "\nAddress : " + getAddress() +
+                getBirthdate_day() + "/" + getBirthdate_month() + "/" + getBirthdate_year() + "\nAge : " + birthdate()+
+                "\nBlood Group : " + getBloodGroup() + "\nAddress : " + getAddress() +
                 "\nPhone Number : " + getPhoneNumber() + "\nE-Mail : " + getEmail();
     }
 
@@ -302,20 +304,29 @@ public class Person {
         this.address = address;
         this.phoneNumber = phoneNumber;
         this.Email = Email;
+
+
     }
 
     public void addPerson() {
-        Person person = new Person();
+        //Person person = new Person();
 
-        person.setCitizenId("Unknown");
-        person.setName("Unknown");
-        person.setSurname("Unknown");
-        person.setBirthdate_day(1);
-        person.setBirthdate_month(1);
-        person.setBirthdate_year(1);
-        person.setBloodGroup("Unknown");
-        person.setAddress("Unknown");
-        person.setPhoneNumber("Unknown");
-        person.setEmail("Unknown");
+        setCitizenId("Unknown");
+        setName("Unknown");
+        setSurname("Unknown");
+        setBirthdate_day(1);
+        setBirthdate_month(1);
+        setBirthdate_year(1);
+        setBloodGroup("Unknown");
+        setAddress("Unknown");
+        setPhoneNumber("Unknown");
+        setEmail("Unknown");
+        Main.options();
     }
+    public void viewPerson() {
+        System.out.println(toString());
+        Main.options();
+    }
+
+
 }
