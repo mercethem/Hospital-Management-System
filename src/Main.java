@@ -1,6 +1,9 @@
 import java.util.Scanner;
 
 public class Main {
+    static Person person = new Person("10607427704", "Ethem", "MERÇ", 26, 12,
+            1990, "A rh +", "Üniversite", "5424974673","mercethem@gmail.com" );
+
     public static void main(String[] args) {
         options();
     }
@@ -15,18 +18,12 @@ public class Main {
 
         switch (choose) {
             case 0:
-                Person person = new Person("10607427704", "Ethem", "MERÇ", 26, 12,
-                        1990, "A rh +", "Üniversite", "5424974673","mercethem@gmail.com" );
-                //person.addPerson();
-                System.out.println(person);
-                options();
+               person.addPerson("10607427704", "Ethem", "MERÇ", 26, 12,
+                       1990, "A rh +", "Üniversite", "5424974673","mercethem@gmail.com"); //TODO Check that parameter
+                //System.out.println(person);
                 break;
             case 1:
-                Person person1 = new Person("10607427704", "Ethem", "MERÇ", 26, 12,
-                        1990, "A rh +", "Üniversite", "5424974673","mercethem@gmail.com" );
-                System.out.println(person1.toString());
-
-
+                 person.viewPerson();
 
         }
     }
