@@ -1,3 +1,4 @@
+import java.awt.*;
 import java.time.LocalDate;
 import java.time.Year;
 import java.time.format.DateTimeFormatter;
@@ -30,6 +31,7 @@ public class Person {
                 this.citizenId = citizenId;
             } else {
                 System.out.println("Please just use numeric and 11 digit !");
+                Toolkit.getDefaultToolkit().beep();
                 setCitizenId("");
             }
         } catch (Exception e) {
@@ -48,12 +50,15 @@ public class Person {
 
         if (name.length() < 3) {
             System.out.println("Please enter your true name!");
+            Toolkit.getDefaultToolkit().beep();
             ++count;
         } else if (name.matches(".*\\p{Punct}.*")) {
             System.out.println("Please do not use punctuation character!");
+            Toolkit.getDefaultToolkit().beep();
             ++count;
         } else if (name.matches(".*[0-9].*")) {
             System.out.println("Please do not use digit!");
+            Toolkit.getDefaultToolkit().beep();
             ++count;
         } else {
             this.name = name;
@@ -74,12 +79,15 @@ public class Person {
 
         if (surname.length() < 2) {
             System.out.println("Please enter your true name!");
+            Toolkit.getDefaultToolkit().beep();
             ++count;
         } else if (surname.matches(".*\\p{Punct}.*")) {
             System.out.println("Please do not use punctuation character!");
+            Toolkit.getDefaultToolkit().beep();
             ++count;
         } else if (surname.matches(".*[0-9].*")) {
             System.out.println("Please do not use digit!");
+            Toolkit.getDefaultToolkit().beep();
             ++count;
         } else {
             this.surname = surname;
@@ -100,16 +108,20 @@ public class Person {
             birthdate_day = Integer.parseInt(sDay);
             if (!sDay.matches(".*[0-9].*")) {
                 System.out.println("Please use just digits.");
+                Toolkit.getDefaultToolkit().beep();
                 setBirthdate_day(0);
             } else if (birthdate_day < 0) {
+                Toolkit.getDefaultToolkit().beep();
                 this.birthdate_day = 1;
             } else if (birthdate_day >= 31) {
+                Toolkit.getDefaultToolkit().beep();
                 this.birthdate_day = 31;
             } else {
                 this.birthdate_day = birthdate_day;
             }
         } catch (Exception e) {
             System.out.println("Please enter just digit!");
+            Toolkit.getDefaultToolkit().beep();
             setBirthdate_day(0);
         }
     }
@@ -125,16 +137,20 @@ public class Person {
             birthdate_month = Integer.parseInt(sMonth);
             if (!sMonth.matches(".*[0-9].*")) {
                 System.out.println("Please use just digits.");
+                Toolkit.getDefaultToolkit().beep();
                 setBirthdate_month(1);
             } else if (birthdate_month < 0) {
+                Toolkit.getDefaultToolkit().beep();
                 this.birthdate_month = 1;
             } else if (birthdate_month >= 12) {
+                Toolkit.getDefaultToolkit().beep();
                 this.birthdate_month = 12;
             } else {
                 this.birthdate_month = birthdate_month;
             }
         } catch (Exception e) {
             System.out.println("Please enter just digit!");
+            Toolkit.getDefaultToolkit().beep();
             setBirthdate_month(1);
         }
     }
@@ -150,16 +166,20 @@ public class Person {
             birthdate_year = Integer.parseInt(sYear);
             if (!sYear.matches(".*[0-9].*")) {
                 System.out.println("Please use just digits.");
+                Toolkit.getDefaultToolkit().beep();
                 setBirthdate_year(1);
             } else if (birthdate_year < 1900) {
+                Toolkit.getDefaultToolkit().beep();
                 this.birthdate_year = 1900;
             } else if (birthdate_year >= Year.now().getValue()) {
+                Toolkit.getDefaultToolkit().beep();
                 this.birthdate_year = Year.now().getValue();
             } else {
                 this.birthdate_year = birthdate_year;
             }
         } catch (Exception e) {
             System.out.println("Please enter just digit!");
+            Toolkit.getDefaultToolkit().beep();
             setBirthdate_year(1);
         }
     }
@@ -199,6 +219,7 @@ public class Person {
             this.bloodGroup = bloodGroup;
         } else {
             System.out.println("Please enter your true blood group!");
+            Toolkit.getDefaultToolkit().beep();
             setBloodGroup("");
         }
 
@@ -215,6 +236,7 @@ public class Person {
 
         if (address.length() < 10) {
             System.out.println("Please enter your true address!");
+            Toolkit.getDefaultToolkit().beep();
             setAddress("");
         } else {
             this.address = address;
@@ -233,9 +255,11 @@ public class Person {
 
         if (phoneNumber.length() != PHONE_NUMBER_DIGIT) {
             System.out.println("Please enter your phone number such as " + PHONE_NUMBER_DIGIT + " digits!");
+            Toolkit.getDefaultToolkit().beep();
             setPhoneNumber("");
         } else if (!phoneNumber.matches("-?\\d+(\\.\\d+)?")) {
             System.out.println("Please enter just digits!");
+            Toolkit.getDefaultToolkit().beep();
             setPhoneNumber("");
         } else {
             this.phoneNumber = PHONE_CODE + phoneNumber;
@@ -252,9 +276,11 @@ public class Person {
         Email = Email.trim().replace(" ", "");
         if (!Email.contains("@")) {
             System.out.println("You did not use \"@\" ");
+            Toolkit.getDefaultToolkit().beep();
             setEmail("");
         } else if (Email.length() < 3) {
             System.out.println("Please enter your true E-mail address!");
+            Toolkit.getDefaultToolkit().beep();
             setEmail("");
         } else {
             this.Email = Email;
@@ -331,34 +357,42 @@ public class Person {
         setName("Unknown");
         System.out.println("New NAME is " + getName());
     }
+
     public void changeSurname() {
         setSurname("Unknown");
         System.out.println("New SURNAME is " + getSurname());
     }
+
     public void changeBirthdate_day() {
         setSurname("Unknown");
         System.out.println("New DAY is " + getBirthdate_day());
     }
+
     public void changeBirthdate_month() {
         setBirthdate_month(0);
         System.out.println("New MONTH is " + getBirthdate_month());
     }
+
     public void changeBirthdate_year() {
         setBirthdate_year(0);
         System.out.println("New YEAR is " + getBirthdate_year());
     }
+
     public void changeBloodGroup() {
         setBloodGroup("Unknown");
         System.out.println("New BLOOD GROUP is " + getBloodGroup());
     }
+
     public void changeAddress() {
         setAddress("Unknown");
         System.out.println("New ADDRESS is " + getAddress());
     }
+
     public void changePhoneNumber() {
         setPhoneNumber("Unknown");
         System.out.println("New PHONE NUMBER is " + getPhoneNumber());
     }
+
     public void changeEmail() {
         setEmail("Unknown");
         System.out.println("New EMAIL is " + getEmail());
