@@ -265,7 +265,7 @@ public class Person {
         return Email;
     }
 
-    public long birthdate() {
+    public long age() {
         LocalDate today = LocalDate.now();
         LocalDate birthday = LocalDate.of(getBirthdate_year(), getBirthdate_month(), getBirthdate_day());
         LocalDate thisYearsBirthday = birthday.with(Year.now());
@@ -286,7 +286,7 @@ public class Person {
 //        long age = ChronoUnit.YEARS.between(birthday, today);
 
         return "Citizen ID : " + getCitizenId() + "\nName : " + getName() + "\nSurname : " + getSurname() + "\nBirthdate : " +
-                getBirthdate_day() + "/" + getBirthdate_month() + "/" + getBirthdate_year() + "\nAge : " + birthdate()+
+                getBirthdate_day() + "/" + getBirthdate_month() + "/" + getBirthdate_year() + "\nAge : " + age() +
                 "\nBlood Group : " + getBloodGroup() + "\nAddress : " + getAddress() +
                 "\nPhone Number : " + getPhoneNumber() + "\nE-Mail : " + getEmail();
     }
@@ -309,7 +309,6 @@ public class Person {
     }
 
     public void addPerson() {
-        //Person person = new Person();
 
         setCitizenId("Unknown");
         setName("Unknown");
@@ -321,12 +320,48 @@ public class Person {
         setAddress("Unknown");
         setPhoneNumber("Unknown");
         setEmail("Unknown");
-        Main.options();
-    }
-    public void viewPerson() {
-        System.out.println(toString());
-        Main.options();
+
     }
 
+    public void viewPerson() {
+        System.out.println(toString());
+    }
+
+    public void changeName() {
+        setName("Unknown");
+        System.out.println("New NAME is " + getName());
+    }
+    public void changeSurname() {
+        setSurname("Unknown");
+        System.out.println("New SURNAME is " + getSurname());
+    }
+    public void changeBirthdate_day() {
+        setSurname("Unknown");
+        System.out.println("New DAY is " + getBirthdate_day());
+    }
+    public void changeBirthdate_month() {
+        setBirthdate_month(0);
+        System.out.println("New MONTH is " + getBirthdate_month());
+    }
+    public void changeBirthdate_year() {
+        setBirthdate_year(0);
+        System.out.println("New YEAR is " + getBirthdate_year());
+    }
+    public void changeBloodGroup() {
+        setBloodGroup("Unknown");
+        System.out.println("New BLOOD GROUP is " + getBloodGroup());
+    }
+    public void changeAddress() {
+        setAddress("Unknown");
+        System.out.println("New ADDRESS is " + getAddress());
+    }
+    public void changePhoneNumber() {
+        setPhoneNumber("Unknown");
+        System.out.println("New PHONE NUMBER is " + getPhoneNumber());
+    }
+    public void changeEmail() {
+        setEmail("Unknown");
+        System.out.println("New EMAIL is " + getEmail());
+    }
 
 }
