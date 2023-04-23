@@ -30,7 +30,7 @@ public class Person {
             if (citizenId.matches("[0-9]*") && citizenId.length() == CITIZEN_ID_DIGIT) {
                 this.citizenId = citizenId;
             } else {
-                System.out.println("Please just use numeric and 11 digit !");
+                System.out.println("Please just use numeric and" + CITIZEN_ID_DIGIT + " digit !");
                 Toolkit.getDefaultToolkit().beep();
                 setCitizenId("");
             }
@@ -330,7 +330,6 @@ public class Person {
         this.address = address;
         this.phoneNumber = phoneNumber;
         this.Email = Email;
-
 
     }
 
