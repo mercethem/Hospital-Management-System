@@ -7,6 +7,9 @@ import java.time.temporal.ChronoUnit;
 import java.util.Scanner;
 
 public class Person {
+    static Person person = new Person("10607427704", "Ethem", "MERÇ", 26, 12,
+            1990, "A rh +", "Üniversite", "5424974673", "mercethem@gmail.com");
+
     Scanner keyboard = new Scanner(System.in);
     final private int CITIZEN_ID_DIGIT = 11;
     final private int PHONE_NUMBER_DIGIT = 10;
@@ -300,10 +303,6 @@ public class Person {
         return age;
     }
 
-
-    public Person() {
-    }
-
     public String toString() { //TODO Check functional format is wrong create an another function and call in this function!!!
 
 //        LocalDate today = LocalDate.now();
@@ -311,12 +310,14 @@ public class Person {
 //        String birthdate = birthday.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT));
 //        long age = ChronoUnit.YEARS.between(birthday, today);
 
-        return "Citizen ID : " + getCitizenId() + "\nName : " + getName() + "\nSurname : " + getSurname() + "\nBirthdate : " +
-                getBirthdate_day() + "/" + getBirthdate_month() + "/" + getBirthdate_year() + "\nAge : " + age() +
-                "\nBlood Group : " + getBloodGroup() + "\nAddress : " + getAddress() +
-                "\nPhone Number : " + getPhoneNumber() + "\nE-Mail : " + getEmail();
-    }
 
+        return "Citizen ID : " + getCitizenId() + "\nName : " + getName() + "\nSurname : " + getSurname() + "\nBirthdate : " +
+                getBirthdate_day() + "/" + getBirthdate_month() + "/" + getBirthdate_year() + /** "\nAge : " + age() + */
+                "\nBlood Group : " + getBloodGroup() + "\nAddress : " + getAddress() +
+                "\nPhone Number : " + getPhoneNumber() + "\nE-Mail : " + getEmail() +"\n";
+    }
+    public Person() {
+    }
     public Person(String citizenId, String name, String surname, int birthdate_day, int birthdate_month,
                   int birthdate_year, String bloodGroup, String address, String phoneNumber, String Email) {
 
