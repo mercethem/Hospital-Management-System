@@ -311,10 +311,12 @@ public class Person {
 //        long age = ChronoUnit.YEARS.between(birthday, today);
 
 
-        return "Citizen ID : " + getCitizenId() + "\nName : " + getName() + "\nSurname : " + getSurname() + "\nBirthdate : " +
-                getBirthdate_day() + "/" + getBirthdate_month() + "/" + getBirthdate_year() + /** "\nAge : " + age() + */
+        return "\nID INFORMATION"+"\n--------------------------------------------\n"+
+                "Citizen ID : " + getCitizenId() + "\nName : " + getName() + "\nSurname : " + getSurname() + "\nBirthdate : " +
+                getBirthdate_day() + "/" + getBirthdate_month() + "/" + getBirthdate_year() +  "\nAge : " + age() +
                 "\nBlood Group : " + getBloodGroup() + "\nAddress : " + getAddress() +
-                "\nPhone Number : " + getPhoneNumber() + "\nE-Mail : " + getEmail() +"\n";
+                "\nPhone Number : " + getPhoneNumber() + "\nE-Mail : " + getEmail() +
+                "\n--------------------------------------------\n";
     }
     public Person() {
     }
