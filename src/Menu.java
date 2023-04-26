@@ -2,7 +2,7 @@ import java.awt.*;
 import java.util.Scanner;
 
 public class Menu {
-    static Person person = new Person("10607427704", "Ethem Mikail", "MERC", 26, 12,
+    static Person person = new Person("10607427704", "Ethem Mikail", "MERC BORAMAN", 26, 12,
             1990, "A rh +", "University", "5424974673", "mercethem@gmail.com");
 
     static Employee employee = new Employee("220541022", "Software Engineering",
