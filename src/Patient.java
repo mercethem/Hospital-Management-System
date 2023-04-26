@@ -3,7 +3,9 @@ import java.time.Year;
 import java.util.Scanner;
 
 public class Patient extends Person {
-    static Patient patient = new Patient("Neuro Surgery",10,10,2021,10,11,2021);
+    static Patient patient = new Patient("Neurosurgery",
+            10,10,2021,
+            10,11,2021);
     Scanner keyboard = new Scanner(System.in);
     private String department;
     private int dateOfHospitalized_day;
@@ -232,7 +234,7 @@ public class Patient extends Person {
     public String toString() {
 
         return super.person.toString() + "\nPATIENT INFORMATION" + "\n--------------------------------------------\n"
-                + "\nDepartment : " + getDepartment() + "\nDate of Hospitalized : " + getDateOfHospitalized_day() + "/" +
+                + "Department : " + getDepartment() + "\nDate of Hospitalized : " + getDateOfHospitalized_day() + "/" +
                 getDateOfHospitalized_month() + "/" + getDateOfHospitalized_year() +
                 "\nDate of Leave : " + getDateOfLeave_day() + "/" + getDateOfLeave_month() + "/" + getDateOfLeave_year()
                 + "\n--------------------------------------------\n";
