@@ -1,11 +1,10 @@
 import java.awt.*;
-import java.time.Year;
 import java.util.Scanner;
 
 public class Patient extends Person {
     static Patient patient = new Patient("Neurosurgery",
-            10,10,2021,
-            10,11,2021);
+            10, 10, 2021,
+            10, 11, 2021);
     Scanner keyboard = new Scanner(System.in);
     private String department;
     private int dateOfHospitalized_day;
@@ -160,6 +159,7 @@ public class Patient extends Person {
             setDateOfLeave_day(0);
         }
     }
+
     public int getDateOfLeave_month() {
         return dateOfLeave_month;
     }
@@ -217,11 +217,12 @@ public class Patient extends Person {
             setDateOfLeave_year(0);
         }
     }
+
     public Patient() {
     }
 
     public Patient(String department, int dateOfHospitalized_day, int dateOfHospitalized_month, int dateOfHospitalized_year,
-    int dateOfLeave_day, int dateOfLeave_month,int dateOfLeave_year) {
+                   int dateOfLeave_day, int dateOfLeave_month, int dateOfLeave_year) {
         this.department = department;
         this.dateOfHospitalized_day = dateOfHospitalized_day;
         this.dateOfHospitalized_month = dateOfHospitalized_month;
@@ -252,7 +253,7 @@ public class Patient extends Person {
     }
 
     public void viewPatient() {
-        System.out.println(super.toString() + toString());
+        System.out.println(toString());
     }
 
 
