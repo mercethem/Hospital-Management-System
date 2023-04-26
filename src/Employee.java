@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 
 public class Employee extends Person {
-    static Employee employee = new Employee("220541022", "Software Engineering",
+    static Employee employee = new Employee("012345678", "Software Engineering",
             1, 1, 2022, 1, 1, 2023);
 
     Scanner keyboard = new Scanner(System.in);
