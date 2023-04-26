@@ -1,5 +1,9 @@
 import java.awt.*;
+import java.time.LocalDate;
 import java.time.Year;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
+import java.time.temporal.ChronoUnit;
 import java.util.Scanner;
 
 public class Patient extends Person {
@@ -218,6 +222,16 @@ public class Patient extends Person {
             setDateOfLeave_year(0);
         }
     }
+    public long hospitalizedInterval() {
+
+        LocalDate hospitalizedDate = LocalDate.of(getDateOfHospitalized_year(), getDateOfHospitalized_month(), getDateOfHospitalized_day());
+        LocalDate leaveDate = LocalDate.of(getDateOfLeave_year(), getDateOfLeave_month(), getDateOfLeave_day());
+
+        LocalDate thisYearsBirthday = hospitalizedDate.with(Year.now());
+        String birthdate = hospitalizedDate.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT));   //17 February 2022
+        long hospitalizedInterval = ChronoUnit.DAYS.between(hospitalizedDate, leaveDate);
+        return hospitalizedInterval;
+    }
 
     public Patient() {
     }
@@ -239,6 +253,7 @@ public class Patient extends Person {
                 + "Department : " + getDepartment() + "\nDate of Hospitalized : " + getDateOfHospitalized_day() + "/" +
                 getDateOfHospitalized_month() + "/" + getDateOfHospitalized_year() +
                 "\nDate of Leave : " + getDateOfLeave_day() + "/" + getDateOfLeave_month() + "/" + getDateOfLeave_year()
+                +"\nHospitalized Interval : "+hospitalizedInterval()+" Days"
                 + "\n--------------------------------------------\n";
     }
 
