@@ -298,6 +298,7 @@ public class Person {
     public long age() {
         LocalDate today = LocalDate.now();
         LocalDate birthday = LocalDate.of(getBirthdate_year(), getBirthdate_month(), getBirthdate_day());
+
         LocalDate thisYearsBirthday = birthday.with(Year.now());
         String birthdate = birthday.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT));   //17 February 2022
         long age = ChronoUnit.YEARS.between(birthday, today);

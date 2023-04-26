@@ -222,6 +222,7 @@ public class Patient extends Person {
             setDateOfLeave_year(0);
         }
     }
+
     public long hospitalizedInterval() {
 
         LocalDate hospitalizedDate = LocalDate.of(getDateOfHospitalized_year(), getDateOfHospitalized_month(), getDateOfHospitalized_day());
@@ -253,7 +254,7 @@ public class Patient extends Person {
                 + "Department : " + getDepartment() + "\nDate of Hospitalized : " + getDateOfHospitalized_day() + "/" +
                 getDateOfHospitalized_month() + "/" + getDateOfHospitalized_year() +
                 "\nDate of Leave : " + getDateOfLeave_day() + "/" + getDateOfLeave_month() + "/" + getDateOfLeave_year()
-                +"\nHospitalized Interval : "+hospitalizedInterval()+" Days"
+                + "\nHospitalized Interval : " + hospitalizedInterval() + " Days"
                 + "\n--------------------------------------------\n";
     }
 
