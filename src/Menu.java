@@ -5,9 +5,6 @@ public class Menu {
     static Person person = new Person("10607427704", "Ethem", "MERÇ", 26, 12,
             1990, "A rh +", "Üniversite", "5424974673", "mercethem@gmail.com");
 
-    public static void main(String[] args) {
-        options();
-    }
 
     public static void options() {
         System.out.println("Please choose what do you want ?");
