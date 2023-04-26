@@ -5,10 +5,10 @@ import java.util.Scanner;
 
 public class Employee extends Person {
     static Employee employee = new Employee("220541022", "Software Engineering",
-            1, 1, 2022, 0,0,2023);
+            1, 1, 2022, 0, 0, 2023);
 
     Scanner keyboard = new Scanner(System.in);
-    final private int EMPLOYEE_ID_DIGIT = 11;
+    final private int EMPLOYEE_ID_DIGIT = 9;
     private String employeeId;
     private String department;
     private int dateOfStart_day;
@@ -263,12 +263,14 @@ public class Employee extends Person {
 
     public String toString() {
 
-        return  super.person.toString()+"\nEMPLOYEE INFORMATION" +"\n--------------------------------------------\n"
+        return super.person.toString() + "\nEMPLOYEE INFORMATION" + "\n--------------------------------------------\n"
                 + "Employee ID : " + getEmployeeId() + "\nDepartment : " + getDepartment() +
                 "\nDate of Start : " + getDateOfStart_day() + "/" + getDateOfStart_month() + "/" + getDateOfStart_year() +
-                "\nDate of Dismiss : " + getDateOfDismiss_day() +"/"+ getDateOfDismiss_month()+ "/" + getDateOfDismiss_year()
-                +"\n--------------------------------------------\n";
-    }public void addEmployee() {
+                "\nDate of Dismiss : " + getDateOfDismiss_day() + "/" + getDateOfDismiss_month() + "/" + getDateOfDismiss_year()
+                + "\n--------------------------------------------\n";
+    }
+
+    public void addEmployee() {
         super.addPerson();
         setEmployeeId("Unknown");
         setDepartment("Unknown");
@@ -281,7 +283,7 @@ public class Employee extends Person {
     }
 
     public void viewEmployee() {
-        System.out.println(super.toString()+toString());
+        System.out.println(toString());
     }
 
     public void changeEmployeeId() {
@@ -308,6 +310,7 @@ public class Employee extends Person {
         setDateOfStart_year(0);
         System.out.println("New YEAR is " + getDateOfStart_year());
     }
+
     public void changeDateOfDismiss_day() {
         setDateOfDismiss_day(0);
         System.out.println("New DAY is " + getDateOfDismiss_day());
