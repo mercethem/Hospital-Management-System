@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Employee extends Person {
     static Employee employee = new Employee("220541022", "Software Engineering",
-            1, 1, 2022, 0, 0, 2023);
+            1, 1, 2022, 1, 1, 2023);
 
     Scanner keyboard = new Scanner(System.in);
     final private int EMPLOYEE_ID_DIGIT = 9;
@@ -325,5 +325,4 @@ public class Employee extends Person {
         setDateOfDismiss_year(0);
         System.out.println("New YEAR is " + getDateOfDismiss_year());
     }
-
 }
