@@ -9,11 +9,12 @@ import java.util.Scanner;
 public class Person {
     static Person person = new Person("10607427704", "Ethem", "MERÇ", 26, 12,
             1990, "A rh +", "Üniversite", "5424974673", "mercethem@gmail.com");
-
-    Scanner keyboard = new Scanner(System.in);
     final private int CITIZEN_ID_DIGIT = 11;
     final private int PHONE_NUMBER_DIGIT = 10;
     final private String PHONE_CODE = "0090";
+
+    Scanner keyboard = new Scanner(System.in);
+
     private String citizenId;
     private String name;
     private String surname;
@@ -303,13 +304,7 @@ public class Person {
         return age;
     }
 
-    public String toString() { //TODO Check functional format is wrong create an another function and call in this function!!!
-
-//        LocalDate today = LocalDate.now();
-//        LocalDate birthday = LocalDate.of(this.birthdate_year, this.birthdate_month, this.birthdate_day);
-//        String birthdate = birthday.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT));
-//        long age = ChronoUnit.YEARS.between(birthday, today);
-
+    public String toString() {
 
         return "\nID INFORMATION" + "\n--------------------------------------------\n" +
                 "Citizen ID : " + getCitizenId() + "\nName : " + getName() + "\nSurname : " + getSurname() + "\nBirthdate : " +
