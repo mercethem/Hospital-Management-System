@@ -263,9 +263,11 @@ public class Employee extends Person {
 
     public String toString() {
 
-        return  super.person.toString() + "Employee ID : " + getEmployeeId() + "\nDepartment : " + getDepartment() +
+        return  super.person.toString()+"\nEMPLOYEE INFORMATION" +"\n--------------------------------------------\n"
+                + "Employee ID : " + getEmployeeId() + "\nDepartment : " + getDepartment() +
                 "\nDate of Start : " + getDateOfStart_day() + "/" + getDateOfStart_month() + "/" + getDateOfStart_year() +
-                "\nDate of Dismiss : " + getDateOfDismiss_day() +"/"+ getDateOfDismiss_month()+ "/" + getDateOfDismiss_year();
+                "\nDate of Dismiss : " + getDateOfDismiss_day() +"/"+ getDateOfDismiss_month()+ "/" + getDateOfDismiss_year()
+                +"\n--------------------------------------------\n";
     }public void addEmployee() {
         super.addPerson();
         setEmployeeId("Unknown");
