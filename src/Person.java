@@ -7,8 +7,8 @@ import java.time.temporal.ChronoUnit;
 import java.util.Scanner;
 
 public class Person {
-    static Person person = new Person("10607427704", "Ethem", "MERÇ", 26, 12,
-            1990, "A rh +", "Üniversite", "5424974673", "mercethem@gmail.com");
+    static Person person = new Person("10607427704", "Ethem Mikail", "MERC BORAMAN", 26, 12,
+            1990, "A rh +", "University", "5424974673", "mercethem@gmail.com");
     final private int CITIZEN_ID_DIGIT = 11;
     final private int PHONE_NUMBER_DIGIT = 10;
     final private String PHONE_CODE = "0090";
