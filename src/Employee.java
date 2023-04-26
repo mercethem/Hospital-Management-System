@@ -1,5 +1,9 @@
 import java.awt.*;
+import java.time.LocalDate;
 import java.time.Year;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
+import java.time.temporal.ChronoUnit;
 import java.util.Scanner;
 
 
@@ -245,6 +249,17 @@ public class Employee extends Person {
         }
     }
 
+    public long workInterval() {
+
+        LocalDate hospitalizedDate = LocalDate.of(getDateOfStart_year(), getDateOfStart_month(), getDateOfStart_day());
+        LocalDate leaveDate = LocalDate.of(getDateOfDismiss_year(), getDateOfDismiss_month(), getDateOfDismiss_day());
+
+        LocalDate thisYearsBirthday = hospitalizedDate.with(Year.now());
+        String birthdate = hospitalizedDate.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT));   //17 February 2022
+        long workInterval = ChronoUnit.YEARS.between(hospitalizedDate, leaveDate);
+        return workInterval;
+    }
+
     public Employee() {
     }
 
@@ -267,6 +282,7 @@ public class Employee extends Person {
                 + "Employee ID : " + getEmployeeId() + "\nDepartment : " + getDepartment() +
                 "\nDate of Start : " + getDateOfStart_day() + "/" + getDateOfStart_month() + "/" + getDateOfStart_year() +
                 "\nDate of Dismiss : " + getDateOfDismiss_day() + "/" + getDateOfDismiss_month() + "/" + getDateOfDismiss_year()
+                + "\nWork Interval : " + workInterval() + " Years"
                 + "\n--------------------------------------------\n";
     }
 
