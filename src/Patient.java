@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.time.Year;
 import java.util.Scanner;
 
 public class Patient extends Person {
@@ -89,9 +90,9 @@ public class Patient extends Person {
             } else if (dateOfHospitalized_month < 0) {
                 Toolkit.getDefaultToolkit().beep();
                 this.dateOfHospitalized_month = 1;
-            } else if (dateOfHospitalized_month >= 31) {
+            } else if (dateOfHospitalized_month >= 12) {
                 Toolkit.getDefaultToolkit().beep();
-                this.dateOfHospitalized_month = 31;
+                this.dateOfHospitalized_month = 12;
             } else {
                 this.dateOfHospitalized_month = dateOfHospitalized_month;
             }
@@ -115,12 +116,12 @@ public class Patient extends Person {
                 System.out.println("Please use just digits.");
                 Toolkit.getDefaultToolkit().beep();
                 setDateOfHospitalized_year(0);
-            } else if (dateOfHospitalized_year < 0) {
+            } else if (dateOfHospitalized_year < 1900) {
                 Toolkit.getDefaultToolkit().beep();
-                this.dateOfHospitalized_year = 1;
-            } else if (dateOfHospitalized_year >= 31) {
+                this.dateOfHospitalized_year = 1900;
+            } else if (dateOfHospitalized_year >= Year.now().getValue()) {
                 Toolkit.getDefaultToolkit().beep();
-                this.dateOfHospitalized_year = 31;
+                this.dateOfHospitalized_year = Year.now().getValue();
             } else {
                 this.dateOfHospitalized_year = dateOfHospitalized_year;
             }
@@ -176,9 +177,9 @@ public class Patient extends Person {
             } else if (dateOfLeave_month < 0) {
                 Toolkit.getDefaultToolkit().beep();
                 this.dateOfLeave_month = 1;
-            } else if (dateOfLeave_month >= 31) {
+            } else if (dateOfLeave_month >= 12) {
                 Toolkit.getDefaultToolkit().beep();
-                this.dateOfLeave_month = 31;
+                this.dateOfLeave_month = 12;
             } else {
                 this.dateOfLeave_month = dateOfLeave_month;
             }
@@ -202,12 +203,12 @@ public class Patient extends Person {
                 System.out.println("Please use just digits.");
                 Toolkit.getDefaultToolkit().beep();
                 setDateOfLeave_year(0);
-            } else if (dateOfLeave_year < 0) {
+            } else if (dateOfLeave_year < 1900) {
                 Toolkit.getDefaultToolkit().beep();
-                this.dateOfLeave_year = 1;
-            } else if (dateOfLeave_year >= 31) {
+                this.dateOfLeave_year = 1900;
+            } else if (dateOfLeave_year >= Year.now().getValue()) {
                 Toolkit.getDefaultToolkit().beep();
-                this.dateOfLeave_year = 31;
+                this.dateOfLeave_year = Year.now().getValue();
             } else {
                 this.dateOfLeave_year = dateOfLeave_year;
             }
