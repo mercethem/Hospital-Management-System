@@ -1,4 +1,6 @@
 import java.awt.*;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.time.LocalDate;
 import java.time.Year;
 import java.time.format.DateTimeFormatter;
@@ -27,19 +29,19 @@ public class Person {
     private String Email;
 
     public void setCitizenId(String citizenId) {
-        try {
-            System.out.println("Please enter citizen ID : ");
-            citizenId = keyboard.nextLine();
 
-            if (citizenId.matches("[0-9]*") && citizenId.length() == CITIZEN_ID_DIGIT) {
-                this.citizenId = citizenId;
-            } else {
-                System.out.println("Please just use numeric and" + CITIZEN_ID_DIGIT + " digit !");
-                Toolkit.getDefaultToolkit().beep();
-                setCitizenId("");
-            }
-        } catch (Exception e) {
-            System.out.println(e);
+
+        System.out.println("Please enter citizen ID : ");
+        citizenId = keyboard.nextLine();
+
+        if (citizenId.matches("[0-9]*") && citizenId.length() == CITIZEN_ID_DIGIT) {
+            DataBaseLayer.dataBaseLayer();
+            this.citizenId = citizenId;
+
+        } else {
+            System.out.println("Please just use numeric and" + CITIZEN_ID_DIGIT + " digit !");
+            Toolkit.getDefaultToolkit().beep();
+            setCitizenId("");
         }
     }
 
@@ -95,6 +97,7 @@ public class Person {
             ++count;
         } else {
             this.surname = surname;
+
         }
         if (count == 1) {
             setSurname("");
@@ -334,6 +337,32 @@ public class Person {
 
     }
 
+    public void person_db() {
+        System.out.println("Please enter a citizen number : ");
+        citizenId = keyboard.nextLine();
+        try {
+            DataBaseLayer.dataBaseLayer();
+            Statement myStatement = DataBaseLayer.myConnection.createStatement();
+            ResultSet myResult = myStatement.executeQuery("SELECT * FROM HospitalManagementSystemStock.dbo.persons WHERE persons.citizenId = '" + citizenId + "'");
+            while (myResult.next()) {
+                this.citizenId = myResult.getString("citizenId");
+                this.name = myResult.getString("name");
+                this.surname = myResult.getString("surname");
+                this.birthdate_day = myResult.getInt("birthdate_day");
+                this.birthdate_month = myResult.getInt("birthdate_month");
+                this.birthdate_year = myResult.getInt("birthdate_year");
+                this.bloodGroup = myResult.getString("bloodGroup");
+                this.address = myResult.getString("address");
+                this.phoneNumber = myResult.getString("phoneNumber");
+                this.Email = myResult.getString("Email");
+            }
+            myStatement.close(); // close statement
+            DataBaseLayer.myConnection.close(); // close connection
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
     public void addPerson() {
 
         setCitizenId("Unknown");
@@ -347,9 +376,11 @@ public class Person {
         setPhoneNumber("Unknown");
         setEmail("Unknown");
 
+
     }
 
     public void viewPerson() {
+        person_db();
         System.out.println(toString());
     }
 

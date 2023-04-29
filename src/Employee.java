@@ -1,4 +1,6 @@
 import java.awt.*;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.time.LocalDate;
 import java.time.Year;
 import java.time.format.DateTimeFormatter;
@@ -259,7 +261,15 @@ public class Employee extends Person {
         long workInterval = ChronoUnit.YEARS.between(hospitalizedDate, leaveDate);
         return workInterval;
     }
+    public String toString() {
 
+        return super.person.toString() + "\nEMPLOYEE INFORMATION" + "\n--------------------------------------------\n"
+                + "Employee ID : " + getEmployeeId() + "\nDepartment : " + getDepartment() +
+                "\nDate of Start : " + getDateOfStart_day() + "/" + getDateOfStart_month() + "/" + getDateOfStart_year() +
+                "\nDate of Dismiss : " + getDateOfDismiss_day() + "/" + getDateOfDismiss_month() + "/" + getDateOfDismiss_year()
+                + "\nWork Interval : " + workInterval() + " Years"
+                + "\n--------------------------------------------\n";
+    }
     public Employee() {
     }
 
@@ -274,16 +284,6 @@ public class Employee extends Person {
         this.dateOfDismiss_day = dateOfDismiss_day;
         this.dateOfDismiss_month = dateOfDismiss_month;
         this.dateOfDismiss_year = dateOfDismiss_year;
-    }
-
-    public String toString() {
-
-        return super.person.toString() + "\nEMPLOYEE INFORMATION" + "\n--------------------------------------------\n"
-                + "Employee ID : " + getEmployeeId() + "\nDepartment : " + getDepartment() +
-                "\nDate of Start : " + getDateOfStart_day() + "/" + getDateOfStart_month() + "/" + getDateOfStart_year() +
-                "\nDate of Dismiss : " + getDateOfDismiss_day() + "/" + getDateOfDismiss_month() + "/" + getDateOfDismiss_year()
-                + "\nWork Interval : " + workInterval() + " Years"
-                + "\n--------------------------------------------\n";
     }
 
     public void addEmployee() {
