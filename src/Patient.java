@@ -391,7 +391,7 @@ public class Patient extends Person {
     }
 
     public void patient_db() {
-        String citizenId = person.getCitizenId();
+        String citizenId = getCitizenId();
 
         try {
             DataBaseLayer.dataBaseLayer();
