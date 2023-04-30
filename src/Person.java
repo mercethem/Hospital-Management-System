@@ -517,25 +517,6 @@ public class Person {
         return Email;
     }
 
-    public long age() {
-        LocalDate today = LocalDate.now();
-        LocalDate birthday = LocalDate.of(getBirthdate_year(), getBirthdate_month(), getBirthdate_day());
-
-        LocalDate thisYearsBirthday = birthday.with(Year.now());
-        String birthdate = birthday.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT));   //17 February 2022
-        long age = ChronoUnit.YEARS.between(birthday, today);
-        return age;
-    }
-
-    public String toString() {
-
-        return "\nID INFORMATION" + "\n--------------------------------------------\n" +
-                "Citizen ID : " + getCitizenId() + "\nName : " + getName() + "\nSurname : " + getSurname() + "\nBirthdate : " +
-                getBirthdate_day() + "/" + getBirthdate_month() + "/" + getBirthdate_year() + "\nAge : " + age() +
-                "\nBlood Group : " + getBloodGroup() + "\nAddress : " + getAddress() +
-                "\nPhone Number : " + getPhoneNumber() + "\nE-Mail : " + getEmail() +
-                "\n--------------------------------------------\n";
-    }
 
     public Person() {
     }
@@ -554,6 +535,16 @@ public class Person {
         this.phoneNumber = phoneNumber;
         this.Email = Email;
 
+    }
+
+    public String toString() {
+
+        return "\nID INFORMATION" + "\n--------------------------------------------\n" +
+                "Citizen ID : " + getCitizenId() + "\nName : " + getName() + "\nSurname : " + getSurname() + "\nBirthdate : " +
+                getBirthdate_day() + "/" + getBirthdate_month() + "/" + getBirthdate_year() + "\nAge : " + age() +
+                "\nBlood Group : " + getBloodGroup() + "\nAddress : " + getAddress() +
+                "\nPhone Number : " + getPhoneNumber() + "\nE-Mail : " + getEmail() +
+                "\n--------------------------------------------\n";
     }
 
     public void person_db() {
@@ -581,6 +572,17 @@ public class Person {
             System.out.println(e);
         }
     }
+
+    public long age() {
+        LocalDate today = LocalDate.now();
+        LocalDate birthday = LocalDate.of(getBirthdate_year(), getBirthdate_month(), getBirthdate_day());
+
+        LocalDate thisYearsBirthday = birthday.with(Year.now());
+        String birthdate = birthday.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT));   //17 February 2022
+        long age = ChronoUnit.YEARS.between(birthday, today);
+        return age;
+    }
+
 
     public void addPerson() {
 
