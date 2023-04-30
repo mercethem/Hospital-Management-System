@@ -1,4 +1,6 @@
 import java.awt.*;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.time.LocalDate;
 import java.time.Year;
 import java.time.format.DateTimeFormatter;
@@ -42,6 +44,14 @@ public class Patient extends Person {
             ++count;
         } else {
             this.department = department;
+            try {
+                DataBaseLayer.dataBaseLayer();
+                Statement myStatement = DataBaseLayer.myConnection.createStatement();
+                myStatement.executeQuery("IF ( '" + super.getCitizenId() + "' =(SELECT citizenId FROM employees WHERE citizenId = '" + super.getCitizenId() + "') )\n" +
+                        "    UPDATE HospitalManagementSystemStock.dbo.patients SET  department = '" + this.department + "' WHERE citizenId= '" + super.getCitizenId() + "'\n");
+            } catch (Exception e) {
+                System.out.println(e);
+            }
         }
         if (count == 1) {
             setDepartment("");
@@ -65,11 +75,35 @@ public class Patient extends Person {
             } else if (dateOfHospitalized_day < 0) {
                 Toolkit.getDefaultToolkit().beep();
                 this.dateOfHospitalized_day = 1;
+                try {
+                    DataBaseLayer.dataBaseLayer();
+                    Statement myStatement = DataBaseLayer.myConnection.createStatement();
+                    myStatement.executeQuery("IF ( '" + super.getCitizenId() + "' =(SELECT citizenId FROM employees WHERE citizenId = '" + super.getCitizenId() + "') )\n" +
+                            "    UPDATE HospitalManagementSystemStock.dbo.patients SET  dateOfHospitalized_day = '" + this.dateOfHospitalized_day + "' WHERE citizenId= '" + super.getCitizenId() + "'\n");
+                } catch (Exception e) {
+                    System.out.println(e);
+                }
             } else if (dateOfHospitalized_day >= 31) {
                 Toolkit.getDefaultToolkit().beep();
                 this.dateOfHospitalized_day = 31;
+                try {
+                    DataBaseLayer.dataBaseLayer();
+                    Statement myStatement = DataBaseLayer.myConnection.createStatement();
+                    myStatement.executeQuery("IF ( '" + super.getCitizenId() + "' =(SELECT citizenId FROM employees WHERE citizenId = '" + super.getCitizenId() + "') )\n" +
+                            "    UPDATE HospitalManagementSystemStock.dbo.patients SET  dateOfHospitalized_day = '" + this.dateOfHospitalized_day + "' WHERE citizenId= '" + super.getCitizenId() + "'\n");
+                } catch (Exception e) {
+                    System.out.println(e);
+                }
             } else {
                 this.dateOfHospitalized_day = dateOfHospitalized_day;
+                try {
+                    DataBaseLayer.dataBaseLayer();
+                    Statement myStatement = DataBaseLayer.myConnection.createStatement();
+                    myStatement.executeQuery("IF ( '" + super.getCitizenId() + "' =(SELECT citizenId FROM employees WHERE citizenId = '" + super.getCitizenId() + "') )\n" +
+                            "    UPDATE HospitalManagementSystemStock.dbo.patients SET  dateOfHospitalized_day = '" + this.dateOfHospitalized_day + "' WHERE citizenId= '" + super.getCitizenId() + "'\n");
+                } catch (Exception e) {
+                    System.out.println(e);
+                }
             }
         } catch (Exception e) {
             System.out.println("Please enter just digit!");
@@ -94,11 +128,35 @@ public class Patient extends Person {
             } else if (dateOfHospitalized_month < 0) {
                 Toolkit.getDefaultToolkit().beep();
                 this.dateOfHospitalized_month = 1;
+                try {
+                    DataBaseLayer.dataBaseLayer();
+                    Statement myStatement = DataBaseLayer.myConnection.createStatement();
+                    myStatement.executeQuery("IF ( '" + super.getCitizenId() + "' =(SELECT citizenId FROM employees WHERE citizenId = '" + super.getCitizenId() + "') )\n" +
+                            "    UPDATE HospitalManagementSystemStock.dbo.patients SET  dateOfHospitalized_month = '" + this.dateOfHospitalized_month + "' WHERE citizenId= '" + super.getCitizenId() + "'\n");
+                } catch (Exception e) {
+                    System.out.println(e);
+                }
             } else if (dateOfHospitalized_month >= 12) {
                 Toolkit.getDefaultToolkit().beep();
                 this.dateOfHospitalized_month = 12;
+                try {
+                    DataBaseLayer.dataBaseLayer();
+                    Statement myStatement = DataBaseLayer.myConnection.createStatement();
+                    myStatement.executeQuery("IF ( '" + super.getCitizenId() + "' =(SELECT citizenId FROM employees WHERE citizenId = '" + super.getCitizenId() + "') )\n" +
+                            "    UPDATE HospitalManagementSystemStock.dbo.patients SET  dateOfHospitalized_month = '" + this.dateOfHospitalized_month + "' WHERE citizenId= '" + super.getCitizenId() + "'\n");
+                } catch (Exception e) {
+                    System.out.println(e);
+                }
             } else {
                 this.dateOfHospitalized_month = dateOfHospitalized_month;
+                try {
+                    DataBaseLayer.dataBaseLayer();
+                    Statement myStatement = DataBaseLayer.myConnection.createStatement();
+                    myStatement.executeQuery("IF ( '" + super.getCitizenId() + "' =(SELECT citizenId FROM employees WHERE citizenId = '" + super.getCitizenId() + "') )\n" +
+                            "    UPDATE HospitalManagementSystemStock.dbo.patients SET  dateOfHospitalized_month = '" + this.dateOfHospitalized_month + "' WHERE citizenId= '" + super.getCitizenId() + "'\n");
+                } catch (Exception e) {
+                    System.out.println(e);
+                }
             }
         } catch (Exception e) {
             System.out.println("Please enter just digit!");
@@ -123,11 +181,35 @@ public class Patient extends Person {
             } else if (dateOfHospitalized_year < 1900) {
                 Toolkit.getDefaultToolkit().beep();
                 this.dateOfHospitalized_year = 1900;
+                try {
+                    DataBaseLayer.dataBaseLayer();
+                    Statement myStatement = DataBaseLayer.myConnection.createStatement();
+                    myStatement.executeQuery("IF ( '" + super.getCitizenId() + "' =(SELECT citizenId FROM employees WHERE citizenId = '" + super.getCitizenId() + "') )\n" +
+                            "    UPDATE HospitalManagementSystemStock.dbo.patients SET  dateOfHospitalized_year = '" + this.dateOfHospitalized_year + "' WHERE citizenId= '" + super.getCitizenId() + "'\n");
+                } catch (Exception e) {
+                    System.out.println(e);
+                }
             } else if (dateOfHospitalized_year >= Year.now().getValue()) {
                 Toolkit.getDefaultToolkit().beep();
                 this.dateOfHospitalized_year = Year.now().getValue();
+                try {
+                    DataBaseLayer.dataBaseLayer();
+                    Statement myStatement = DataBaseLayer.myConnection.createStatement();
+                    myStatement.executeQuery("IF ( '" + super.getCitizenId() + "' =(SELECT citizenId FROM employees WHERE citizenId = '" + super.getCitizenId() + "') )\n" +
+                            "    UPDATE HospitalManagementSystemStock.dbo.patients SET  dateOfHospitalized_year = '" + this.dateOfHospitalized_year + "' WHERE citizenId= '" + super.getCitizenId() + "'\n");
+                } catch (Exception e) {
+                    System.out.println(e);
+                }
             } else {
                 this.dateOfHospitalized_year = dateOfHospitalized_year;
+                try {
+                    DataBaseLayer.dataBaseLayer();
+                    Statement myStatement = DataBaseLayer.myConnection.createStatement();
+                    myStatement.executeQuery("IF ( '" + super.getCitizenId() + "' =(SELECT citizenId FROM employees WHERE citizenId = '" + super.getCitizenId() + "') )\n" +
+                            "    UPDATE HospitalManagementSystemStock.dbo.patients SET  dateOfHospitalized_year = '" + this.dateOfHospitalized_year + "' WHERE citizenId= '" + super.getCitizenId() + "'\n");
+                } catch (Exception e) {
+                    System.out.println(e);
+                }
             }
         } catch (Exception e) {
             System.out.println("Please enter just digit!");
@@ -152,11 +234,35 @@ public class Patient extends Person {
             } else if (dateOfLeave_day < 0) {
                 Toolkit.getDefaultToolkit().beep();
                 this.dateOfLeave_day = 1;
+                try {
+                    DataBaseLayer.dataBaseLayer();
+                    Statement myStatement = DataBaseLayer.myConnection.createStatement();
+                    myStatement.executeQuery("IF ( '" + super.getCitizenId() + "' =(SELECT citizenId FROM employees WHERE citizenId = '" + super.getCitizenId() + "') )\n" +
+                            "    UPDATE HospitalManagementSystemStock.dbo.patients SET  dateOfLeave_day = '" + this.dateOfLeave_day + "' WHERE citizenId= '" + super.getCitizenId() + "'\n");
+                } catch (Exception e) {
+                    System.out.println(e);
+                }
             } else if (dateOfLeave_day >= 31) {
                 Toolkit.getDefaultToolkit().beep();
                 this.dateOfLeave_day = 31;
+                try {
+                    DataBaseLayer.dataBaseLayer();
+                    Statement myStatement = DataBaseLayer.myConnection.createStatement();
+                    myStatement.executeQuery("IF ( '" + super.getCitizenId() + "' =(SELECT citizenId FROM employees WHERE citizenId = '" + super.getCitizenId() + "') )\n" +
+                            "    UPDATE HospitalManagementSystemStock.dbo.patients SET  dateOfLeave_day = '" + this.dateOfLeave_day + "' WHERE citizenId= '" + super.getCitizenId() + "'\n");
+                } catch (Exception e) {
+                    System.out.println(e);
+                }
             } else {
                 this.dateOfLeave_day = dateOfLeave_day;
+                try {
+                    DataBaseLayer.dataBaseLayer();
+                    Statement myStatement = DataBaseLayer.myConnection.createStatement();
+                    myStatement.executeQuery("IF ( '" + super.getCitizenId() + "' =(SELECT citizenId FROM employees WHERE citizenId = '" + super.getCitizenId() + "') )\n" +
+                            "    UPDATE HospitalManagementSystemStock.dbo.patients SET  dateOfLeave_day = '" + this.dateOfLeave_day + "' WHERE citizenId= '" + super.getCitizenId() + "'\n");
+                } catch (Exception e) {
+                    System.out.println(e);
+                }
             }
         } catch (Exception e) {
             System.out.println("Please enter just digit!");
@@ -181,11 +287,37 @@ public class Patient extends Person {
             } else if (dateOfLeave_month < 0) {
                 Toolkit.getDefaultToolkit().beep();
                 this.dateOfLeave_month = 1;
+                try {
+                    DataBaseLayer.dataBaseLayer();
+                    Statement myStatement = DataBaseLayer.myConnection.createStatement();
+                    myStatement.executeQuery("IF ( '" + super.getCitizenId() + "' =(SELECT citizenId FROM employees WHERE citizenId = '" + super.getCitizenId() + "') )\n" +
+                            "    UPDATE HospitalManagementSystemStock.dbo.patients SET  dateOfLeave_month = '" + this.dateOfLeave_month + "' WHERE citizenId= '" + super.getCitizenId() + "'\n");
+                } catch (Exception e) {
+                    System.out.println(e);
+                }
             } else if (dateOfLeave_month >= 12) {
                 Toolkit.getDefaultToolkit().beep();
                 this.dateOfLeave_month = 12;
+                try {
+                    DataBaseLayer.dataBaseLayer();
+                    Statement myStatement = DataBaseLayer.myConnection.createStatement();
+                    myStatement.executeQuery("IF ( '" + super.getCitizenId() + "' =(SELECT citizenId FROM employees WHERE citizenId = '" + super.getCitizenId() + "') )\n" +
+                            "    UPDATE HospitalManagementSystemStock.dbo.patients SET  dateOfLeave_month = '" + this.dateOfLeave_month + "' WHERE citizenId= '" + super.getCitizenId() + "'\n");
+                } catch (Exception e) {
+                    System.out.println(e);
+                }
+
             } else {
                 this.dateOfLeave_month = dateOfLeave_month;
+                try {
+                    DataBaseLayer.dataBaseLayer();
+                    Statement myStatement = DataBaseLayer.myConnection.createStatement();
+                    myStatement.executeQuery("IF ( '" + super.getCitizenId() + "' =(SELECT citizenId FROM employees WHERE citizenId = '" + super.getCitizenId() + "') )\n" +
+                            "    UPDATE HospitalManagementSystemStock.dbo.patients SET  dateOfLeave_month = '" + this.dateOfLeave_month + "' WHERE citizenId= '" + super.getCitizenId() + "'\n");
+                } catch (Exception e) {
+                    System.out.println(e);
+                }
+
             }
         } catch (Exception e) {
             System.out.println("Please enter just digit!");
@@ -210,6 +342,15 @@ public class Patient extends Person {
             } else if (dateOfLeave_year < 1900) {
                 Toolkit.getDefaultToolkit().beep();
                 this.dateOfLeave_year = 1900;
+                try {
+                    DataBaseLayer.dataBaseLayer();
+                    Statement myStatement = DataBaseLayer.myConnection.createStatement();
+                    myStatement.executeQuery("IF ( '" + super.getCitizenId() + "' =(SELECT citizenId FROM employees WHERE citizenId = '" + super.getCitizenId() + "') )\n" +
+                            "    UPDATE HospitalManagementSystemStock.dbo.patients SET  dateOfLeave_year = '" + this.dateOfLeave_year + "' WHERE citizenId= '" + super.getCitizenId() + "'\n");
+                } catch (Exception e) {
+                    System.out.println(e);
+                }
+
             } else if (dateOfLeave_year >= Year.now().getValue()) {
                 Toolkit.getDefaultToolkit().beep();
                 this.dateOfLeave_year = Year.now().getValue();
@@ -223,16 +364,6 @@ public class Patient extends Person {
         }
     }
 
-    public long hospitalizedInterval() {
-
-        LocalDate hospitalizedDate = LocalDate.of(getDateOfHospitalized_year(), getDateOfHospitalized_month(), getDateOfHospitalized_day());
-        LocalDate leaveDate = LocalDate.of(getDateOfLeave_year(), getDateOfLeave_month(), getDateOfLeave_day());
-
-        LocalDate thisYearsBirthday = hospitalizedDate.with(Year.now());
-        String birthdate = hospitalizedDate.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT));   //17 February 2022
-        long hospitalizedInterval = ChronoUnit.DAYS.between(hospitalizedDate, leaveDate);
-        return hospitalizedInterval;
-    }
 
     public Patient() {
     }
@@ -249,7 +380,8 @@ public class Patient extends Person {
     }
 
     public String toString() {
-
+        super.person_db();
+        patient_db();
         return super.person.toString() + "\nPATIENT INFORMATION" + "\n--------------------------------------------\n"
                 + "Department : " + getDepartment() + "\nDate of Hospitalized : " + getDateOfHospitalized_day() + "/" +
                 getDateOfHospitalized_month() + "/" + getDateOfHospitalized_year() +
@@ -257,6 +389,41 @@ public class Patient extends Person {
                 + "\nHospitalized Interval : " + hospitalizedInterval() + " Days"
                 + "\n--------------------------------------------\n";
     }
+
+    public void patient_db() {
+        String citizenId = person.getCitizenId();
+
+        try {
+            DataBaseLayer.dataBaseLayer();
+            Statement myStatement = DataBaseLayer.myConnection.createStatement();
+            ResultSet myResult = myStatement.executeQuery("SELECT * FROM HospitalManagementSystemStock.dbo.patients WHERE patients.citizenId = '" + citizenId + "'");
+            while (myResult.next()) {
+                this.department = myResult.getString("department");
+                this.dateOfHospitalized_day = myResult.getInt("dateOfHospitalized_day");
+                this.dateOfHospitalized_month = myResult.getInt("dateOfHospitalized_month");
+                this.dateOfHospitalized_year = myResult.getInt("dateOfHospitalized_year");
+                this.dateOfLeave_day = myResult.getInt("dateOfLeave_day");
+                this.dateOfLeave_month = myResult.getInt("dateOfLeave_month");
+                this.dateOfLeave_year = myResult.getInt("dateOfLeave_year");
+            }
+            myStatement.close(); // close statement
+            DataBaseLayer.myConnection.close(); // close connection
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
+    public long hospitalizedInterval() {
+
+        LocalDate hospitalizedDate = LocalDate.of(getDateOfHospitalized_year(), getDateOfHospitalized_month(), getDateOfHospitalized_day());
+        LocalDate leaveDate = LocalDate.of(getDateOfLeave_year(), getDateOfLeave_month(), getDateOfLeave_day());
+
+        LocalDate thisYearsBirthday = hospitalizedDate.with(Year.now());
+        String birthdate = hospitalizedDate.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT));   //17 February 2022
+        long hospitalizedInterval = ChronoUnit.DAYS.between(hospitalizedDate, leaveDate);
+        return hospitalizedInterval;
+    }
+
 
     public void addPatient() {
         super.addPerson();
