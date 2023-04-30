@@ -432,27 +432,6 @@ public class Employee extends Person {
         }
     }
 
-    public long workInterval() {
-
-        LocalDate hospitalizedDate = LocalDate.of(getDateOfStart_year(), getDateOfStart_month(), getDateOfStart_day());
-        LocalDate leaveDate = LocalDate.of(getDateOfDismiss_year(), getDateOfDismiss_month(), getDateOfDismiss_day());
-
-        LocalDate thisYearsBirthday = hospitalizedDate.with(Year.now());
-        String birthdate = hospitalizedDate.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT));   //17 February 2022
-        long workInterval = ChronoUnit.YEARS.between(hospitalizedDate, leaveDate);
-        return workInterval;
-    }
-
-    public String toString() {
-        super.person_db();
-        employee_db();
-        return  super.person.toString() + "\nEMPLOYEE INFORMATION" + "\n--------------------------------------------\n"
-                + "Employee ID : " + getEmployeeId() + "\nDepartment : " + getDepartment() +
-                "\nDate of Start : " + getDateOfStart_day() + "/" + getDateOfStart_month() + "/" + getDateOfStart_year() +
-                "\nDate of Dismiss : " + getDateOfDismiss_day() + "/" + getDateOfDismiss_month() + "/" + getDateOfDismiss_year()
-                + "\nWork Interval : " + workInterval() + " Years"
-                + "\n--------------------------------------------\n";
-    }
 
     public Employee() {
     }
@@ -470,6 +449,17 @@ public class Employee extends Person {
         this.dateOfDismiss_year = dateOfDismiss_year;
     }
 
+    public String toString() {
+        super.person_db();
+        employee_db();
+        return super.person.toString() + "\nEMPLOYEE INFORMATION" + "\n--------------------------------------------\n"
+                + "Employee ID : " + getEmployeeId() + "\nDepartment : " + getDepartment() +
+                "\nDate of Start : " + getDateOfStart_day() + "/" + getDateOfStart_month() + "/" + getDateOfStart_year() +
+                "\nDate of Dismiss : " + getDateOfDismiss_day() + "/" + getDateOfDismiss_month() + "/" + getDateOfDismiss_year()
+                + "\nWork Interval : " + workInterval() + " Years"
+                + "\n--------------------------------------------\n";
+    }
+
     public void employee_db() {
         String citizenId = person.getCitizenId();
 
@@ -482,7 +472,7 @@ public class Employee extends Person {
                 this.department = myResult.getString("department");
                 this.dateOfStart_day = myResult.getInt("dateOfStart_day");
                 this.dateOfStart_month = myResult.getInt("dateOfStart_month");
-                this.dateOfStart_year= myResult.getInt("dateOfStart_year");
+                this.dateOfStart_year = myResult.getInt("dateOfStart_year");
                 this.dateOfDismiss_day = myResult.getInt("dateOfDismiss_day");
                 this.dateOfDismiss_month = myResult.getInt("dateOfDismiss_month");
                 this.dateOfDismiss_year = myResult.getInt("dateOfDismiss_year");
@@ -493,6 +483,18 @@ public class Employee extends Person {
             System.out.println(e);
         }
     }
+
+    public long workInterval() {
+
+        LocalDate hospitalizedDate = LocalDate.of(getDateOfStart_year(), getDateOfStart_month(), getDateOfStart_day());
+        LocalDate leaveDate = LocalDate.of(getDateOfDismiss_year(), getDateOfDismiss_month(), getDateOfDismiss_day());
+
+        LocalDate thisYearsBirthday = hospitalizedDate.with(Year.now());
+        String birthdate = hospitalizedDate.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT));   //17 February 2022
+        long workInterval = ChronoUnit.YEARS.between(hospitalizedDate, leaveDate);
+        return workInterval;
+    }
+
 
     public void addEmployee() {
         super.addPerson();
