@@ -461,7 +461,7 @@ public class Employee extends Person {
     }
 
     public void employee_db() {
-        String citizenId = person.getCitizenId();
+        String citizenId = getCitizenId();
 
         try {
             DataBaseLayer.dataBaseLayer();
