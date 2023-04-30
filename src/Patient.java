@@ -8,7 +8,7 @@ import java.time.format.FormatStyle;
 import java.time.temporal.ChronoUnit;
 import java.util.Scanner;
 
-public class Patient extends Person {
+public class Patient extends Person { //TODO patient object change and test
     static Patient patient = new Patient("Neurosurgery",
             10, 10, 2021,
             10, 11, 2021);
