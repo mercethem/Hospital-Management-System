@@ -325,7 +325,7 @@ public class Person {
                 DataBaseLayer.dataBaseLayer();
                 Statement myStatement = DataBaseLayer.myConnection.createStatement();
                 myStatement.executeQuery("IF ( '" + this.citizenId + "' =(SELECT citizenId FROM persons WHERE citizenId = '" + this.citizenId + "') )\n" +
-                        "    UPDATE HospitalManagementSystemStock.dbo.persons SET  bloodGroup = '" + bloodGroup + "' WHERE citizenId= '" + this.citizenId + "'\n");
+                        "    UPDATE HospitalManagementSystemStock.dbo.persons SET  bloodGroup = '" + this.bloodGroup + "' WHERE citizenId= '" + this.citizenId + "'\n");
 
             } catch (Exception e) {
                 System.out.println(e);
