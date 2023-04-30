@@ -36,6 +36,15 @@ public class Employee extends Person {
 
             if (employeeId.matches("[0-9]*") && employeeId.length() == EMPLOYEE_ID_DIGIT) {
                 this.employeeId = employeeId;
+                try {
+                    DataBaseLayer.dataBaseLayer();
+                    Statement myStatement = DataBaseLayer.myConnection.createStatement();
+                    myStatement.executeQuery("IF ( '" + super.getCitizenId() + "' =(SELECT citizenId FROM employees WHERE citizenId = '" + super.getCitizenId() + "') )\n" +
+                            "    UPDATE HospitalManagementSystemStock.dbo.employees SET  employeeId = '" + this.employeeId + "' WHERE citizenId= '" + super.getCitizenId() + "'\n");
+
+                } catch (Exception e) {
+                    System.out.println(e);
+                }
             } else {
                 System.out.println("Please just use numeric and" + EMPLOYEE_ID_DIGIT + " digit !");
                 Toolkit.getDefaultToolkit().beep();
@@ -69,6 +78,15 @@ public class Employee extends Person {
             ++count;
         } else {
             this.department = department;
+            try {
+                DataBaseLayer.dataBaseLayer();
+                Statement myStatement = DataBaseLayer.myConnection.createStatement();
+                myStatement.executeQuery("IF ( '" + super.getCitizenId() + "' =(SELECT citizenId FROM employees WHERE citizenId = '" + super.getCitizenId() + "') )\n" +
+                        "    UPDATE HospitalManagementSystemStock.dbo.employees SET  department = '" + this.department + "' WHERE citizenId= '" + super.getCitizenId() + "'\n");
+
+            } catch (Exception e) {
+                System.out.println(e);
+            }
         }
         if (count == 1) {
             setDepartment("");
@@ -92,11 +110,38 @@ public class Employee extends Person {
             } else if (dateOfStart_day < 0) {
                 Toolkit.getDefaultToolkit().beep();
                 this.dateOfStart_day = 1;
+                try {
+                    DataBaseLayer.dataBaseLayer();
+                    Statement myStatement = DataBaseLayer.myConnection.createStatement();
+                    myStatement.executeQuery("IF ( '" + super.getCitizenId() + "' =(SELECT citizenId FROM employees WHERE citizenId = '" + super.getCitizenId() + "') )\n" +
+                            "    UPDATE HospitalManagementSystemStock.dbo.employees SET  dateOfStart_day = '" + this.dateOfStart_day + "' WHERE citizenId= '" + super.getCitizenId() + "'\n");
+
+                } catch (Exception e) {
+                    System.out.println(e);
+                }
             } else if (dateOfStart_day >= 31) {
                 Toolkit.getDefaultToolkit().beep();
                 this.dateOfStart_day = 31;
+                try {
+                    DataBaseLayer.dataBaseLayer();
+                    Statement myStatement = DataBaseLayer.myConnection.createStatement();
+                    myStatement.executeQuery("IF ( '" + super.getCitizenId() + "' =(SELECT citizenId FROM employees WHERE citizenId = '" + super.getCitizenId() + "') )\n" +
+                            "    UPDATE HospitalManagementSystemStock.dbo.employees SET  dateOfStart_day = '" + this.dateOfStart_day + "' WHERE citizenId= '" + super.getCitizenId() + "'\n");
+
+                } catch (Exception e) {
+                    System.out.println(e);
+                }
             } else {
                 this.dateOfStart_day = dateOfStart_day;
+                try {
+                    DataBaseLayer.dataBaseLayer();
+                    Statement myStatement = DataBaseLayer.myConnection.createStatement();
+                    myStatement.executeQuery("IF ( '" + super.getCitizenId() + "' =(SELECT citizenId FROM employees WHERE citizenId = '" + super.getCitizenId() + "') )\n" +
+                            "    UPDATE HospitalManagementSystemStock.dbo.employees SET  dateOfStart_day = '" + this.dateOfStart_day + "' WHERE citizenId= '" + super.getCitizenId() + "'\n");
+
+                } catch (Exception e) {
+                    System.out.println(e);
+                }
             }
         } catch (Exception e) {
             System.out.println("Please enter just digit!");
@@ -121,11 +166,39 @@ public class Employee extends Person {
             } else if (dateOfStart_month < 0) {
                 Toolkit.getDefaultToolkit().beep();
                 this.dateOfStart_month = 1;
+                try {
+                    DataBaseLayer.dataBaseLayer();
+                    Statement myStatement = DataBaseLayer.myConnection.createStatement();
+                    myStatement.executeQuery("IF ( '" + super.getCitizenId() + "' =(SELECT citizenId FROM employees WHERE citizenId = '" + super.getCitizenId() + "') )\n" +
+                            "    UPDATE HospitalManagementSystemStock.dbo.employees SET  dateOfStart_month = '" + this.dateOfStart_month + "' WHERE citizenId= '" + super.getCitizenId() + "'\n");
+
+                } catch (Exception e) {
+                    System.out.println(e);
+                }
             } else if (dateOfStart_month >= 12) {
                 Toolkit.getDefaultToolkit().beep();
                 this.dateOfStart_month = 12;
+                try {
+                    DataBaseLayer.dataBaseLayer();
+                    Statement myStatement = DataBaseLayer.myConnection.createStatement();
+                    myStatement.executeQuery("IF ( '" + super.getCitizenId() + "' =(SELECT citizenId FROM employees WHERE citizenId = '" + super.getCitizenId() + "') )\n" +
+                            "    UPDATE HospitalManagementSystemStock.dbo.employees SET  dateOfStart_month = '" + this.dateOfStart_month + "' WHERE citizenId= '" + super.getCitizenId() + "'\n");
+
+                } catch (Exception e) {
+                    System.out.println(e);
+                }
             } else {
                 this.dateOfStart_month = dateOfStart_month;
+                try {
+                    DataBaseLayer.dataBaseLayer();
+                    Statement myStatement = DataBaseLayer.myConnection.createStatement();
+                    myStatement.executeQuery("IF ( '" + super.getCitizenId() + "' =(SELECT citizenId FROM employees WHERE citizenId = '" + super.getCitizenId() + "') )\n" +
+                            "    UPDATE HospitalManagementSystemStock.dbo.employees SET  dateOfStart_month = '" + this.dateOfStart_month + "' WHERE citizenId= '" + super.getCitizenId() + "'\n");
+
+                } catch (Exception e) {
+                    System.out.println(e);
+                }
+
             }
         } catch (Exception e) {
             System.out.println("Please enter just digit!");
@@ -150,11 +223,38 @@ public class Employee extends Person {
             } else if (dateOfStart_year < 1900) {
                 Toolkit.getDefaultToolkit().beep();
                 this.dateOfStart_year = 1900;
+                try {
+                    DataBaseLayer.dataBaseLayer();
+                    Statement myStatement = DataBaseLayer.myConnection.createStatement();
+                    myStatement.executeQuery("IF ( '" + super.getCitizenId() + "' =(SELECT citizenId FROM employees WHERE citizenId = '" + super.getCitizenId() + "') )\n" +
+                            "    UPDATE HospitalManagementSystemStock.dbo.employees SET  dateOfStart_year = '" + this.dateOfStart_year + "' WHERE citizenId= '" + super.getCitizenId() + "'\n");
+
+                } catch (Exception e) {
+                    System.out.println(e);
+                }
             } else if (dateOfStart_year >= Year.now().getValue()) {
                 Toolkit.getDefaultToolkit().beep();
                 this.dateOfStart_year = Year.now().getValue();
+                try {
+                    DataBaseLayer.dataBaseLayer();
+                    Statement myStatement = DataBaseLayer.myConnection.createStatement();
+                    myStatement.executeQuery("IF ( '" + super.getCitizenId() + "' =(SELECT citizenId FROM employees WHERE citizenId = '" + super.getCitizenId() + "') )\n" +
+                            "    UPDATE HospitalManagementSystemStock.dbo.employees SET  dateOfStart_year = '" + this.dateOfStart_year + "' WHERE citizenId= '" + super.getCitizenId() + "'\n");
+
+                } catch (Exception e) {
+                    System.out.println(e);
+                }
             } else {
                 this.dateOfStart_year = dateOfStart_year;
+                try {
+                    DataBaseLayer.dataBaseLayer();
+                    Statement myStatement = DataBaseLayer.myConnection.createStatement();
+                    myStatement.executeQuery("IF ( '" + super.getCitizenId() + "' =(SELECT citizenId FROM employees WHERE citizenId = '" + super.getCitizenId() + "') )\n" +
+                            "    UPDATE HospitalManagementSystemStock.dbo.employees SET  dateOfStart_year = '" + this.dateOfStart_year + "' WHERE citizenId= '" + super.getCitizenId() + "'\n");
+
+                } catch (Exception e) {
+                    System.out.println(e);
+                }
             }
         } catch (Exception e) {
             System.out.println("Please enter just digit!");
@@ -180,11 +280,38 @@ public class Employee extends Person {
             } else if (dateOfDismiss_day < 0) {
                 Toolkit.getDefaultToolkit().beep();
                 this.dateOfDismiss_day = 1;
+                try {
+                    DataBaseLayer.dataBaseLayer();
+                    Statement myStatement = DataBaseLayer.myConnection.createStatement();
+                    myStatement.executeQuery("IF ( '" + super.getCitizenId() + "' =(SELECT citizenId FROM employees WHERE citizenId = '" + super.getCitizenId() + "') )\n" +
+                            "    UPDATE HospitalManagementSystemStock.dbo.employees SET  dateOfDismiss_day = '" + this.dateOfDismiss_day + "' WHERE citizenId= '" + super.getCitizenId() + "'\n");
+
+                } catch (Exception e) {
+                    System.out.println(e);
+                }
             } else if (dateOfDismiss_day >= 31) {
                 Toolkit.getDefaultToolkit().beep();
                 this.dateOfDismiss_day = 31;
+                try {
+                    DataBaseLayer.dataBaseLayer();
+                    Statement myStatement = DataBaseLayer.myConnection.createStatement();
+                    myStatement.executeQuery("IF ( '" + super.getCitizenId() + "' =(SELECT citizenId FROM employees WHERE citizenId = '" + super.getCitizenId() + "') )\n" +
+                            "    UPDATE HospitalManagementSystemStock.dbo.employees SET  dateOfDismiss_day = '" + this.dateOfDismiss_day + "' WHERE citizenId= '" + super.getCitizenId() + "'\n");
+
+                } catch (Exception e) {
+                    System.out.println(e);
+                }
             } else {
                 this.dateOfDismiss_day = dateOfDismiss_day;
+                try {
+                    DataBaseLayer.dataBaseLayer();
+                    Statement myStatement = DataBaseLayer.myConnection.createStatement();
+                    myStatement.executeQuery("IF ( '" + super.getCitizenId() + "' =(SELECT citizenId FROM employees WHERE citizenId = '" + super.getCitizenId() + "') )\n" +
+                            "    UPDATE HospitalManagementSystemStock.dbo.employees SET  dateOfDismiss_day = '" + this.dateOfDismiss_day + "' WHERE citizenId= '" + super.getCitizenId() + "'\n");
+
+                } catch (Exception e) {
+                    System.out.println(e);
+                }
             }
         } catch (Exception e) {
             System.out.println("Please enter just digit!");
@@ -209,11 +336,38 @@ public class Employee extends Person {
             } else if (dateOfDismiss_month < 0) {
                 Toolkit.getDefaultToolkit().beep();
                 this.dateOfDismiss_month = 1;
+                try {
+                    DataBaseLayer.dataBaseLayer();
+                    Statement myStatement = DataBaseLayer.myConnection.createStatement();
+                    myStatement.executeQuery("IF ( '" + super.getCitizenId() + "' =(SELECT citizenId FROM employees WHERE citizenId = '" + super.getCitizenId() + "') )\n" +
+                            "    UPDATE HospitalManagementSystemStock.dbo.employees SET  dateOfDismiss_month = '" + this.dateOfDismiss_month + "' WHERE citizenId= '" + super.getCitizenId() + "'\n");
+
+                } catch (Exception e) {
+                    System.out.println(e);
+                }
             } else if (dateOfDismiss_month >= 12) {
                 Toolkit.getDefaultToolkit().beep();
                 this.dateOfDismiss_month = 12;
+                try {
+                    DataBaseLayer.dataBaseLayer();
+                    Statement myStatement = DataBaseLayer.myConnection.createStatement();
+                    myStatement.executeQuery("IF ( '" + super.getCitizenId() + "' =(SELECT citizenId FROM employees WHERE citizenId = '" + super.getCitizenId() + "') )\n" +
+                            "    UPDATE HospitalManagementSystemStock.dbo.employees SET  dateOfDismiss_month = '" + this.dateOfDismiss_month + "' WHERE citizenId= '" + super.getCitizenId() + "'\n");
+
+                } catch (Exception e) {
+                    System.out.println(e);
+                }
             } else {
                 this.dateOfDismiss_month = dateOfDismiss_month;
+                try {
+                    DataBaseLayer.dataBaseLayer();
+                    Statement myStatement = DataBaseLayer.myConnection.createStatement();
+                    myStatement.executeQuery("IF ( '" + super.getCitizenId() + "' =(SELECT citizenId FROM employees WHERE citizenId = '" + super.getCitizenId() + "') )\n" +
+                            "    UPDATE HospitalManagementSystemStock.dbo.employees SET  dateOfDismiss_month = '" + this.dateOfDismiss_month + "' WHERE citizenId= '" + super.getCitizenId() + "'\n");
+
+                } catch (Exception e) {
+                    System.out.println(e);
+                }
             }
         } catch (Exception e) {
             System.out.println("Please enter just digit!");
@@ -238,11 +392,38 @@ public class Employee extends Person {
             } else if (dateOfDismiss_year < 2000) {
                 Toolkit.getDefaultToolkit().beep();
                 this.dateOfDismiss_year = 2000;
+                try {
+                    DataBaseLayer.dataBaseLayer();
+                    Statement myStatement = DataBaseLayer.myConnection.createStatement();
+                    myStatement.executeQuery("IF ( '" + super.getCitizenId() + "' =(SELECT citizenId FROM employees WHERE citizenId = '" + super.getCitizenId() + "') )\n" +
+                            "    UPDATE HospitalManagementSystemStock.dbo.employees SET  dateOfDismiss_year = '" + this.dateOfDismiss_year + "' WHERE citizenId= '" + super.getCitizenId() + "'\n");
+
+                } catch (Exception e) {
+                    System.out.println(e);
+                }
             } else if (dateOfDismiss_year >= Year.now().getValue()) {
                 Toolkit.getDefaultToolkit().beep();
                 this.dateOfDismiss_year = Year.now().getValue();
+                try {
+                    DataBaseLayer.dataBaseLayer();
+                    Statement myStatement = DataBaseLayer.myConnection.createStatement();
+                    myStatement.executeQuery("IF ( '" + super.getCitizenId() + "' =(SELECT citizenId FROM employees WHERE citizenId = '" + super.getCitizenId() + "') )\n" +
+                            "    UPDATE HospitalManagementSystemStock.dbo.employees SET  dateOfDismiss_year = '" + this.dateOfDismiss_year + "' WHERE citizenId= '" + super.getCitizenId() + "'\n");
+
+                } catch (Exception e) {
+                    System.out.println(e);
+                }
             } else {
                 this.dateOfDismiss_year = dateOfDismiss_year;
+                try {
+                    DataBaseLayer.dataBaseLayer();
+                    Statement myStatement = DataBaseLayer.myConnection.createStatement();
+                    myStatement.executeQuery("IF ( '" + super.getCitizenId() + "' =(SELECT citizenId FROM employees WHERE citizenId = '" + super.getCitizenId() + "') )\n" +
+                            "    UPDATE HospitalManagementSystemStock.dbo.employees SET  dateOfDismiss_year = '" + this.dateOfDismiss_year + "' WHERE citizenId= '" + super.getCitizenId() + "'\n");
+
+                } catch (Exception e) {
+                    System.out.println(e);
+                }
             }
         } catch (Exception e) {
             System.out.println("Please enter just digit!");
@@ -261,15 +442,18 @@ public class Employee extends Person {
         long workInterval = ChronoUnit.YEARS.between(hospitalizedDate, leaveDate);
         return workInterval;
     }
-    public String toString() {
 
-        return super.person.toString() + "\nEMPLOYEE INFORMATION" + "\n--------------------------------------------\n"
+    public String toString() {
+        super.person_db();
+        employee_db();
+        return  super.person.toString() + "\nEMPLOYEE INFORMATION" + "\n--------------------------------------------\n"
                 + "Employee ID : " + getEmployeeId() + "\nDepartment : " + getDepartment() +
                 "\nDate of Start : " + getDateOfStart_day() + "/" + getDateOfStart_month() + "/" + getDateOfStart_year() +
                 "\nDate of Dismiss : " + getDateOfDismiss_day() + "/" + getDateOfDismiss_month() + "/" + getDateOfDismiss_year()
                 + "\nWork Interval : " + workInterval() + " Years"
                 + "\n--------------------------------------------\n";
     }
+
     public Employee() {
     }
 
@@ -284,6 +468,30 @@ public class Employee extends Person {
         this.dateOfDismiss_day = dateOfDismiss_day;
         this.dateOfDismiss_month = dateOfDismiss_month;
         this.dateOfDismiss_year = dateOfDismiss_year;
+    }
+
+    public void employee_db() {
+        String citizenId = person.getCitizenId();
+
+        try {
+            DataBaseLayer.dataBaseLayer();
+            Statement myStatement = DataBaseLayer.myConnection.createStatement();
+            ResultSet myResult = myStatement.executeQuery("SELECT * FROM HospitalManagementSystemStock.dbo.employees WHERE employees.citizenId = '" + citizenId + "'");
+            while (myResult.next()) {
+                this.employeeId = myResult.getString("employeeId");
+                this.department = myResult.getString("department");
+                this.dateOfStart_day = myResult.getInt("dateOfStart_day");
+                this.dateOfStart_month = myResult.getInt("dateOfStart_month");
+                this.dateOfStart_year= myResult.getInt("dateOfStart_year");
+                this.dateOfDismiss_day = myResult.getInt("dateOfDismiss_day");
+                this.dateOfDismiss_month = myResult.getInt("dateOfDismiss_month");
+                this.dateOfDismiss_year = myResult.getInt("dateOfDismiss_year");
+            }
+            myStatement.close(); // close statement
+            DataBaseLayer.myConnection.close(); // close connection
+        } catch (Exception e) {
+            System.out.println(e);
+        }
     }
 
     public void addEmployee() {
