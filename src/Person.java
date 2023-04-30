@@ -35,7 +35,17 @@ public class Person {
         citizenId = keyboard.nextLine();
 
         if (citizenId.matches("[0-9]*") && citizenId.length() == CITIZEN_ID_DIGIT) {
-            DataBaseLayer.dataBaseLayer();
+            try {
+                DataBaseLayer.dataBaseLayer();
+                Statement myStatement = DataBaseLayer.myConnection.createStatement();
+                myStatement.executeQuery("IF ( '" + citizenId + "' =(SELECT citizenId FROM persons WHERE citizenId = '" + citizenId + "') )\n" +
+                        "    UPDATE HospitalManagementSystemStock.dbo.persons SET  citizenId = '" + citizenId + "' WHERE citizenId= '" + citizenId + "'\n" +
+                        "ELSE\n" +
+                        "    INSERT INTO persons (citizenId) VALUES ('" + citizenId + "')");
+
+            } catch (Exception e) {
+                System.out.println(e);
+            }
             this.citizenId = citizenId;
 
         } else {
@@ -67,6 +77,15 @@ public class Person {
             Toolkit.getDefaultToolkit().beep();
             ++count;
         } else {
+            try {
+                DataBaseLayer.dataBaseLayer();
+                Statement myStatement = DataBaseLayer.myConnection.createStatement();
+                myStatement.executeQuery("IF ( '" + this.citizenId + "' =(SELECT citizenId FROM persons WHERE citizenId = '" + this.citizenId + "') )\n" +
+                        "    UPDATE HospitalManagementSystemStock.dbo.persons SET  name = '" + name + "' WHERE citizenId= '" + this.citizenId + "'\n");
+
+            } catch (Exception e) {
+                System.out.println(e);
+            }
             this.name = name;
         }
         if (count == 1) {
@@ -96,6 +115,15 @@ public class Person {
             Toolkit.getDefaultToolkit().beep();
             ++count;
         } else {
+            try {
+                DataBaseLayer.dataBaseLayer();
+                Statement myStatement = DataBaseLayer.myConnection.createStatement();
+                myStatement.executeQuery("IF ( '" + this.citizenId + "' =(SELECT citizenId FROM persons WHERE citizenId = '" + this.citizenId + "') )\n" +
+                        "    UPDATE HospitalManagementSystemStock.dbo.persons SET  surname = '" + surname + "' WHERE citizenId= '" + this.citizenId + "'\n");
+
+            } catch (Exception e) {
+                System.out.println(e);
+            }
             this.surname = surname;
 
         }
