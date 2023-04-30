@@ -538,7 +538,7 @@ public class Person {
     }
 
     public String toString() {
-
+        person.person_db();
         return "\nID INFORMATION" + "\n--------------------------------------------\n" +
                 "Citizen ID : " + getCitizenId() + "\nName : " + getName() + "\nSurname : " + getSurname() + "\nBirthdate : " +
                 getBirthdate_day() + "/" + getBirthdate_month() + "/" + getBirthdate_year() + "\nAge : " + age() +
