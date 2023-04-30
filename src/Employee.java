@@ -9,7 +9,7 @@ import java.time.temporal.ChronoUnit;
 import java.util.Scanner;
 
 
-public class Employee extends Person {
+public class Employee extends Person { //TODO employee object change and test
     static Employee employee = new Employee("012345678", "Software Engineering",
             1, 1, 2022, 1, 1, 2023);
 
