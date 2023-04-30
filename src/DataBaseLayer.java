@@ -9,9 +9,8 @@ public class DataBaseLayer {
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver"); // Driver name
             myConnection = DriverManager.getConnection(url);
-            System.out.println("Connections is successful!");
         } catch (Exception e) {
-            System.out.println("Connection is failed!");
+            System.out.println(e);
         }
     }
 }
