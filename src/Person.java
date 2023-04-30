@@ -35,19 +35,18 @@ public class Person {
         citizenId = keyboard.nextLine();
 
         if (citizenId.matches("[0-9]*") && citizenId.length() == CITIZEN_ID_DIGIT) {
+            this.citizenId = citizenId;
             try {
                 DataBaseLayer.dataBaseLayer();
                 Statement myStatement = DataBaseLayer.myConnection.createStatement();
                 myStatement.executeQuery("IF ( '" + citizenId + "' =(SELECT citizenId FROM persons WHERE citizenId = '" + citizenId + "') )\n" +
                         "    UPDATE HospitalManagementSystemStock.dbo.persons SET  citizenId = '" + citizenId + "' WHERE citizenId= '" + citizenId + "'\n" +
                         "ELSE\n" +
-                        "    INSERT INTO persons (citizenId) VALUES ('" + citizenId + "')");
+                        "    INSERT INTO persons (citizenId) VALUES ('" + this.citizenId + "')");
 
             } catch (Exception e) {
                 System.out.println(e);
             }
-            this.citizenId = citizenId;
-
         } else {
             System.out.println("Please just use numeric and" + CITIZEN_ID_DIGIT + " digit !");
             Toolkit.getDefaultToolkit().beep();
@@ -77,16 +76,16 @@ public class Person {
             Toolkit.getDefaultToolkit().beep();
             ++count;
         } else {
+            this.name = name;
             try {
                 DataBaseLayer.dataBaseLayer();
                 Statement myStatement = DataBaseLayer.myConnection.createStatement();
                 myStatement.executeQuery("IF ( '" + this.citizenId + "' =(SELECT citizenId FROM persons WHERE citizenId = '" + this.citizenId + "') )\n" +
-                        "    UPDATE HospitalManagementSystemStock.dbo.persons SET  name = '" + name + "' WHERE citizenId= '" + this.citizenId + "'\n");
+                        "    UPDATE HospitalManagementSystemStock.dbo.persons SET  name = '" + this.name + "' WHERE citizenId= '" + this.citizenId + "'\n");
 
             } catch (Exception e) {
                 System.out.println(e);
             }
-            this.name = name;
         }
         if (count == 1) {
             setName("");
@@ -115,21 +114,21 @@ public class Person {
             Toolkit.getDefaultToolkit().beep();
             ++count;
         } else {
+            this.surname = surname;
             try {
                 DataBaseLayer.dataBaseLayer();
                 Statement myStatement = DataBaseLayer.myConnection.createStatement();
                 myStatement.executeQuery("IF ( '" + this.citizenId + "' =(SELECT citizenId FROM persons WHERE citizenId = '" + this.citizenId + "') )\n" +
-                        "    UPDATE HospitalManagementSystemStock.dbo.persons SET  surname = '" + surname + "' WHERE citizenId= '" + this.citizenId + "'\n");
+                        "    UPDATE HospitalManagementSystemStock.dbo.persons SET  surname = '" + this.surname + "' WHERE citizenId= '" + this.citizenId + "'\n");
 
             } catch (Exception e) {
                 System.out.println(e);
             }
-            this.surname = surname;
-
         }
         if (count == 1) {
             setSurname("");
         }
+
     }
 
     public String getSurname() {
@@ -141,6 +140,7 @@ public class Person {
             System.out.println("Please enter birthdate day : ");
             String sDay = keyboard.nextLine();
             birthdate_day = Integer.parseInt(sDay);
+
             if (!sDay.matches(".*[0-9].*")) {
                 System.out.println("Please use just digits.");
                 Toolkit.getDefaultToolkit().beep();
@@ -148,11 +148,41 @@ public class Person {
             } else if (birthdate_day < 0) {
                 Toolkit.getDefaultToolkit().beep();
                 this.birthdate_day = 1;
+                try {
+                    DataBaseLayer.dataBaseLayer();
+                    Statement myStatement = DataBaseLayer.myConnection.createStatement();
+                    myStatement.executeQuery("IF ( '" + this.citizenId + "' =(SELECT citizenId FROM persons WHERE citizenId = '" + this.citizenId + "') )\n" +
+                            "    UPDATE HospitalManagementSystemStock.dbo.persons SET  birthdate_day = '" + this.birthdate_day + "' WHERE citizenId= '" + this.citizenId + "'\n");
+
+                } catch (Exception e) {
+                    System.out.println(e);
+                }
+
             } else if (birthdate_day >= 31) {
                 Toolkit.getDefaultToolkit().beep();
                 this.birthdate_day = 31;
+                try {
+                    DataBaseLayer.dataBaseLayer();
+                    Statement myStatement = DataBaseLayer.myConnection.createStatement();
+                    myStatement.executeQuery("IF ( '" + this.citizenId + "' =(SELECT citizenId FROM persons WHERE citizenId = '" + this.citizenId + "') )\n" +
+                            "    UPDATE HospitalManagementSystemStock.dbo.persons SET  birthdate_day = '" + this.birthdate_day + "' WHERE citizenId= '" + this.citizenId + "'\n");
+
+                } catch (Exception e) {
+                    System.out.println(e);
+                }
+
+
             } else {
                 this.birthdate_day = birthdate_day;
+                try {
+                    DataBaseLayer.dataBaseLayer();
+                    Statement myStatement = DataBaseLayer.myConnection.createStatement();
+                    myStatement.executeQuery("IF ( '" + this.citizenId + "' =(SELECT citizenId FROM persons WHERE citizenId = '" + this.citizenId + "') )\n" +
+                            "    UPDATE HospitalManagementSystemStock.dbo.persons SET  birthdate_day = '" + this.birthdate_day + "' WHERE citizenId= '" + this.citizenId + "'\n");
+
+                } catch (Exception e) {
+                    System.out.println(e);
+                }
             }
         } catch (Exception e) {
             System.out.println("Please enter just digit!");
@@ -177,11 +207,41 @@ public class Person {
             } else if (birthdate_month < 0) {
                 Toolkit.getDefaultToolkit().beep();
                 this.birthdate_month = 1;
+                try {
+                    DataBaseLayer.dataBaseLayer();
+                    Statement myStatement = DataBaseLayer.myConnection.createStatement();
+                    myStatement.executeQuery("IF ( '" + this.citizenId + "' =(SELECT citizenId FROM persons WHERE citizenId = '" + this.citizenId + "') )\n" +
+                            "    UPDATE HospitalManagementSystemStock.dbo.persons SET  birthdate_month = '" + this.birthdate_month + "' WHERE citizenId= '" + this.citizenId + "'\n");
+
+                } catch (Exception e) {
+                    System.out.println(e);
+                }
+
             } else if (birthdate_month >= 12) {
                 Toolkit.getDefaultToolkit().beep();
                 this.birthdate_month = 12;
+                try {
+                    DataBaseLayer.dataBaseLayer();
+                    Statement myStatement = DataBaseLayer.myConnection.createStatement();
+                    myStatement.executeQuery("IF ( '" + this.citizenId + "' =(SELECT citizenId FROM persons WHERE citizenId = '" + this.citizenId + "') )\n" +
+                            "    UPDATE HospitalManagementSystemStock.dbo.persons SET  birthdate_month = '" + this.birthdate_month + "' WHERE citizenId= '" + this.citizenId + "'\n");
+
+                } catch (Exception e) {
+                    System.out.println(e);
+                }
+
             } else {
                 this.birthdate_month = birthdate_month;
+                try {
+                    DataBaseLayer.dataBaseLayer();
+                    Statement myStatement = DataBaseLayer.myConnection.createStatement();
+                    myStatement.executeQuery("IF ( '" + this.citizenId + "' =(SELECT citizenId FROM persons WHERE citizenId = '" + this.citizenId + "') )\n" +
+                            "    UPDATE HospitalManagementSystemStock.dbo.persons SET  birthdate_month = '" + this.birthdate_month + "' WHERE citizenId= '" + this.citizenId + "'\n");
+
+                } catch (Exception e) {
+                    System.out.println(e);
+                }
+
             }
         } catch (Exception e) {
             System.out.println("Please enter just digit!");
@@ -206,11 +266,40 @@ public class Person {
             } else if (birthdate_year < 1900) {
                 Toolkit.getDefaultToolkit().beep();
                 this.birthdate_year = 1900;
+                try {
+                    DataBaseLayer.dataBaseLayer();
+                    Statement myStatement = DataBaseLayer.myConnection.createStatement();
+                    myStatement.executeQuery("IF ( '" + this.citizenId + "' =(SELECT citizenId FROM persons WHERE citizenId = '" + this.citizenId + "') )\n" +
+                            "    UPDATE HospitalManagementSystemStock.dbo.persons SET  birthdate_year = '" + this.birthdate_year + "' WHERE citizenId= '" + this.citizenId + "'\n");
+
+                } catch (Exception e) {
+                    System.out.println(e);
+                }
+
             } else if (birthdate_year >= Year.now().getValue()) {
                 Toolkit.getDefaultToolkit().beep();
                 this.birthdate_year = Year.now().getValue();
+                try {
+                    DataBaseLayer.dataBaseLayer();
+                    Statement myStatement = DataBaseLayer.myConnection.createStatement();
+                    myStatement.executeQuery("IF ( '" + this.citizenId + "' =(SELECT citizenId FROM persons WHERE citizenId = '" + this.citizenId + "') )\n" +
+                            "    UPDATE HospitalManagementSystemStock.dbo.persons SET  birthdate_year = '" + this.birthdate_year + "' WHERE citizenId= '" + this.citizenId + "'\n");
+
+                } catch (Exception e) {
+                    System.out.println(e);
+                }
+
             } else {
                 this.birthdate_year = birthdate_year;
+                try {
+                    DataBaseLayer.dataBaseLayer();
+                    Statement myStatement = DataBaseLayer.myConnection.createStatement();
+                    myStatement.executeQuery("IF ( '" + this.citizenId + "' =(SELECT citizenId FROM persons WHERE citizenId = '" + this.citizenId + "') )\n" +
+                            "    UPDATE HospitalManagementSystemStock.dbo.persons SET  birthdate_year = '" + this.birthdate_year + "' WHERE citizenId= '" + this.citizenId + "'\n");
+
+                } catch (Exception e) {
+                    System.out.println(e);
+                }
             }
         } catch (Exception e) {
             System.out.println("Please enter just digit!");
@@ -228,35 +317,109 @@ public class Person {
         bloodGroup = keyboard.nextLine();
         bloodGroup = bloodGroup.toLowerCase().replace(" ", "");
 
+
         if (bloodGroup.equals("arh+")) {
             bloodGroup = "A Rh+";
             this.bloodGroup = bloodGroup;
+            try {
+                DataBaseLayer.dataBaseLayer();
+                Statement myStatement = DataBaseLayer.myConnection.createStatement();
+                myStatement.executeQuery("IF ( '" + this.citizenId + "' =(SELECT citizenId FROM persons WHERE citizenId = '" + this.citizenId + "') )\n" +
+                        "    UPDATE HospitalManagementSystemStock.dbo.persons SET  bloodGroup = '" + bloodGroup + "' WHERE citizenId= '" + this.citizenId + "'\n");
+
+            } catch (Exception e) {
+                System.out.println(e);
+            }
         } else if (bloodGroup.equals("arh-")) {
             bloodGroup = "A Rh-";
             this.bloodGroup = bloodGroup;
+            try {
+                DataBaseLayer.dataBaseLayer();
+                Statement myStatement = DataBaseLayer.myConnection.createStatement();
+                myStatement.executeQuery("IF ( '" + this.citizenId + "' =(SELECT citizenId FROM persons WHERE citizenId = '" + this.citizenId + "') )\n" +
+                        "    UPDATE HospitalManagementSystemStock.dbo.persons SET  bloodGroup = '" + this.bloodGroup + "' WHERE citizenId= '" + this.citizenId + "'\n");
+
+            } catch (Exception e) {
+                System.out.println(e);
+            }
         } else if (bloodGroup.equals("brh+")) {
             bloodGroup = "B Rh+";
             this.bloodGroup = bloodGroup;
+            try {
+                DataBaseLayer.dataBaseLayer();
+                Statement myStatement = DataBaseLayer.myConnection.createStatement();
+                myStatement.executeQuery("IF ( '" + this.citizenId + "' =(SELECT citizenId FROM persons WHERE citizenId = '" + this.citizenId + "') )\n" +
+                        "    UPDATE HospitalManagementSystemStock.dbo.persons SET  bloodGroup = '" + this.bloodGroup + "' WHERE citizenId= '" + this.citizenId + "'\n");
+
+            } catch (Exception e) {
+                System.out.println(e);
+            }
         } else if (bloodGroup.equals("brh-")) {
             bloodGroup = "B Rh-";
             this.bloodGroup = bloodGroup;
+            try {
+                DataBaseLayer.dataBaseLayer();
+                Statement myStatement = DataBaseLayer.myConnection.createStatement();
+                myStatement.executeQuery("IF ( '" + this.citizenId + "' =(SELECT citizenId FROM persons WHERE citizenId = '" + this.citizenId + "') )\n" +
+                        "    UPDATE HospitalManagementSystemStock.dbo.persons SET  bloodGroup = '" + this.bloodGroup + "' WHERE citizenId= '" + this.citizenId + "'\n");
+
+            } catch (Exception e) {
+                System.out.println(e);
+            }
         } else if (bloodGroup.equals("abrh+")) {
             bloodGroup = "AB Rh+";
             this.bloodGroup = bloodGroup;
+            try {
+                DataBaseLayer.dataBaseLayer();
+                Statement myStatement = DataBaseLayer.myConnection.createStatement();
+                myStatement.executeQuery("IF ( '" + this.citizenId + "' =(SELECT citizenId FROM persons WHERE citizenId = '" + this.citizenId + "') )\n" +
+                        "    UPDATE HospitalManagementSystemStock.dbo.persons SET  bloodGroup = '" + this.bloodGroup + "' WHERE citizenId= '" + this.citizenId + "'\n");
+
+            } catch (Exception e) {
+                System.out.println(e);
+            }
         } else if (bloodGroup.equals("abrh-")) {
             bloodGroup = "AB Rh-";
             this.bloodGroup = bloodGroup;
+            try {
+                DataBaseLayer.dataBaseLayer();
+                Statement myStatement = DataBaseLayer.myConnection.createStatement();
+                myStatement.executeQuery("IF ( '" + this.citizenId + "' =(SELECT citizenId FROM persons WHERE citizenId = '" + this.citizenId + "') )\n" +
+                        "    UPDATE HospitalManagementSystemStock.dbo.persons SET  bloodGroup = '" + this.bloodGroup + "' WHERE citizenId= '" + this.citizenId + "'\n");
+
+            } catch (Exception e) {
+                System.out.println(e);
+            }
         } else if (bloodGroup.equals("0rh+")) {
             bloodGroup = "0 Rh+";
             this.bloodGroup = bloodGroup;
+            try {
+                DataBaseLayer.dataBaseLayer();
+                Statement myStatement = DataBaseLayer.myConnection.createStatement();
+                myStatement.executeQuery("IF ( '" + this.citizenId + "' =(SELECT citizenId FROM persons WHERE citizenId = '" + this.citizenId + "') )\n" +
+                        "    UPDATE HospitalManagementSystemStock.dbo.persons SET  bloodGroup = '" + this.bloodGroup + "' WHERE citizenId= '" + this.citizenId + "'\n");
+
+            } catch (Exception e) {
+                System.out.println(e);
+            }
         } else if (bloodGroup.equals("0rh-")) {
             bloodGroup = "0 Rh-";
             this.bloodGroup = bloodGroup;
+            try {
+                DataBaseLayer.dataBaseLayer();
+                Statement myStatement = DataBaseLayer.myConnection.createStatement();
+                myStatement.executeQuery("IF ( '" + this.citizenId + "' =(SELECT citizenId FROM persons WHERE citizenId = '" + this.citizenId + "') )\n" +
+                        "    UPDATE HospitalManagementSystemStock.dbo.persons SET  bloodGroup = '" + this.bloodGroup + "' WHERE citizenId= '" + this.citizenId + "'\n");
+
+            } catch (Exception e) {
+                System.out.println(e);
+            }
         } else {
             System.out.println("Please enter your true blood group!");
             Toolkit.getDefaultToolkit().beep();
             setBloodGroup("");
         }
+        //TODO add connection query for SQL
 
     }
 
@@ -275,7 +438,17 @@ public class Person {
             setAddress("");
         } else {
             this.address = address;
+            try {
+                DataBaseLayer.dataBaseLayer();
+                Statement myStatement = DataBaseLayer.myConnection.createStatement();
+                myStatement.executeQuery("IF ( '" + this.citizenId + "' =(SELECT citizenId FROM persons WHERE citizenId = '" + this.citizenId + "') )\n" +
+                        "    UPDATE HospitalManagementSystemStock.dbo.persons SET  address = '" + this.address + "' WHERE citizenId= '" + this.citizenId + "'\n");
+
+            } catch (Exception e) {
+                System.out.println(e);
+            }
         }
+
 
     }
 
@@ -298,6 +471,15 @@ public class Person {
             setPhoneNumber("");
         } else {
             this.phoneNumber = PHONE_CODE + phoneNumber;
+            try {
+                DataBaseLayer.dataBaseLayer();
+                Statement myStatement = DataBaseLayer.myConnection.createStatement();
+                myStatement.executeQuery("IF ( '" + this.citizenId + "' =(SELECT citizenId FROM persons WHERE citizenId = '" + this.citizenId + "') )\n" +
+                        "    UPDATE HospitalManagementSystemStock.dbo.persons SET  phoneNumber = '" + this.phoneNumber + "' WHERE citizenId= '" + this.citizenId + "'\n");
+
+            } catch (Exception e) {
+                System.out.println(e);
+            }
         }
     }
 
@@ -319,6 +501,15 @@ public class Person {
             setEmail("");
         } else {
             this.Email = Email;
+            try {
+                DataBaseLayer.dataBaseLayer();
+                Statement myStatement = DataBaseLayer.myConnection.createStatement();
+                myStatement.executeQuery("IF ( '" + this.citizenId + "' =(SELECT citizenId FROM persons WHERE citizenId = '" + this.citizenId + "') )\n" +
+                        "    UPDATE HospitalManagementSystemStock.dbo.persons SET  Email = '" + this.Email + "' WHERE citizenId= '" + this.citizenId + "'\n");
+
+            } catch (Exception e) {
+                System.out.println(e);
+            }
         }
     }
 
