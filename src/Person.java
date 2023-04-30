@@ -8,7 +8,7 @@ import java.time.format.FormatStyle;
 import java.time.temporal.ChronoUnit;
 import java.util.Scanner;
 
-public class Person {
+public class Person { //TODO person object change and test
     static Person person = new Person("01234567891", "Ethem", "MERC", 1, 1,
             2000, "AB rh -", "University", "5421234567", "mercethem@gmail.com");
     final private int CITIZEN_ID_DIGIT = 11;
