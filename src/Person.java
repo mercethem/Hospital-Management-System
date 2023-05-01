@@ -9,8 +9,7 @@ import java.time.temporal.ChronoUnit;
 import java.util.Scanner;
 
 public class Person { //TODO person object change and test
-    static Person person = new Person("01234567891", "Ethem", "MERC", 1, 1,
-            2000, "AB rh -", "University", "5421234567", "mercethem@gmail.com");
+
     final private int CITIZEN_ID_DIGIT = 11;
     final private int PHONE_NUMBER_DIGIT = 10;
     final private String PHONE_CODE = "0090";
@@ -538,7 +537,7 @@ public class Person { //TODO person object change and test
     }
 
     public String toString() {
-        person.person_db();
+//        person_db();
         return "\nID INFORMATION" + "\n--------------------------------------------\n" +
                 "Citizen ID : " + getCitizenId() + "\nName : " + getName() + "\nSurname : " + getSurname() + "\nBirthdate : " +
                 getBirthdate_day() + "/" + getBirthdate_month() + "/" + getBirthdate_year() + "\nAge : " + age() +
@@ -550,6 +549,13 @@ public class Person { //TODO person object change and test
     public void person_db() {
         System.out.println("Please enter a citizen number : ");
         citizenId = keyboard.nextLine();
+        if (citizenId.matches("[0-9]*") && citizenId.length() == CITIZEN_ID_DIGIT) {
+            this.citizenId = citizenId;
+        } else {
+            System.out.println("Please just use numeric and" + CITIZEN_ID_DIGIT + " digit !");
+            Toolkit.getDefaultToolkit().beep();
+            person_db();
+        }
         try {
             DataBaseLayer.dataBaseLayer();
             Statement myStatement = DataBaseLayer.myConnection.createStatement();
