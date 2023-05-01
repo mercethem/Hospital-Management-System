@@ -31,7 +31,7 @@ public class Employee extends Person { //TODO employee object change and test
 
     public void setEmployeeId(String employeeId) {
         try {
-            System.out.println("Please enter citizen ID : ");
+            System.out.println("Please enter Employee ID : ");
             employeeId = keyboard.nextLine();
 
             if (employeeId.matches("[0-9]*") && employeeId.length() == EMPLOYEE_ID_DIGIT) {
