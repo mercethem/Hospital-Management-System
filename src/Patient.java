@@ -9,9 +9,7 @@ import java.time.temporal.ChronoUnit;
 import java.util.Scanner;
 
 public class Patient extends Person { //TODO patient object change and test
-    static Patient patient = new Patient("Neurosurgery",
-            10, 10, 2021,
-            10, 11, 2021);
+    static Patient patient = new Patient();
     Scanner keyboard = new Scanner(System.in);
     private String department;
     private int dateOfHospitalized_day;
@@ -382,7 +380,7 @@ public class Patient extends Person { //TODO patient object change and test
     public String toString() {
         super.person_db();
         patient_db();
-        return super.person.toString() + "\nPATIENT INFORMATION" + "\n--------------------------------------------\n"
+        return super.toString() + "\nPATIENT INFORMATION" + "\n--------------------------------------------\n"
                 + "Department : " + getDepartment() + "\nDate of Hospitalized : " + getDateOfHospitalized_day() + "/" +
                 getDateOfHospitalized_month() + "/" + getDateOfHospitalized_year() +
                 "\nDate of Leave : " + getDateOfLeave_day() + "/" + getDateOfLeave_month() + "/" + getDateOfLeave_year()
