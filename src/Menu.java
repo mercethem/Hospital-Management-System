@@ -2,15 +2,11 @@ import java.awt.*;
 import java.util.Scanner;
 
 public class Menu {
-    static Person person = new Person("01234567891", "Ethem", "MERC", 1, 1,
-            2000, "AB rh -", "University", "5421234567", "mercethem@gmail.com");
+    static Person person = new Person();
 
-    static Employee employee = new Employee("012345678", "Software Engineering",
-            1, 1, 2022, 1, 1, 2023);
+    static Employee employee = new Employee();
 
-    static Patient patient = new Patient("Neurosurgery",
-            10, 10, 2021,
-            10, 11, 2021);
+    static Patient patient = new Patient();
 
     public static void options() {
         System.out.println("Please choose what do you want ?");
