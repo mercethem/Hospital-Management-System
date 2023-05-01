@@ -10,8 +10,7 @@ import java.util.Scanner;
 
 
 public class Employee extends Person { //TODO employee object change and test
-    static Employee employee = new Employee("012345678", "Software Engineering",
-            1, 1, 2022, 1, 1, 2023);
+
 
     Scanner keyboard = new Scanner(System.in);
     final private int EMPLOYEE_ID_DIGIT = 9;
@@ -452,7 +451,7 @@ public class Employee extends Person { //TODO employee object change and test
     public String toString() {
         super.person_db();
         employee_db();
-        return super.person.toString() + "\nEMPLOYEE INFORMATION" + "\n--------------------------------------------\n"
+        return super.toString() + "\nEMPLOYEE INFORMATION" + "\n--------------------------------------------\n"
                 + "Employee ID : " + getEmployeeId() + "\nDepartment : " + getDepartment() +
                 "\nDate of Start : " + getDateOfStart_day() + "/" + getDateOfStart_month() + "/" + getDateOfStart_year() +
                 "\nDate of Dismiss : " + getDateOfDismiss_day() + "/" + getDateOfDismiss_month() + "/" + getDateOfDismiss_year()
