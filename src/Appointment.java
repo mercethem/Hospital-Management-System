@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.sql.ResultSet;
 import java.sql.Statement;
 import java.time.Year;
 import java.util.Scanner;
@@ -217,7 +218,7 @@ public class Appointment extends Person  {
         }
     }
 
-    public int getBirthdate_day() {
+    public int getAppointment_day() {
         return appointment_day;
     }
 
@@ -337,4 +338,100 @@ public class Appointment extends Person  {
     public int getAppointment_year() {
         return appointment_year;
     }
+    public Appointment() {
+    }
+
+    public Appointment(String appointmentId, String doctor_name, String doctor_surname, String department,
+                       int appointment_day, int appointment_month, int appointment_year) {
+
+        this.appointmentId = appointmentId;
+        this.doctor_name = doctor_name;
+        this.doctor_surname = doctor_surname;
+        this.department = department;
+        this.appointment_day =appointment_day ;
+        this.appointment_month = appointment_month;
+        this.appointment_year = appointment_year;
+    }
+
+    public String toString() {
+        super.person_db();
+        appointment_db();
+        return super.toString() + "\nAPPOINTMENT INFORMATION" + "\n--------------------------------------------\n"
+                + "Appointment ID : " + getAppointmentId() + "\nDoctor Name : " + getDoctor_name() +
+                "\nDoctor Surname : " + getSurname() + "\nDepartment : " + getDepartment() +
+                "\nAppointment Date : " + getAppointment_day() + "/" + getAppointment_month() + "/" + getAppointment_year()
+                + "\n--------------------------------------------\n";
+    }
+
+    public void appointment_db() {
+        String citizenId = getCitizenId();
+
+        try {
+            DataBaseLayer.dataBaseLayer();
+            Statement myStatement = DataBaseLayer.myConnection.createStatement();
+            ResultSet myResult = myStatement.executeQuery("SELECT * FROM HospitalManagementSystemStock.dbo.appointments WHERE appointments.citizenId = '" + citizenId + "'");
+            while (myResult.next()) {
+                this.appointmentId = myResult.getString("appointmentId");
+                this.doctor_name = myResult.getString("doctorName");
+                this.doctor_surname = myResult.getString("doctorSurname");
+                this.appointment_day = myResult.getInt("appointment_day");
+                this.appointment_month = myResult.getInt("appointment_month");
+                this.appointment_year = myResult.getInt("appointment_year");
+            }
+            myStatement.close(); // close statement
+            DataBaseLayer.myConnection.close(); // close connection
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
+    public void addAppointment() {
+        super.addPerson();
+        setAppointmentId("Unknown");
+        setDepartment("Unknown");
+        setDepartment("Unknown");
+        setAppointment_day(1);
+        setAppointment_month(1);
+        setAppointment_year(1);
+    }
+    public void viewAppointment() {
+        System.out.println(toString());
+    }
+
+    public void changeAppointmentId() {
+        setAppointmentId("Unknown");
+        System.out.println("New Appointment ID is " + getAppointmentId());
+    }
+    public void changeDoctorName() {
+        setDoctor_name("Unknown");
+        System.out.println("New NAME is " + getDoctor_name());
+    }
+
+    public void changeDoctorSurname() {
+        setDoctor_surname("Unknown");
+        System.out.println("New SURNAME is " + getDoctor_surname());
+    }
+
+    public void changeDepartment() {
+        setDepartment("Unknown");
+        System.out.println("New Department is " + getDepartment());
+    }
+
+
+    public void changeAppointment_day() {
+        setAppointment_day(0);
+        System.out.println("New DAY is " + getAppointment_day());
+    }
+
+    public void changeAppointment_month() {
+        setAppointment_month(0);
+        System.out.println("New MONTH is " + getAppointment_month());
+    }
+
+    public void changeAppointment_year() {
+        setAppointment_year(0);
+        System.out.println("New YEAR is " + getAppointment_year());
+    }
+
+
 }
