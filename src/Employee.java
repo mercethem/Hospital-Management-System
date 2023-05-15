@@ -39,7 +39,7 @@ public class Employee extends Person { //TODO employee object change and test
                     DataBaseLayer.dataBaseLayer();
                     Statement myStatement = DataBaseLayer.myConnection.createStatement();
                     myStatement.executeQuery("IF ( '" + super.getCitizenId() + "' =(SELECT citizenId FROM employees WHERE citizenId = '" + super.getCitizenId() + "') )\n" +
-                            "    UPDATE HospitalManagementSystemStock.dbo.employees SET  employeeId = '" + this.employeeId + "' WHERE citizenId= '" + super.getCitizenId() + "'\n");
+                            "    UPDATE HospitalManagementSystemStock.dbo.employees SET  employeeId = '" + this.employeeId + "' WHERE citizenId = '" + super.getCitizenId() + "'\n");
 
                 } catch (Exception e) {
                     System.out.println(e);
