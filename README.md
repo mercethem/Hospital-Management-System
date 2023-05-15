@@ -5,6 +5,6 @@ Viewing, creating, changing functions have it. This options work with SQL(Micros
 
 The presentations are as shown below
 
-![ Alt text](class_uml.png)  [](class_uml.png)
+![ Alt text](class.png)  [](class.png)
 
-![ Alt text](database_diagram.png)  [](database_diagram.png)
+![ Alt text](database.png)  [](database.png)
