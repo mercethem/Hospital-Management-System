@@ -1,7 +1,7 @@
 import java.awt.*;
 import java.util.Scanner;
 
-public class Menu {
+public abstract class Menu {
     static Person person = new Person();
 
     static Employee employee = new Employee();
