@@ -482,7 +482,6 @@ public class Employee extends Person { //TODO employee object change and test
             System.out.println(e);
         }
     }
-
     public long workInterval() {
 
         LocalDate hospitalizedDate = LocalDate.of(getDateOfStart_year(), getDateOfStart_month(), getDateOfStart_day());
