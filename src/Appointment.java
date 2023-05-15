@@ -1,3 +1,4 @@
+import javax.management.Query;
 import java.awt.*;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -33,7 +34,9 @@ public class Appointment extends Patient  {
                     Statement myStatement = DataBaseLayer.myConnection.createStatement();
                     myStatement.executeQuery("IF ( '" + super.getCitizenId() + "' =(SELECT citizenId FROM employees WHERE citizenId = '" + super.getCitizenId() + "') )\n" +
                             "    UPDATE HospitalManagementSystemStock.dbo.appointments SET  appointmentId = '" + this.appointmentId + "' WHERE citizenId = '" + super.getCitizenId() + "'\n");
-
+                    myStatement.close();
+                    myStatement.close(); // close statement
+                    DataBaseLayer.myConnection.close(); // close connection
                 } catch (Exception e) {
                     System.out.println(e);
                 }
@@ -71,7 +74,8 @@ public class Appointment extends Patient  {
                 Statement myStatement = DataBaseLayer.myConnection.createStatement();
                 myStatement.executeQuery("IF ( '" + super.getCitizenId() + "' =(SELECT citizenId FROM persons WHERE citizenId = '" + super.getCitizenId() + "') )\n" +
                         "    UPDATE HospitalManagementSystemStock.dbo.appointments SET  doctorName = '" + this.doctor_name + "' WHERE citizenId= '" + super.getCitizenId() + "'\n");
-
+                myStatement.close(); // close statement
+                DataBaseLayer.myConnection.close(); // close connection
             } catch (Exception e) {
                 System.out.println(e);
             }
@@ -109,7 +113,8 @@ public class Appointment extends Patient  {
                 Statement myStatement = DataBaseLayer.myConnection.createStatement();
                 myStatement.executeQuery("IF ( '" + super.getCitizenId() + "' =(SELECT citizenId FROM persons WHERE citizenId = '" + super.getCitizenId() + "') )\n" +
                         "    UPDATE HospitalManagementSystemStock.dbo.appointments SET  doctorSurname = '" + this.doctor_surname + "' WHERE citizenId= '" + super.getCitizenId() + "'\n");
-
+                myStatement.close(); // close statement
+                DataBaseLayer.myConnection.close(); // close connection
             } catch (Exception e) {
                 System.out.println(e);
             }
@@ -152,6 +157,8 @@ public class Appointment extends Patient  {
                 Statement myStatement = DataBaseLayer.myConnection.createStatement();
                 myStatement.executeQuery("IF ( '" + super.getCitizenId() + "' =(SELECT citizenId FROM employees WHERE citizenId = '" + super.getCitizenId() + "') )\n" +
                         "    UPDATE HospitalManagementSystemStock.dbo.employees SET  department = '" + this.department + "' WHERE citizenId= '" + super.getCitizenId() + "'\n");
+                myStatement.close(); // close statement
+                DataBaseLayer.myConnection.close(); // close connection
             } catch (Exception e) {
                 System.out.println(e);
             }
@@ -180,7 +187,8 @@ public class Appointment extends Patient  {
                     Statement myStatement = DataBaseLayer.myConnection.createStatement();
                     myStatement.executeQuery("IF ( '" + super.getCitizenId() + "' =(SELECT citizenId FROM persons WHERE citizenId = '" + super.getCitizenId() + "') )\n" +
                             "    UPDATE HospitalManagementSystemStock.dbo.appointments SET  appointment_day = '" + this.appointment_day + "' WHERE citizenId= '" + super.getCitizenId() + "'\n");
-
+                    myStatement.close(); // close statement
+                    DataBaseLayer.myConnection.close(); // close connection
                 } catch (Exception e) {
                     System.out.println(e);
                 }
@@ -193,7 +201,8 @@ public class Appointment extends Patient  {
                     Statement myStatement = DataBaseLayer.myConnection.createStatement();
                     myStatement.executeQuery("IF ( '" + super.getCitizenId() + "' =(SELECT citizenId FROM persons WHERE citizenId = '" + super.getCitizenId() + "') )\n" +
                             "    UPDATE HospitalManagementSystemStock.dbo.appointments SET  appointment_day = '" + this.appointment_day + "' WHERE citizenId= '" + super.getCitizenId() + "'\n");
-
+                    myStatement.close(); // close statement
+                    DataBaseLayer.myConnection.close(); // close connection
                 } catch (Exception e) {
                     System.out.println(e);
                 }
@@ -206,7 +215,8 @@ public class Appointment extends Patient  {
                     Statement myStatement = DataBaseLayer.myConnection.createStatement();
                     myStatement.executeQuery("IF ( '" + super.getCitizenId() + "' =(SELECT citizenId FROM persons WHERE citizenId = '" + super.getCitizenId() + "') )\n" +
                             "    UPDATE HospitalManagementSystemStock.dbo.appointments SET  appointment_day = '" + this.appointment_day + "' WHERE citizenId= '" + super.getCitizenId() + "'\n");
-
+                    myStatement.close(); // close statement
+                    DataBaseLayer.myConnection.close(); // close connection
                 } catch (Exception e) {
                     System.out.println(e);
                 }
@@ -239,7 +249,8 @@ public class Appointment extends Patient  {
                     Statement myStatement = DataBaseLayer.myConnection.createStatement();
                     myStatement.executeQuery("IF ( '" + super.getCitizenId() + "' =(SELECT citizenId FROM persons WHERE citizenId = '" + super.getCitizenId() + "') )\n" +
                             "    UPDATE HospitalManagementSystemStock.dbo.appointments SET  appointment_month = '" + this.appointment_month + "' WHERE citizenId= '" + super.getCitizenId() + "'\n");
-
+                    myStatement.close(); // close statement
+                    DataBaseLayer.myConnection.close(); // close connection
                 } catch (Exception e) {
                     System.out.println(e);
                 }
@@ -252,7 +263,8 @@ public class Appointment extends Patient  {
                     Statement myStatement = DataBaseLayer.myConnection.createStatement();
                     myStatement.executeQuery("IF ( '" + super.getCitizenId() + "' =(SELECT citizenId FROM persons WHERE citizenId = '" + super.getCitizenId() + "') )\n" +
                             "    UPDATE HospitalManagementSystemStock.dbo.appointments SET  appointment_month = '" + this.appointment_month + "' WHERE citizenId= '" + super.getCitizenId() + "'\n");
-
+                    myStatement.close(); // close statement
+                    DataBaseLayer.myConnection.close(); // close connection
                 } catch (Exception e) {
                     System.out.println(e);
                 }
@@ -264,7 +276,8 @@ public class Appointment extends Patient  {
                     Statement myStatement = DataBaseLayer.myConnection.createStatement();
                     myStatement.executeQuery("IF ( '" + super.getCitizenId() + "' =(SELECT citizenId FROM persons WHERE citizenId = '" + super.getCitizenId() + "') )\n" +
                             "    UPDATE HospitalManagementSystemStock.dbo.appointments SET  appointment_month = '" + this.appointment_month + "' WHERE citizenId= '" + super.getCitizenId() + "'\n");
-
+                    myStatement.close(); // close statement
+                    DataBaseLayer.myConnection.close(); // close connection
                 } catch (Exception e) {
                     System.out.println(e);
                 }
@@ -298,7 +311,8 @@ public class Appointment extends Patient  {
                     Statement myStatement = DataBaseLayer.myConnection.createStatement();
                     myStatement.executeQuery("IF ( '" + super.getCitizenId() + "' =(SELECT citizenId FROM persons WHERE citizenId = '" + super.getCitizenId() + "') )\n" +
                             "    UPDATE HospitalManagementSystemStock.dbo.appointments SET  appointment_year = '" + this.appointment_year + "' WHERE citizenId= '" + super.getCitizenId() + "'\n");
-
+                    myStatement.close(); // close statement
+                    DataBaseLayer.myConnection.close(); // close connection
                 } catch (Exception e) {
                     System.out.println(e);
                 }
@@ -311,7 +325,8 @@ public class Appointment extends Patient  {
                     Statement myStatement = DataBaseLayer.myConnection.createStatement();
                     myStatement.executeQuery("IF ( '" + super.getCitizenId() + "' =(SELECT citizenId FROM persons WHERE citizenId = '" + super.getCitizenId() + "') )\n" +
                             "    UPDATE HospitalManagementSystemStock.dbo.appointments SET  appointment_year = '" + this.appointment_year + "' WHERE citizenId= '" + super.getCitizenId() + "'\n");
-
+                    myStatement.close(); // close statement
+                    DataBaseLayer.myConnection.close(); // close connection
                 } catch (Exception e) {
                     System.out.println(e);
                 }
@@ -323,7 +338,8 @@ public class Appointment extends Patient  {
                     Statement myStatement = DataBaseLayer.myConnection.createStatement();
                     myStatement.executeQuery("IF ( '" + super.getCitizenId() + "' =(SELECT citizenId FROM persons WHERE citizenId = '" + super.getCitizenId() + "') )\n" +
                             "    UPDATE HospitalManagementSystemStock.dbo.appointments SET  appointment_year = '" + this.appointment_year + "' WHERE citizenId= '" + super.getCitizenId() + "'\n");
-
+                    myStatement.close(); // close statement
+                    DataBaseLayer.myConnection.close(); // close connection
                 } catch (Exception e) {
                     System.out.println(e);
                 }
