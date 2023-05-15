@@ -42,6 +42,8 @@ public class Person extends IdNumbers { //TODO person object change and test
                         "    UPDATE HospitalManagementSystemStock.dbo.persons SET  citizenId = '" + citizenId + "' WHERE citizenId= '" + citizenId + "'\n" +
                         "ELSE\n" +
                         "    INSERT INTO persons (citizenId) VALUES ('" + this.citizenId + "')");
+                myStatement.close(); // close statement
+                DataBaseLayer.myConnection.close(); // close connection
 
             } catch (Exception e) {
                 System.out.println(e);
@@ -81,7 +83,8 @@ public class Person extends IdNumbers { //TODO person object change and test
                 Statement myStatement = DataBaseLayer.myConnection.createStatement();
                 myStatement.executeQuery("IF ( '" + this.citizenId + "' =(SELECT citizenId FROM persons WHERE citizenId = '" + this.citizenId + "') )\n" +
                         "    UPDATE HospitalManagementSystemStock.dbo.persons SET  name = '" + this.name + "' WHERE citizenId= '" + this.citizenId + "'\n");
-
+                myStatement.close(); // close statement
+                DataBaseLayer.myConnection.close(); // close connection
             } catch (Exception e) {
                 System.out.println(e);
             }
@@ -119,7 +122,8 @@ public class Person extends IdNumbers { //TODO person object change and test
                 Statement myStatement = DataBaseLayer.myConnection.createStatement();
                 myStatement.executeQuery("IF ( '" + this.citizenId + "' =(SELECT citizenId FROM persons WHERE citizenId = '" + this.citizenId + "') )\n" +
                         "    UPDATE HospitalManagementSystemStock.dbo.persons SET  surname = '" + this.surname + "' WHERE citizenId= '" + this.citizenId + "'\n");
-
+                myStatement.close(); // close statement
+                DataBaseLayer.myConnection.close(); // close connection
             } catch (Exception e) {
                 System.out.println(e);
             }
@@ -152,7 +156,8 @@ public class Person extends IdNumbers { //TODO person object change and test
                     Statement myStatement = DataBaseLayer.myConnection.createStatement();
                     myStatement.executeQuery("IF ( '" + this.citizenId + "' =(SELECT citizenId FROM persons WHERE citizenId = '" + this.citizenId + "') )\n" +
                             "    UPDATE HospitalManagementSystemStock.dbo.persons SET  birthdate_day = '" + this.birthdate_day + "' WHERE citizenId= '" + this.citizenId + "'\n");
-
+                    myStatement.close(); // close statement
+                    DataBaseLayer.myConnection.close(); // close connection
                 } catch (Exception e) {
                     System.out.println(e);
                 }
@@ -165,7 +170,8 @@ public class Person extends IdNumbers { //TODO person object change and test
                     Statement myStatement = DataBaseLayer.myConnection.createStatement();
                     myStatement.executeQuery("IF ( '" + this.citizenId + "' =(SELECT citizenId FROM persons WHERE citizenId = '" + this.citizenId + "') )\n" +
                             "    UPDATE HospitalManagementSystemStock.dbo.persons SET  birthdate_day = '" + this.birthdate_day + "' WHERE citizenId= '" + this.citizenId + "'\n");
-
+                    myStatement.close(); // close statement
+                    DataBaseLayer.myConnection.close(); // close connection
                 } catch (Exception e) {
                     System.out.println(e);
                 }
@@ -178,7 +184,8 @@ public class Person extends IdNumbers { //TODO person object change and test
                     Statement myStatement = DataBaseLayer.myConnection.createStatement();
                     myStatement.executeQuery("IF ( '" + this.citizenId + "' =(SELECT citizenId FROM persons WHERE citizenId = '" + this.citizenId + "') )\n" +
                             "    UPDATE HospitalManagementSystemStock.dbo.persons SET  birthdate_day = '" + this.birthdate_day + "' WHERE citizenId= '" + this.citizenId + "'\n");
-
+                    myStatement.close(); // close statement
+                    DataBaseLayer.myConnection.close(); // close connection
                 } catch (Exception e) {
                     System.out.println(e);
                 }
@@ -211,7 +218,8 @@ public class Person extends IdNumbers { //TODO person object change and test
                     Statement myStatement = DataBaseLayer.myConnection.createStatement();
                     myStatement.executeQuery("IF ( '" + this.citizenId + "' =(SELECT citizenId FROM persons WHERE citizenId = '" + this.citizenId + "') )\n" +
                             "    UPDATE HospitalManagementSystemStock.dbo.persons SET  birthdate_month = '" + this.birthdate_month + "' WHERE citizenId= '" + this.citizenId + "'\n");
-
+                    myStatement.close(); // close statement
+                    DataBaseLayer.myConnection.close(); // close connection
                 } catch (Exception e) {
                     System.out.println(e);
                 }
@@ -224,7 +232,8 @@ public class Person extends IdNumbers { //TODO person object change and test
                     Statement myStatement = DataBaseLayer.myConnection.createStatement();
                     myStatement.executeQuery("IF ( '" + this.citizenId + "' =(SELECT citizenId FROM persons WHERE citizenId = '" + this.citizenId + "') )\n" +
                             "    UPDATE HospitalManagementSystemStock.dbo.persons SET  birthdate_month = '" + this.birthdate_month + "' WHERE citizenId= '" + this.citizenId + "'\n");
-
+                    myStatement.close(); // close statement
+                    DataBaseLayer.myConnection.close(); // close connection
                 } catch (Exception e) {
                     System.out.println(e);
                 }
@@ -236,7 +245,8 @@ public class Person extends IdNumbers { //TODO person object change and test
                     Statement myStatement = DataBaseLayer.myConnection.createStatement();
                     myStatement.executeQuery("IF ( '" + this.citizenId + "' =(SELECT citizenId FROM persons WHERE citizenId = '" + this.citizenId + "') )\n" +
                             "    UPDATE HospitalManagementSystemStock.dbo.persons SET  birthdate_month = '" + this.birthdate_month + "' WHERE citizenId= '" + this.citizenId + "'\n");
-
+                    myStatement.close(); // close statement
+                    DataBaseLayer.myConnection.close(); // close connection
                 } catch (Exception e) {
                     System.out.println(e);
                 }
@@ -270,7 +280,8 @@ public class Person extends IdNumbers { //TODO person object change and test
                     Statement myStatement = DataBaseLayer.myConnection.createStatement();
                     myStatement.executeQuery("IF ( '" + this.citizenId + "' =(SELECT citizenId FROM persons WHERE citizenId = '" + this.citizenId + "') )\n" +
                             "    UPDATE HospitalManagementSystemStock.dbo.persons SET  birthdate_year = '" + this.birthdate_year + "' WHERE citizenId= '" + this.citizenId + "'\n");
-
+                    myStatement.close(); // close statement
+                    DataBaseLayer.myConnection.close(); // close connection
                 } catch (Exception e) {
                     System.out.println(e);
                 }
@@ -283,7 +294,8 @@ public class Person extends IdNumbers { //TODO person object change and test
                     Statement myStatement = DataBaseLayer.myConnection.createStatement();
                     myStatement.executeQuery("IF ( '" + this.citizenId + "' =(SELECT citizenId FROM persons WHERE citizenId = '" + this.citizenId + "') )\n" +
                             "    UPDATE HospitalManagementSystemStock.dbo.persons SET  birthdate_year = '" + this.birthdate_year + "' WHERE citizenId= '" + this.citizenId + "'\n");
-
+                    myStatement.close(); // close statement
+                    DataBaseLayer.myConnection.close(); // close connection
                 } catch (Exception e) {
                     System.out.println(e);
                 }
@@ -295,7 +307,8 @@ public class Person extends IdNumbers { //TODO person object change and test
                     Statement myStatement = DataBaseLayer.myConnection.createStatement();
                     myStatement.executeQuery("IF ( '" + this.citizenId + "' =(SELECT citizenId FROM persons WHERE citizenId = '" + this.citizenId + "') )\n" +
                             "    UPDATE HospitalManagementSystemStock.dbo.persons SET  birthdate_year = '" + this.birthdate_year + "' WHERE citizenId= '" + this.citizenId + "'\n");
-
+                    myStatement.close(); // close statement
+                    DataBaseLayer.myConnection.close(); // close connection
                 } catch (Exception e) {
                     System.out.println(e);
                 }
@@ -325,7 +338,8 @@ public class Person extends IdNumbers { //TODO person object change and test
                 Statement myStatement = DataBaseLayer.myConnection.createStatement();
                 myStatement.executeQuery("IF ( '" + this.citizenId + "' =(SELECT citizenId FROM persons WHERE citizenId = '" + this.citizenId + "') )\n" +
                         "    UPDATE HospitalManagementSystemStock.dbo.persons SET  bloodGroup = '" + this.bloodGroup + "' WHERE citizenId= '" + this.citizenId + "'\n");
-
+                myStatement.close(); // close statement
+                DataBaseLayer.myConnection.close(); // close connection
             } catch (Exception e) {
                 System.out.println(e);
             }
@@ -337,7 +351,8 @@ public class Person extends IdNumbers { //TODO person object change and test
                 Statement myStatement = DataBaseLayer.myConnection.createStatement();
                 myStatement.executeQuery("IF ( '" + this.citizenId + "' =(SELECT citizenId FROM persons WHERE citizenId = '" + this.citizenId + "') )\n" +
                         "    UPDATE HospitalManagementSystemStock.dbo.persons SET  bloodGroup = '" + this.bloodGroup + "' WHERE citizenId= '" + this.citizenId + "'\n");
-
+                myStatement.close(); // close statement
+                DataBaseLayer.myConnection.close(); // close connection
             } catch (Exception e) {
                 System.out.println(e);
             }
@@ -349,7 +364,8 @@ public class Person extends IdNumbers { //TODO person object change and test
                 Statement myStatement = DataBaseLayer.myConnection.createStatement();
                 myStatement.executeQuery("IF ( '" + this.citizenId + "' =(SELECT citizenId FROM persons WHERE citizenId = '" + this.citizenId + "') )\n" +
                         "    UPDATE HospitalManagementSystemStock.dbo.persons SET  bloodGroup = '" + this.bloodGroup + "' WHERE citizenId= '" + this.citizenId + "'\n");
-
+                myStatement.close(); // close statement
+                DataBaseLayer.myConnection.close(); // close connection
             } catch (Exception e) {
                 System.out.println(e);
             }
@@ -361,7 +377,8 @@ public class Person extends IdNumbers { //TODO person object change and test
                 Statement myStatement = DataBaseLayer.myConnection.createStatement();
                 myStatement.executeQuery("IF ( '" + this.citizenId + "' =(SELECT citizenId FROM persons WHERE citizenId = '" + this.citizenId + "') )\n" +
                         "    UPDATE HospitalManagementSystemStock.dbo.persons SET  bloodGroup = '" + this.bloodGroup + "' WHERE citizenId= '" + this.citizenId + "'\n");
-
+                myStatement.close(); // close statement
+                DataBaseLayer.myConnection.close(); // close connection
             } catch (Exception e) {
                 System.out.println(e);
             }
@@ -373,7 +390,8 @@ public class Person extends IdNumbers { //TODO person object change and test
                 Statement myStatement = DataBaseLayer.myConnection.createStatement();
                 myStatement.executeQuery("IF ( '" + this.citizenId + "' =(SELECT citizenId FROM persons WHERE citizenId = '" + this.citizenId + "') )\n" +
                         "    UPDATE HospitalManagementSystemStock.dbo.persons SET  bloodGroup = '" + this.bloodGroup + "' WHERE citizenId= '" + this.citizenId + "'\n");
-
+                myStatement.close(); // close statement
+                DataBaseLayer.myConnection.close(); // close connection
             } catch (Exception e) {
                 System.out.println(e);
             }
@@ -385,7 +403,8 @@ public class Person extends IdNumbers { //TODO person object change and test
                 Statement myStatement = DataBaseLayer.myConnection.createStatement();
                 myStatement.executeQuery("IF ( '" + this.citizenId + "' =(SELECT citizenId FROM persons WHERE citizenId = '" + this.citizenId + "') )\n" +
                         "    UPDATE HospitalManagementSystemStock.dbo.persons SET  bloodGroup = '" + this.bloodGroup + "' WHERE citizenId= '" + this.citizenId + "'\n");
-
+                myStatement.close(); // close statement
+                DataBaseLayer.myConnection.close(); // close connection
             } catch (Exception e) {
                 System.out.println(e);
             }
@@ -397,7 +416,8 @@ public class Person extends IdNumbers { //TODO person object change and test
                 Statement myStatement = DataBaseLayer.myConnection.createStatement();
                 myStatement.executeQuery("IF ( '" + this.citizenId + "' =(SELECT citizenId FROM persons WHERE citizenId = '" + this.citizenId + "') )\n" +
                         "    UPDATE HospitalManagementSystemStock.dbo.persons SET  bloodGroup = '" + this.bloodGroup + "' WHERE citizenId= '" + this.citizenId + "'\n");
-
+                myStatement.close(); // close statement
+                DataBaseLayer.myConnection.close(); // close connection
             } catch (Exception e) {
                 System.out.println(e);
             }
@@ -409,7 +429,8 @@ public class Person extends IdNumbers { //TODO person object change and test
                 Statement myStatement = DataBaseLayer.myConnection.createStatement();
                 myStatement.executeQuery("IF ( '" + this.citizenId + "' =(SELECT citizenId FROM persons WHERE citizenId = '" + this.citizenId + "') )\n" +
                         "    UPDATE HospitalManagementSystemStock.dbo.persons SET  bloodGroup = '" + this.bloodGroup + "' WHERE citizenId= '" + this.citizenId + "'\n");
-
+                myStatement.close(); // close statement
+                DataBaseLayer.myConnection.close(); // close connection
             } catch (Exception e) {
                 System.out.println(e);
             }
@@ -442,7 +463,8 @@ public class Person extends IdNumbers { //TODO person object change and test
                 Statement myStatement = DataBaseLayer.myConnection.createStatement();
                 myStatement.executeQuery("IF ( '" + this.citizenId + "' =(SELECT citizenId FROM persons WHERE citizenId = '" + this.citizenId + "') )\n" +
                         "    UPDATE HospitalManagementSystemStock.dbo.persons SET  address = '" + this.address + "' WHERE citizenId= '" + this.citizenId + "'\n");
-
+                myStatement.close(); // close statement
+                DataBaseLayer.myConnection.close(); // close connection
             } catch (Exception e) {
                 System.out.println(e);
             }
@@ -475,7 +497,8 @@ public class Person extends IdNumbers { //TODO person object change and test
                 Statement myStatement = DataBaseLayer.myConnection.createStatement();
                 myStatement.executeQuery("IF ( '" + this.citizenId + "' =(SELECT citizenId FROM persons WHERE citizenId = '" + this.citizenId + "') )\n" +
                         "    UPDATE HospitalManagementSystemStock.dbo.persons SET  phoneNumber = '" + this.phoneNumber + "' WHERE citizenId= '" + this.citizenId + "'\n");
-
+                myStatement.close(); // close statement
+                DataBaseLayer.myConnection.close(); // close connection
             } catch (Exception e) {
                 System.out.println(e);
             }
@@ -505,7 +528,8 @@ public class Person extends IdNumbers { //TODO person object change and test
                 Statement myStatement = DataBaseLayer.myConnection.createStatement();
                 myStatement.executeQuery("IF ( '" + this.citizenId + "' =(SELECT citizenId FROM persons WHERE citizenId = '" + this.citizenId + "') )\n" +
                         "    UPDATE HospitalManagementSystemStock.dbo.persons SET  Email = '" + this.Email + "' WHERE citizenId= '" + this.citizenId + "'\n");
-
+                myStatement.close(); // close statement
+                DataBaseLayer.myConnection.close(); // close connection
             } catch (Exception e) {
                 System.out.println(e);
             }
