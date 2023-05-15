@@ -27,7 +27,8 @@ public class Management extends Employee {
                     Statement myStatement = DataBaseLayer.myConnection.createStatement();
                     myStatement.executeQuery("IF ( '" + super.getEmployeeId() + "' =(SELECT employeeId FROM employees WHERE employeeId = '" + super.getEmployeeId() + "') )\n" +
                             "    UPDATE HospitalManagementSystemStock.dbo.managements SET  managemenId = '" + this.managementId + "' WHERE employeeId = '" + super.getEmployeeId() + "'\n");
-
+                    myStatement.close(); // close statement
+                    DataBaseLayer.myConnection.close(); // close connection
                 } catch (Exception e) {
                     System.out.println(e);
                 }
@@ -69,7 +70,8 @@ public class Management extends Employee {
                 Statement myStatement = DataBaseLayer.myConnection.createStatement();
                 myStatement.executeQuery("IF ( '" + super.getEmployeeId() + "' =(SELECT employeeId FROM employees WHERE employeeId = '" + super.getEmployeeId() + "') )\n" +
                         "    UPDATE HospitalManagementSystemStock.dbo.managements SET  department = '" + this.department + "' WHERE employeeId = '" + super.getEmployeeId() + "'\n");
-
+                myStatement.close(); // close statement
+                DataBaseLayer.myConnection.close(); // close connection
             } catch (Exception e) {
                 System.out.println(e);
             }
