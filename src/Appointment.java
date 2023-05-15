@@ -4,7 +4,7 @@ import java.sql.Statement;
 import java.time.Year;
 import java.util.Scanner;
 
-public class Appointment extends Person  {
+public class Appointment extends Patient  {
     final private int APPOINTMENT_ID_DIGIT = 12;
     private String appointmentId;
     private String doctor_name;
