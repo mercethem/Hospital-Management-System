@@ -8,6 +8,8 @@ public abstract class Menu {
 
     static Patient patient = new Patient();
 
+    static Management management = new Management();
+
     public static void options() {
         System.out.println("Please choose what do you want ?");
         System.out.println("Add (0)\nView(1)\nChange(2)");
@@ -42,7 +44,7 @@ public abstract class Menu {
                 person.viewPerson();
                 options();
             } else if (choose == 1) {
-                employee.viewEmployee();
+                management.viewManagement();
                 options();
             } else if (choose == 2) {
                 patient.viewPatient();
@@ -100,7 +102,7 @@ public abstract class Menu {
                     employee.changeEmployeeId();
                     options();
                 } else if (choose == 1) {
-                    employee.changeDepartment();
+                    employee.changeEmployeeDepartment();
                     options();
                 } else if (choose == 2) {
                     employee.changeDateOfStart_day();
