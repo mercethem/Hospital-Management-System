@@ -1,11 +1,10 @@
-import javax.management.Query;
 import java.awt.*;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.time.Year;
 import java.util.Scanner;
 
-public class Appointment extends Patient  {
+public class Appointment extends Patient {
     final private int APPOINTMENT_ID_DIGIT = 12;
     private String appointmentId;
     private String doctor_name;
@@ -354,6 +353,7 @@ public class Appointment extends Patient  {
     public int getAppointment_year() {
         return appointment_year;
     }
+
     public Appointment() {
     }
 
@@ -364,7 +364,7 @@ public class Appointment extends Patient  {
         this.doctor_name = doctor_name;
         this.doctor_surname = doctor_surname;
         this.department = department;
-        this.appointment_day =appointment_day ;
+        this.appointment_day = appointment_day;
         this.appointment_month = appointment_month;
         this.appointment_year = appointment_year;
     }
@@ -410,6 +410,7 @@ public class Appointment extends Patient  {
         setAppointment_month(1);
         setAppointment_year(1);
     }
+
     public void viewAppointment() {
         System.out.println(toString());
     }
@@ -418,6 +419,7 @@ public class Appointment extends Patient  {
         setAppointmentId("Unknown");
         System.out.println("New Appointment ID is " + getAppointmentId());
     }
+
     public void changeDoctorName() {
         setDoctor_name("Unknown");
         System.out.println("New NAME is " + getDoctor_name());
