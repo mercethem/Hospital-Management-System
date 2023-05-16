@@ -9,6 +9,7 @@ public abstract class Menu {
     static Patient patient = new Patient();
 
     static Management management = new Management();
+    static Appointment appointment = new Appointment();
 
     public static void options() {
         System.out.println("Please choose what do you want ?");
@@ -44,7 +45,8 @@ public abstract class Menu {
                 person.viewPerson();
                 options();
             } else if (choose == 1) {
-                management.viewManagement();
+                appointment.viewAppointment();
+//                management.viewManagement();
                 options();
             } else if (choose == 2) {
                 patient.viewPatient();
