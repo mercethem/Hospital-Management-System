@@ -15,7 +15,7 @@ public class Employee extends Person { //TODO employee object change and test
     Scanner keyboard = new Scanner(System.in);
     final private int EMPLOYEE_ID_DIGIT = 9;
     private String employeeId;
-    private String department;
+    private String employee_department;
     private int dateOfStart_day;
     private int dateOfStart_month;
     private int dateOfStart_year;
@@ -55,34 +55,34 @@ public class Employee extends Person { //TODO employee object change and test
         }
     }
 
-    public String getDepartment() {
-        return department;
+    public String getEmployeeDepartment() {
+        return employee_department;
     }
 
-    public void setDepartment(String department) {
+    public void setEmployeeDepartment(String employee_department) {
         int count = 0;
         System.out.println("Please enter department : ");
-        department = keyboard.nextLine();
+        employee_department = keyboard.nextLine();
 
-        if (department.length() < 2) {
+        if (employee_department.length() < 2) {
             System.out.println("Please enter your true department!");
             Toolkit.getDefaultToolkit().beep();
             ++count;
-        } else if (department.matches(".*\\p{Punct}.*")) {
+        } else if (employee_department.matches(".*\\p{Punct}.*")) {
             System.out.println("Please do not use punctuation character!");
             Toolkit.getDefaultToolkit().beep();
             ++count;
-        } else if (department.matches(".*[0-9].*")) {
+        } else if (employee_department.matches(".*[0-9].*")) {
             System.out.println("Please do not use digit!");
             Toolkit.getDefaultToolkit().beep();
             ++count;
         } else {
-            this.department = department;
+            this.employee_department = employee_department;
             try {
                 DataBaseLayer.dataBaseLayer();
                 Statement myStatement = DataBaseLayer.myConnection.createStatement();
                 myStatement.executeQuery("IF ( '" + super.getCitizenId() + "' =(SELECT citizenId FROM employees WHERE citizenId = '" + super.getCitizenId() + "') )\n" +
-                        "    UPDATE HospitalManagementSystemStock.dbo.employees SET  department = '" + this.department + "' WHERE citizenId= '" + super.getCitizenId() + "'\n");
+                        "    UPDATE HospitalManagementSystemStock.dbo.employees SET  department = '" + this.employee_department + "' WHERE citizenId= '" + super.getCitizenId() + "'\n");
                 myStatement.close(); // close statement
                 DataBaseLayer.myConnection.close(); // close connection
             } catch (Exception e) {
@@ -90,7 +90,7 @@ public class Employee extends Person { //TODO employee object change and test
             }
         }
         if (count == 1) {
-            setDepartment("");
+            setEmployeeDepartment("");
         }
 
     }
@@ -455,11 +455,11 @@ public class Employee extends Person { //TODO employee object change and test
     public Employee() {
     }
 
-    public Employee(String employeeId, String department, int dateOfStart_day, int dateOfStart_month, int dateOfStart_year,
+    public Employee(String employeeId, String employee_department, int dateOfStart_day, int dateOfStart_month, int dateOfStart_year,
                     int dateOfDismiss_day, int dateOfDismiss_month, int dateOfDismiss_year) {
 
         this.employeeId = employeeId;
-        this.department = department;
+        this.employee_department = employee_department;
         this.dateOfStart_day = dateOfStart_day;
         this.dateOfStart_month = dateOfStart_month;
         this.dateOfStart_year = dateOfStart_year;
@@ -472,11 +472,11 @@ public class Employee extends Person { //TODO employee object change and test
         super.person_db();
         employee_db();
         return super.toString() + "\nEMPLOYEE INFORMATION" + "\n--------------------------------------------\n"
-                + "Employee ID : " + getEmployeeId() + "\nDepartment : " + getDepartment() +
+                + "Employee ID : " + getEmployeeId() + "\nDepartment : " + getEmployeeDepartment() +
                 "\nDate of Start : " + getDateOfStart_day() + "/" + getDateOfStart_month() + "/" + getDateOfStart_year() +
                 "\nDate of Dismiss : " + getDateOfDismiss_day() + "/" + getDateOfDismiss_month() + "/" + getDateOfDismiss_year()
                 + "\nWork Interval : " + workInterval() + " Years"
-                + "\n--------------------------------------------\n";
+                + "\n--------------------------------------------\n" ;
     }
 
     public void employee_db() {
@@ -488,7 +488,7 @@ public class Employee extends Person { //TODO employee object change and test
             ResultSet myResult = myStatement.executeQuery("SELECT * FROM HospitalManagementSystemStock.dbo.employees WHERE employees.citizenId = '" + citizenId + "'");
             while (myResult.next()) {
                 this.employeeId = myResult.getString("employeeId");
-                this.department = myResult.getString("department");
+                this.employee_department = myResult.getString("department");
                 this.dateOfStart_day = myResult.getInt("dateOfStart_day");
                 this.dateOfStart_month = myResult.getInt("dateOfStart_month");
                 this.dateOfStart_year = myResult.getInt("dateOfStart_year");
@@ -517,7 +517,7 @@ public class Employee extends Person { //TODO employee object change and test
     public void addEmployee() {
         super.addPerson();
         setEmployeeId("Unknown");
-        setDepartment("Unknown");
+        setEmployeeDepartment("Unknown");
         setDateOfStart_day(1);
         setDateOfStart_month(1);
         setDateOfStart_year(1);
@@ -535,9 +535,9 @@ public class Employee extends Person { //TODO employee object change and test
         System.out.println("New Employee ID is " + getEmployeeId());
     }
 
-    public void changeDepartment() {
-        setDepartment("Unknown");
-        System.out.println("New Department is " + getDepartment());
+    public void changeEmployeeDepartment() {
+        setEmployeeDepartment("Unknown");
+        System.out.println("New Department is " + getEmployeeDepartment());
     }
 
     public void changeDateOfStart_day() {
