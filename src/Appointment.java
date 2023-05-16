@@ -9,7 +9,7 @@ public class Appointment extends Patient {
     private String appointmentId;
     private String doctor_name;
     private String doctor_surname;
-    private String department;
+    private String appointment_department;
     private int appointment_day;
     private int appointment_month;
     private int appointment_year;
@@ -128,34 +128,34 @@ public class Appointment extends Patient {
         return doctor_surname;
     }
 
-    public String getDepartment() {
-        return department;
+    public String getAppointmentDepartment() {
+        return appointment_department;
     }
 
-    public void setDepartment(String department) {
+    public void setAppointmentDepartment(String appointment_department) {
         int count = 0;
         System.out.println("Please enter department : ");
-        department = keyboard.nextLine();
+        appointment_department = keyboard.nextLine();
 
-        if (department.length() < 2) {
+        if (appointment_department.length() < 2) {
             System.out.println("Please enter your true department!");
             Toolkit.getDefaultToolkit().beep();
             ++count;
-        } else if (department.matches(".*\\p{Punct}.*")) {
+        } else if (appointment_department.matches(".*\\p{Punct}.*")) {
             System.out.println("Please do not use punctuation character!");
             Toolkit.getDefaultToolkit().beep();
             ++count;
-        } else if (department.matches(".*[0-9].*")) {
+        } else if (appointment_department.matches(".*[0-9].*")) {
             System.out.println("Please do not use digit!");
             Toolkit.getDefaultToolkit().beep();
             ++count;
         } else {
-            this.department = department;
+            this.appointment_department = appointment_department;
             try {
                 DataBaseLayer.dataBaseLayer();
                 Statement myStatement = DataBaseLayer.myConnection.createStatement();
                 myStatement.executeQuery("IF ( '" + super.getCitizenId() + "' =(SELECT citizenId FROM employees WHERE citizenId = '" + super.getCitizenId() + "') )\n" +
-                        "    UPDATE HospitalManagementSystemStock.dbo.employees SET  department = '" + this.department + "' WHERE citizenId= '" + super.getCitizenId() + "'\n");
+                        "    UPDATE HospitalManagementSystemStock.dbo.employees SET  department = '" + this.appointment_department + "' WHERE citizenId= '" + super.getCitizenId() + "'\n");
                 myStatement.close(); // close statement
                 DataBaseLayer.myConnection.close(); // close connection
             } catch (Exception e) {
@@ -163,7 +163,7 @@ public class Appointment extends Patient {
             }
         }
         if (count == 1) {
-            setDepartment("");
+            setAppointmentDepartment("");
         }
 
     }
@@ -357,13 +357,13 @@ public class Appointment extends Patient {
     public Appointment() {
     }
 
-    public Appointment(String appointmentId, String doctor_name, String doctor_surname, String department,
+    public Appointment(String appointmentId, String doctor_name, String doctor_surname, String appointment_department,
                        int appointment_day, int appointment_month, int appointment_year) {
 
         this.appointmentId = appointmentId;
         this.doctor_name = doctor_name;
         this.doctor_surname = doctor_surname;
-        this.department = department;
+        this.appointment_department = appointment_department;
         this.appointment_day = appointment_day;
         this.appointment_month = appointment_month;
         this.appointment_year = appointment_year;
@@ -372,9 +372,9 @@ public class Appointment extends Patient {
     public String toString() {
         super.person_db();
         appointment_db();
-        return super.toString() + "\nAPPOINTMENT INFORMATION" + "\n--------------------------------------------\n"
+        return  "\nAPPOINTMENT INFORMATION" + "\n--------------------------------------------\n"
                 + "Appointment ID : " + getAppointmentId() + "\nDoctor Name : " + getDoctor_name() +
-                "\nDoctor Surname : " + getSurname() + "\nDepartment : " + getDepartment() +
+                "\nDoctor Surname : " + getDoctor_surname() + "\nDepartment : " + getAppointmentDepartment() +
                 "\nAppointment Date : " + getAppointment_day() + "/" + getAppointment_month() + "/" + getAppointment_year()
                 + "\n--------------------------------------------\n";
     }
@@ -390,6 +390,7 @@ public class Appointment extends Patient {
                 this.appointmentId = myResult.getString("appointmentId");
                 this.doctor_name = myResult.getString("doctorName");
                 this.doctor_surname = myResult.getString("doctorSurname");
+                this.appointment_department = myResult.getString("department");
                 this.appointment_day = myResult.getInt("appointment_day");
                 this.appointment_month = myResult.getInt("appointment_month");
                 this.appointment_year = myResult.getInt("appointment_year");
@@ -404,8 +405,9 @@ public class Appointment extends Patient {
     public void addAppointment() {
         super.addPerson();
         setAppointmentId("Unknown");
-        setDepartment("Unknown");
-        setDepartment("Unknown");
+        setDoctor_name("Unknown");
+        setDoctor_surname("Unknown");
+        setAppointmentDepartment("Unknown");
         setAppointment_day(1);
         setAppointment_month(1);
         setAppointment_year(1);
@@ -430,9 +432,9 @@ public class Appointment extends Patient {
         System.out.println("New SURNAME is " + getDoctor_surname());
     }
 
-    public void changeDepartment() {
+    public void changeAppointmentDepartment() {
         setDepartment("Unknown");
-        System.out.println("New Department is " + getDepartment());
+        System.out.println("New Department is " + getAppointmentDepartment());
     }
 
 
