@@ -95,6 +95,9 @@ public class Management extends Employee {
     }
 
     public String toString() {
+
+        super.person_db();
+        super.employee_db();
         management_db();
         return super.toString() + "\nMANAGEMENT INFORMATION" + "\n--------------------------------------------\n"
                 + "Management ID : " + getManagementId() + "\nDepartment : " + getManagement_department() +
@@ -103,8 +106,6 @@ public class Management extends Employee {
     }
 
     public void management_db() {
-        super.person_db();
-        super.employee_db();
         String employeeId = getEmployeeId();
 
         try {
