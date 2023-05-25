@@ -19,6 +19,20 @@ public class Patient extends Person { //TODO patient object change and test
     private int dateOfLeave_month;
     private int dateOfLeave_year;
 
+    public Patient() {
+    }
+
+    public Patient(String department, int dateOfHospitalized_day, int dateOfHospitalized_month, int dateOfHospitalized_year,
+                   int dateOfLeave_day, int dateOfLeave_month, int dateOfLeave_year) {
+        this.department = department;
+        this.dateOfHospitalized_day = dateOfHospitalized_day;
+        this.dateOfHospitalized_month = dateOfHospitalized_month;
+        this.dateOfHospitalized_year = dateOfHospitalized_year;
+        this.dateOfLeave_day = dateOfLeave_day;
+        this.dateOfLeave_month = dateOfLeave_month;
+        this.dateOfLeave_year = dateOfLeave_year;
+    }
+
     public String getDepartment() {
         return department;
     }
@@ -393,20 +407,6 @@ public class Patient extends Person { //TODO patient object change and test
             Toolkit.getDefaultToolkit().beep();
             setDateOfLeave_year(0);
         }
-    }
-
-    public Patient() {
-    }
-
-    public Patient(String department, int dateOfHospitalized_day, int dateOfHospitalized_month, int dateOfHospitalized_year,
-                   int dateOfLeave_day, int dateOfLeave_month, int dateOfLeave_year) {
-        this.department = department;
-        this.dateOfHospitalized_day = dateOfHospitalized_day;
-        this.dateOfHospitalized_month = dateOfHospitalized_month;
-        this.dateOfHospitalized_year = dateOfHospitalized_year;
-        this.dateOfLeave_day = dateOfLeave_day;
-        this.dateOfLeave_month = dateOfLeave_month;
-        this.dateOfLeave_year = dateOfLeave_year;
     }
 
     public String toString() {
