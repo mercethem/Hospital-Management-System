@@ -8,9 +8,7 @@ import java.time.format.FormatStyle;
 import java.time.temporal.ChronoUnit;
 import java.util.Scanner;
 
-
 public class Employee extends Person { //TODO employee object change and test
-
 
     Scanner keyboard = new Scanner(System.in);
     final private int EMPLOYEE_ID_DIGIT = 9;
@@ -22,7 +20,6 @@ public class Employee extends Person { //TODO employee object change and test
     private int dateOfDismiss_day;
     private int dateOfDismiss_month;
     private int dateOfDismiss_year;
-
 
     public String getEmployeeId() {
         return employeeId;
@@ -92,7 +89,6 @@ public class Employee extends Person { //TODO employee object change and test
         if (count == 1) {
             setEmployeeDepartment("");
         }
-
     }
 
     public int getDateOfStart_day() {
@@ -205,7 +201,6 @@ public class Employee extends Person { //TODO employee object change and test
                 } catch (Exception e) {
                     System.out.println(e);
                 }
-
             }
         } catch (Exception e) {
             System.out.println("Please enter just digit!");
@@ -271,7 +266,6 @@ public class Employee extends Person { //TODO employee object change and test
             Toolkit.getDefaultToolkit().beep();
             setDateOfStart_year(1);
         }
-
     }
 
     public int getDateOfDismiss_day() {
@@ -451,13 +445,11 @@ public class Employee extends Person { //TODO employee object change and test
         }
     }
 
-
     public Employee() {
     }
 
     public Employee(String employeeId, String employee_department, int dateOfStart_day, int dateOfStart_month, int dateOfStart_year,
                     int dateOfDismiss_day, int dateOfDismiss_month, int dateOfDismiss_year) {
-
         this.employeeId = employeeId;
         this.employee_department = employee_department;
         this.dateOfStart_day = dateOfStart_day;
@@ -503,10 +495,8 @@ public class Employee extends Person { //TODO employee object change and test
         }
     }
     public long workInterval() {
-
         LocalDate hospitalizedDate = LocalDate.of(getDateOfStart_year(), getDateOfStart_month(), getDateOfStart_day());
         LocalDate leaveDate = LocalDate.of(getDateOfDismiss_year(), getDateOfDismiss_month(), getDateOfDismiss_day());
-
         LocalDate thisYearsBirthday = hospitalizedDate.with(Year.now());
         String birthdate = hospitalizedDate.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT));   //17 February 2022
         long workInterval = ChronoUnit.YEARS.between(hospitalizedDate, leaveDate);
