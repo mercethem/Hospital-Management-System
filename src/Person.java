@@ -9,7 +9,6 @@ import java.time.temporal.ChronoUnit;
 import java.util.Scanner;
 
 public class Person extends IdNumbers { //TODO person object change and test
-
     final private int CITIZEN_ID_DIGIT = 11;
     final private int PHONE_NUMBER_DIGIT = 10;
     final private String PHONE_CODE = "0090";
@@ -28,8 +27,6 @@ public class Person extends IdNumbers { //TODO person object change and test
     private String Email;
 
     public final void setCitizenId(String citizenId) {
-
-
         System.out.println("Please enter citizen ID : ");
         citizenId = keyboard.nextLine();
 
@@ -44,7 +41,6 @@ public class Person extends IdNumbers { //TODO person object change and test
                         "    INSERT INTO persons (citizenId) VALUES ('" + this.citizenId + "')");
                 myStatement.close(); // close statement
                 DataBaseLayer.myConnection.close(); // close connection
-
             } catch (Exception e) {
                 System.out.println(e);
             }
@@ -131,7 +127,6 @@ public class Person extends IdNumbers { //TODO person object change and test
         if (count == 1) {
             setSurname("");
         }
-
     }
 
     public String getSurname() {
@@ -161,7 +156,6 @@ public class Person extends IdNumbers { //TODO person object change and test
                 } catch (Exception e) {
                     System.out.println(e);
                 }
-
             } else if (birthdate_day >= 31) {
                 Toolkit.getDefaultToolkit().beep();
                 this.birthdate_day = 31;
@@ -175,8 +169,6 @@ public class Person extends IdNumbers { //TODO person object change and test
                 } catch (Exception e) {
                     System.out.println(e);
                 }
-
-
             } else {
                 this.birthdate_day = birthdate_day;
                 try {
@@ -250,7 +242,6 @@ public class Person extends IdNumbers { //TODO person object change and test
                 } catch (Exception e) {
                     System.out.println(e);
                 }
-
             }
         } catch (Exception e) {
             System.out.println("Please enter just digit!");
@@ -328,7 +319,6 @@ public class Person extends IdNumbers { //TODO person object change and test
         System.out.println("Please enter blood group : ");
         bloodGroup = keyboard.nextLine();
         bloodGroup = bloodGroup.toLowerCase().replace(" ", "");
-
 
         if (bloodGroup.equals("arh+")) {
             bloodGroup = "A Rh+";
@@ -439,8 +429,6 @@ public class Person extends IdNumbers { //TODO person object change and test
             Toolkit.getDefaultToolkit().beep();
             setBloodGroup("");
         }
-        //TODO add connection query for SQL
-
     }
 
     public String getBloodGroup() {
@@ -469,8 +457,6 @@ public class Person extends IdNumbers { //TODO person object change and test
                 System.out.println(e);
             }
         }
-
-
     }
 
     public String getAddress() {
@@ -557,7 +543,6 @@ public class Person extends IdNumbers { //TODO person object change and test
         this.address = address;
         this.phoneNumber = phoneNumber;
         this.Email = Email;
-
     }
 
     public String toString() {
@@ -630,7 +615,6 @@ public class Person extends IdNumbers { //TODO person object change and test
         setPhoneNumber("Unknown");
         setEmail("Unknown");
 
-
     }
 
     public void viewPerson() {
@@ -682,5 +666,4 @@ public class Person extends IdNumbers { //TODO person object change and test
         setEmail("Unknown");
         System.out.println("New EMAIL is " + getEmail());
     }
-
 }
