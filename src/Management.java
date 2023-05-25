@@ -10,7 +10,6 @@ public class Management extends Employee {
     private String managementId;
     private String management_department;
 
-
     public String getManagementId() {
         return managementId;
     }
@@ -41,7 +40,6 @@ public class Management extends Employee {
             System.out.println(e);
         }
     }
-
 
     public String getManagement_department() {
         return management_department;
@@ -80,10 +78,7 @@ public class Management extends Employee {
         if (count == 1) {
             setManagement_department("");
         }
-
-
     }
-
 
     public Management() {
     }
@@ -102,7 +97,6 @@ public class Management extends Employee {
         return super.toString() + "\nMANAGEMENT INFORMATION" + "\n--------------------------------------------\n"
                 + "Management ID : " + getManagementId() + "\nDepartment : " + getManagement_department() +
                 "\n--------------------------------------------\n";
-
     }
 
     public void management_db() {
@@ -140,7 +134,7 @@ public class Management extends Employee {
         System.out.println("New Management ID is " + getEmployeeId());
     }
 
-    public void changeEmployeeDepartment() {
+    public void changeManagementDepartment() {
         setManagement_department("Unknown");
         System.out.println("New Department is " + getManagement_department());
     }
