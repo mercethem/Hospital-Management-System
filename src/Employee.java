@@ -21,6 +21,21 @@ public class Employee extends Person { //TODO employee object change and test
     private int dateOfDismiss_month;
     private int dateOfDismiss_year;
 
+    public Employee() {
+    }
+
+    public Employee(String employeeId, String employee_department, int dateOfStart_day, int dateOfStart_month, int dateOfStart_year,
+                    int dateOfDismiss_day, int dateOfDismiss_month, int dateOfDismiss_year) {
+        this.employeeId = employeeId;
+        this.employee_department = employee_department;
+        this.dateOfStart_day = dateOfStart_day;
+        this.dateOfStart_month = dateOfStart_month;
+        this.dateOfStart_year = dateOfStart_year;
+        this.dateOfDismiss_day = dateOfDismiss_day;
+        this.dateOfDismiss_month = dateOfDismiss_month;
+        this.dateOfDismiss_year = dateOfDismiss_year;
+    }
+
     public String getEmployeeId() {
         return employeeId;
     }
@@ -443,21 +458,6 @@ public class Employee extends Person { //TODO employee object change and test
             Toolkit.getDefaultToolkit().beep();
             setDateOfDismiss_year(1);
         }
-    }
-
-    public Employee() {
-    }
-
-    public Employee(String employeeId, String employee_department, int dateOfStart_day, int dateOfStart_month, int dateOfStart_year,
-                    int dateOfDismiss_day, int dateOfDismiss_month, int dateOfDismiss_year) {
-        this.employeeId = employeeId;
-        this.employee_department = employee_department;
-        this.dateOfStart_day = dateOfStart_day;
-        this.dateOfStart_month = dateOfStart_month;
-        this.dateOfStart_year = dateOfStart_year;
-        this.dateOfDismiss_day = dateOfDismiss_day;
-        this.dateOfDismiss_month = dateOfDismiss_month;
-        this.dateOfDismiss_year = dateOfDismiss_year;
     }
 
     public String toString() {
