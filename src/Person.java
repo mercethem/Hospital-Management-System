@@ -26,6 +26,24 @@ public class Person extends IdNumbers { //TODO person object change and test
     private String phoneNumber;
     private String Email;
 
+    public Person() {
+    }
+
+    public Person(String citizenId, String name, String surname, int birthdate_day, int birthdate_month,
+                  int birthdate_year, String bloodGroup, String address, String phoneNumber, String Email) {
+
+        this.citizenId = citizenId;
+        this.name = name;
+        this.surname = surname;
+        this.birthdate_day = birthdate_day;
+        this.birthdate_month = birthdate_month;
+        this.birthdate_year = birthdate_year;
+        this.bloodGroup = bloodGroup;
+        this.address = address;
+        this.phoneNumber = phoneNumber;
+        this.Email = Email;
+    }
+
     public final void setCitizenId(String citizenId) {
         System.out.println("Please enter citizen ID : ");
         citizenId = keyboard.nextLine();
@@ -524,25 +542,6 @@ public class Person extends IdNumbers { //TODO person object change and test
 
     public String getEmail() {
         return Email;
-    }
-
-
-    public Person() {
-    }
-
-    public Person(String citizenId, String name, String surname, int birthdate_day, int birthdate_month,
-                  int birthdate_year, String bloodGroup, String address, String phoneNumber, String Email) {
-
-        this.citizenId = citizenId;
-        this.name = name;
-        this.surname = surname;
-        this.birthdate_day = birthdate_day;
-        this.birthdate_month = birthdate_month;
-        this.birthdate_year = birthdate_year;
-        this.bloodGroup = bloodGroup;
-        this.address = address;
-        this.phoneNumber = phoneNumber;
-        this.Email = Email;
     }
 
     public String toString() {
