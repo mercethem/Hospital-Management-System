@@ -10,6 +10,15 @@ public class Management extends Employee {
     private String managementId;
     private String management_department;
 
+    public Management() {
+    }
+
+    public Management(String managementId, String management_department) {
+
+        this.managementId = managementId;
+        this.management_department = management_department;
+    }
+
     public String getManagementId() {
         return managementId;
     }
@@ -78,15 +87,6 @@ public class Management extends Employee {
         if (count == 1) {
             setManagement_department("");
         }
-    }
-
-    public Management() {
-    }
-
-    public Management(String managementId, String management_department) {
-
-        this.managementId = managementId;
-        this.management_department = management_department;
     }
 
     public String toString() {
