@@ -121,7 +121,6 @@ public class Appointment extends Patient {
         if (count == 1) {
             setDoctor_surname("");
         }
-
     }
 
     public String getDoctor_surname() {
@@ -165,7 +164,6 @@ public class Appointment extends Patient {
         if (count == 1) {
             setAppointmentDepartment("");
         }
-
     }
 
     public void setAppointment_day(int appointment_day) {
@@ -173,7 +171,6 @@ public class Appointment extends Patient {
             System.out.println("Please enter appointment day : ");
             String sDay = keyboard.nextLine();
             appointment_day = Integer.parseInt(sDay);
-
             if (!sDay.matches(".*[0-9].*")) {
                 System.out.println("Please use just digits.");
                 Toolkit.getDefaultToolkit().beep();
@@ -191,7 +188,6 @@ public class Appointment extends Patient {
                 } catch (Exception e) {
                     System.out.println(e);
                 }
-
             } else if (appointment_day >= 31) {
                 Toolkit.getDefaultToolkit().beep();
                 this.appointment_day = 31;
@@ -205,8 +201,6 @@ public class Appointment extends Patient {
                 } catch (Exception e) {
                     System.out.println(e);
                 }
-
-
             } else {
                 this.appointment_day = appointment_day;
                 try {
@@ -267,7 +261,6 @@ public class Appointment extends Patient {
                 } catch (Exception e) {
                     System.out.println(e);
                 }
-
             } else {
                 this.appointment_month = appointment_month;
                 try {
@@ -280,7 +273,6 @@ public class Appointment extends Patient {
                 } catch (Exception e) {
                     System.out.println(e);
                 }
-
             }
         } catch (Exception e) {
             System.out.println("Please enter just digit!");
@@ -329,7 +321,6 @@ public class Appointment extends Patient {
                 } catch (Exception e) {
                     System.out.println(e);
                 }
-
             } else {
                 this.appointment_year = appointment_year;
                 try {
@@ -372,7 +363,7 @@ public class Appointment extends Patient {
     public String toString() {
         super.person_db();
         appointment_db();
-        return  "\nAPPOINTMENT INFORMATION" + "\n--------------------------------------------\n"
+        return "\nAPPOINTMENT INFORMATION" + "\n--------------------------------------------\n"
                 + "Appointment ID : " + getAppointmentId() + "\nDoctor Name : " + getDoctor_name() +
                 "\nDoctor Surname : " + getDoctor_surname() + "\nDepartment : " + getAppointmentDepartment() +
                 "\nAppointment Date : " + getAppointment_day() + "/" + getAppointment_month() + "/" + getAppointment_year()
@@ -452,6 +443,4 @@ public class Appointment extends Patient {
         setAppointment_year(0);
         System.out.println("New YEAR is " + getAppointment_year());
     }
-
-
 }
