@@ -56,7 +56,6 @@ public class Patient extends Person { //TODO patient object change and test
         if (count == 1) {
             setDepartment("");
         }
-
     }
 
     public int getDateOfHospitalized_day() {
@@ -396,7 +395,6 @@ public class Patient extends Person { //TODO patient object change and test
         }
     }
 
-
     public Patient() {
     }
 
@@ -446,7 +444,6 @@ public class Patient extends Person { //TODO patient object change and test
     }
 
     public long hospitalizedInterval() {
-
         LocalDate hospitalizedDate = LocalDate.of(getDateOfHospitalized_year(), getDateOfHospitalized_month(), getDateOfHospitalized_day());
         LocalDate leaveDate = LocalDate.of(getDateOfLeave_year(), getDateOfLeave_month(), getDateOfLeave_day());
 
