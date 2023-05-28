@@ -2,7 +2,10 @@ import java.awt.*;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Scanner;
-
+/**
+ ATTENTION(UYARI) En üstte miras alınan Person classı içerisindeki değer düzeni ile aynı içeriğe sahiptir. Düzenleme
+ ve içeriği anlamak için person üzerindeki COMMENT'leri okumanız gerekmektedir çünkü içerik benzer mimaride tasarlanmıştır.
+ */
 public class Management extends Employee {
 
     Scanner keyboard = new Scanner(System.in);
@@ -25,7 +28,7 @@ public class Management extends Employee {
 
     public void setManagementId(String managementId) {
         try {
-            System.out.println("Please enter Employee ID : ");
+            System.out.println("Please enter Management ID : ");
             managementId = keyboard.nextLine();
 
             if (managementId.matches("[0-9]*") && managementId.length() == MANAGEMENT_ID_DIGIT) {
@@ -33,8 +36,9 @@ public class Management extends Employee {
                 try {
                     DataBaseLayer.dataBaseLayer();
                     Statement myStatement = DataBaseLayer.myConnection.createStatement();
-                    myStatement.executeQuery("IF ( '" + super.getEmployeeId() + "' =(SELECT employeeId FROM employees WHERE employeeId = '" + super.getEmployeeId() + "') )\n" +
-                            "    UPDATE HospitalManagementSystemStock.dbo.managements SET  managementId = '" + this.managementId + "' WHERE employeeId = '" + super.getEmployeeId() + "'\n");
+                    myStatement.executeQuery("IF ( '" + super.getEmployeeId() + "' =(SELECT employeeId FROM HospitalManagementSystemStock.dbo.managements WHERE employeeId = '" + super.getEmployeeId()+ "') )\n" +
+                            "UPDATE HospitalManagementSystemStock.dbo.managements SET  managementId = '" + this.managementId + "' WHERE employeeId = '" + super.getEmployeeId() + "'\n" +
+                            "ELSE INSERT INTO HospitalManagementSystemStock.dbo.managements (managementId,employeeId) VALUES ('" + this.managementId + "','" + super.getEmployeeId() + "')");
                     myStatement.close(); // close statement
                     DataBaseLayer.myConnection.close(); // close connection
                 } catch (Exception e) {
@@ -76,8 +80,9 @@ public class Management extends Employee {
             try {
                 DataBaseLayer.dataBaseLayer();
                 Statement myStatement = DataBaseLayer.myConnection.createStatement();
-                myStatement.executeQuery("IF ( '" + super.getEmployeeId() + "' =(SELECT employeeId FROM employees WHERE employeeId = '" + super.getEmployeeId() + "') )\n" +
-                        "    UPDATE HospitalManagementSystemStock.dbo.managements SET  department = '" + this.management_department + "' WHERE employeeId = '" + super.getEmployeeId() + "'\n");
+                myStatement.executeQuery("IF ( '" + super.getEmployeeId() + "' =(SELECT employeeId FROM HospitalManagementSystemStock.dbo.managements WHERE employeeId = '" + super.getEmployeeId()+ "') )\n" +
+                        "UPDATE HospitalManagementSystemStock.dbo.managements SET  department = '" + this.management_department + "' WHERE employeeId = '" + super.getEmployeeId() + "'\n" +
+                        "ELSE INSERT INTO HospitalManagementSystemStock.dbo.managements (department) VALUES ('" + this.management_department + "')");
                 myStatement.close(); // close statement
                 DataBaseLayer.myConnection.close(); // close connection
             } catch (Exception e) {
@@ -91,8 +96,6 @@ public class Management extends Employee {
 
     public String toString() {
 
-        super.person_db();
-        super.employee_db();
         management_db();
         return super.toString() + "\nMANAGEMENT INFORMATION" + "\n--------------------------------------------\n"
                 + "Management ID : " + getManagementId() + "\nDepartment : " + getManagement_department() +
@@ -100,6 +103,7 @@ public class Management extends Employee {
     }
 
     public void management_db() {
+
         String employeeId = getEmployeeId();
 
         try {
@@ -120,7 +124,8 @@ public class Management extends Employee {
     }
 
     public void addManagement() {
-        super.addEmployee();
+        super.person_db();
+        super.employee_db();
         setManagementId("Unknown");
         setManagement_department("Unknown");
     }
