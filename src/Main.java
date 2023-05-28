@@ -1,6 +1,6 @@
 public class Main {
-//TODO data field, constructors and methods... Fix all of class
-    public static void main(String[] args) {
+
+    public static void main(String[] args) { //Sadece menu yönlendirme paneli kullanımına yönlendirir
         Menu.options();
     }
 }
