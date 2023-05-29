@@ -135,11 +135,6 @@ public class Management extends Employee {
         System.out.println(toString());
     }
 
-    public void changeManagementId() {
-        management_db();
-        setManagementId("Unknown");
-        System.out.println("New Management ID is " + getEmployeeId());
-    }
 
     public void changeManagementDepartment() {
         management_db();

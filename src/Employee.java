@@ -545,12 +545,6 @@ public class Employee extends Person {
         System.out.println(toString());
     }
 
-    public void changeEmployeeId() {
-        employee_db();
-        setEmployeeId("Unknown");
-        System.out.println("New Employee ID is " + getEmployeeId());
-    }
-
     public void changeEmployeeDepartment() {
         employee_db();
         setEmployeeDepartment("Unknown");

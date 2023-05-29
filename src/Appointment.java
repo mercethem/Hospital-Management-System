@@ -420,11 +420,6 @@ public class Appointment extends Patient {
         System.out.println(toString());
     }
 
-    public void changeAppointmentId() {
-        setAppointmentId("Unknown");
-        System.out.println("New Appointment ID is " + getAppointmentId());
-    }
-
     public void changeDoctorName() {
         setDoctor_name("Unknown");
         System.out.println("New NAME is " + getDoctor_name());

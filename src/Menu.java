@@ -136,33 +136,30 @@ public abstract class Menu { //Tüm kontrol yönlendirmeleri için temel class
                         }
                     } else if (choose == 1) {
                         System.out.println("Please enter what do you want to change :\n" +
-                                "Employee ID(0)\nDepartment(1)\nDate of Start Day(2)\nDate of Start Month(3)\n" +
-                                "Date of Start Year(4)\nDate of Dismiss Day(5)\nDate of Dismiss Month(6)\nDate of Dismiss Year(7)\n");
+                                "Department(0)\nDate of Start Day(1)\nDate of Start Month(2)\n" +
+                                "Date of Start Year(3)\nDate of Dismiss Day(4)\nDate of Dismiss Month(5)\nDate of Dismiss Year(6)\n");
                         input = keyboard.nextLine();
-                        if (input.matches("[0-7]*")) {
+                        if (input.matches("[0-6]*")) {
                             choose = Integer.parseInt(input);
                             if (choose == 0) {
-                                employee.changeEmployeeId(); //Çalışan id'si düzenleme
-                                options();
-                            } else if (choose == 1) {
                                 employee.changeEmployeeDepartment(); //Çalışan departmanını düzenleme
                                 options();
-                            } else if (choose == 2) {
+                            } else if (choose == 1) {
                                 employee.changeDateOfStart_day(); //Çalışan işe giriş gününü düzenleme
                                 options();
-                            } else if (choose == 3) {
+                            } else if (choose == 2) {
                                 employee.changeDateOfStart_month(); //Çalışan işe giriş ayını düzenleme
                                 options();
-                            } else if (choose == 4) {
+                            } else if (choose == 3) {
                                 employee.changeDateOfStart_year(); //Çalışan işe giriş yılını düzenleme
                                 options();
-                            } else if (choose == 5) {
+                            } else if (choose == 4) {
                                 employee.changeDateOfDismiss_day(); //Çalışan işten çıkış gününü düzenleme
                                 options();
-                            } else if (choose == 6) {
+                            } else if (choose == 5) {
                                 employee.changeDateOfDismiss_month(); //Çalışan işten çıkış ayını düzenleme
                                 options();
-                            } else if (choose == 7) {
+                            } else if (choose == 6) {
                                 employee.changeDateOfDismiss_year(); //Çalışan işten çıkış yılını düzenleme
                                 options();
                             } else {
@@ -179,12 +176,9 @@ public abstract class Menu { //Tüm kontrol yönlendirmeleri için temel class
                         System.out.println("Please enter what do you want to change :\n" +
                                 "Management ID(0)\nManagement Department(1)\n");
                         input = keyboard.nextLine();
-                        if (input.matches("[0-1]*")) {
+                        if (input.matches("[0]*")) {
                             choose = Integer.parseInt(input);
                             if (choose == 0) {
-                                management.changeManagementId(); //Çalışan yöneticinin yönetici id'sini düzenleme
-                                options();
-                            } else if (choose == 1) {
                                 management.changeManagementDepartment(); //Çalışan yöneticinin departmanını düzenleme
                                 options();
                             } else {
@@ -237,30 +231,27 @@ public abstract class Menu { //Tüm kontrol yönlendirmeleri için temel class
                         }
                     } else if (choose == 4) {
                         System.out.println("Please enter what do you want to change :\n" +
-                                "Department(0)\nDate of Hospitality Day(1)\nDate of Hospitality Month(2)\nDate of Hospitality Year(3)\n" +
-                                "Date of Leave Day(4)\nDate of Leave Month(5)\nDate of Leave Year(6)\n");
+                                "Doctor Name(0)\nDoctor Surname(1)\nAppointment Department(2)\nAppointment Day(3)\n" +
+                                "Appointment month(4)\nAppointment Year(5)\n");
                         input = keyboard.nextLine();
-                        if (input.matches("[0-6]*")) {
+                        if (input.matches("[0-5]*")) {
                             choose = Integer.parseInt(input);
                             if (choose == 0) {
-                                appointment.changeAppointmentId(); //Hastanın radevu id'sini değiştirme
-                                options();
-                            } else if (choose == 1) {
                                 appointment.changeDoctorName(); //Hastanın radevu doktorunun adını değiştirme
                                 options();
-                            } else if (choose == 2) {
+                            } else if (choose == 1) {
                                 appointment.changeDoctorSurname(); //Hastanın radevu doktorunun soyadını değiştirme
                                 options();
-                            } else if (choose == 3) {
+                            } else if (choose == 2) {
                                 appointment.changeAppointmentDepartment(); //Hastanın randevu departmanını değiştirme
                                 options();
-                            } else if (choose == 4) {
+                            } else if (choose == 3) {
                                 appointment.changeAppointment_day(); //Hastanın randevu günü değiştirme
                                 options();
-                            } else if (choose == 5) {
+                            } else if (choose == 4) {
                                 appointment.changeAppointment_month(); //Hastanın randevu ayını değiştirme
                                 options();
-                            } else if (choose == 6) {
+                            } else if (choose == 5) {
                                 appointment.changeAppointment_year(); //Hastanın randevu yılını değiştirme
                                 options();
                             } else {
