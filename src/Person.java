@@ -8,16 +8,12 @@ import java.time.format.FormatStyle;
 import java.time.temporal.ChronoUnit;
 import java.util.Scanner;
 
-public class Person extends IdNumbers { //Soyut ID number classından soy alan bir sınıf olup kişi bilgilerini ve
-                                        // metodlarını içerir
-    final private int CITIZEN_ID_DIGIT = 11; //Nüfus numarasının rakam sayısını belirten bir sabit
-    final private int PHONE_NUMBER_DIGIT = 10; //Kişi cep numarasının rakam sayısını belirten bir sabit
-    final private String PHONE_CODE = "0090"; //Programın kullanıldığı ülkenin telefon sabit kodu
+public class Person extends IdNumbers {
+    final private int CITIZEN_ID_DIGIT = 11;
+    final private int PHONE_NUMBER_DIGIT = 10;
+    final private String PHONE_CODE = "0090";
 
     Scanner keyboard = new Scanner(System.in);
-    /**
-     Alt kısımdaki enkapsüle edilmiş private değişkenlerin isimleri göründüğü üzere tam anlamını taşımaktadır.
-     */
     private String citizenId;
     private String name;
     private String surname;
@@ -29,11 +25,6 @@ public class Person extends IdNumbers { //Soyut ID number classından soy alan b
     private String phoneNumber;
     private String Email;
 
-    /**
-     Constructor'lar stabil java syntax kuralları gereği ilki boş olarak sonrasında şahsıma münhasır düzenlenmiştir.
-     Tüm bilgi içeriklerini alacak şekilde aksi taktirde kişi eklemek istediğinde nesne oluşturarak doldurulmayan alan
-     String ise unknown olarak int ise 0 olarak atanacak şekilde düzenlenmiştir.
-     */
     public Person() {
     }
 
@@ -52,15 +43,6 @@ public class Person extends IdNumbers { //Soyut ID number classından soy alan b
         this.Email = Email;
     }
 
-    /**
-     Setter ve getter metodları kullanılarak enkapsülasyon desteklenmiş olup istenilen sadece rakam kullanılmasıysa
-     istenilenin sınırları dışına çıkılmayacak, puctuation character, harf ya da white spaces alamayacak şekilde
-     ya da sadece harf se diğer karakterleri alamyacak şekilde tasarlanmış olup getter metodlarda objelerin
-     database'den çekildiği şekli ile aktarılacak şekilde tasarlanmıştır.
-
-     ATTENTION(DİKKAT)= SQL kodları ile bağlanılan setter ve getterler dökümantasyonda test edildiği şekli ile
-     aktarılacaktır.
-     */
     public final void setCitizenId(String citizenId) {
         System.out.println("Please enter citizen ID : ");
         citizenId = keyboard.nextLine();
@@ -561,7 +543,7 @@ public class Person extends IdNumbers { //Soyut ID number classından soy alan b
         return Email;
     }
 
-    public String toString() { //Görüntüleme yapılırken getleri kullanarak bir String literali oluşturulmuştur
+    public String toString() {
 //        person_db();
         return "\nID INFORMATION" + "\n--------------------------------------------\n" +
                 "Citizen ID : " + getCitizenId() + "\nName : " + getName() + "\nSurname : " + getSurname() + "\nBirthdate : " +
@@ -571,7 +553,7 @@ public class Person extends IdNumbers { //Soyut ID number classından soy alan b
                 "\n--------------------------------------------\n";
     }
 
-    public void person_db() { //İşlem yapılacak kişinin bilgilerini database üzerinden bilgisayara çeken metod.
+    public void person_db() {
         System.out.println("Please enter a citizen number : ");
         citizenId = keyboard.nextLine();
         if (citizenId.matches("[0-9]*") && citizenId.length() == CITIZEN_ID_DIGIT) {
@@ -604,7 +586,7 @@ public class Person extends IdNumbers { //Soyut ID number classından soy alan b
         }
     }
 
-    public long age() { //Özellikleri database'den alınan kişinin doğum tarigi baz alarak yaşını hesaplayan metod
+    public long age() {
         LocalDate today = LocalDate.now();
         LocalDate birthday = LocalDate.of(getBirthdate_year(), getBirthdate_month(), getBirthdate_day());
 
@@ -615,11 +597,10 @@ public class Person extends IdNumbers { //Soyut ID number classından soy alan b
     }
 
     public String citizenId(String citizenId) {
-        return citizenId; //TODO Check and control the abstract!!!! Do creating a new citizen ID creator!
+        return citizenId;
     }
 
-    public void addPerson() { //Default özellikleri ile ilk atamaları yapılmış ve kişi eklemek için gerekli setterleri
-                                // tek çatı altında toplayan metod
+    public void addPerson() {
 
         setCitizenId("Unknown");
         setName("Unknown");
@@ -634,13 +615,11 @@ public class Person extends IdNumbers { //Soyut ID number classından soy alan b
 
     }
 
-    public void viewPerson() { //Kişi bilgileri görüntüleme metodu
-        person_db(); //İstenen kişinin bilgilerini databaseden çeker
-        System.out.println(toString()); //Literale dökümante ederek ekrana yazdırır
+    public void viewPerson() {
+        person_db();
+        System.out.println(toString());
     }
-    /** Alt kısımdaki metodlar kişinin bilgilerini değiştirmek için önce set ederek sonra set ettiği bilgiyi kontrol
-        ederek get eden metodları barındırır
-     */
+
     public void changeName() {
         person_db();
         setName("Unknown");

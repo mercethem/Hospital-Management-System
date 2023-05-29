@@ -2,10 +2,6 @@ import java.awt.*;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Scanner;
-/**
- ATTENTION(UYARI) En üstte miras alınan Person classı içerisindeki değer düzeni ile aynı içeriğe sahiptir. Düzenleme
- ve içeriği anlamak için person üzerindeki COMMENT'leri okumanız gerekmektedir çünkü içerik benzer mimaride tasarlanmıştır.
- */
 public class Management extends Employee {
 
     Scanner keyboard = new Scanner(System.in);

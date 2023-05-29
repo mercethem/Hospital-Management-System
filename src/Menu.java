@@ -1,11 +1,7 @@
 import java.awt.*;
 import java.util.Scanner;
 
-public abstract class Menu { //Tüm kontrol yönlendirmeleri için temel class
-    /**
-     * Alt kısımdaki objeler kullanılarak her işlemi bilgisayarda yapılması için
-     * objeler üzerinden kullanılması amacı ile burada tutulmaktadır.
-     */
+public abstract class Menu {
     static Person person = new Person();
     static Employee employee = new Employee();
     static Patient patient = new Patient();
@@ -19,12 +15,6 @@ public abstract class Menu { //Tüm kontrol yönlendirmeleri için temel class
 
         String input = keyboard.nextLine();
 
-        /**
-         Alt kısımlarda da bulunan input.mathes methodu ile ilk String belirlenen girdi integer'a parse edilerek
-         girdilerde istenilenin dışına çıkılmaması için tasarlanmış ve hemen altındaki if else merdiveni ile
-         yönlendirme tasarlanmıştır. Tasarlanan şablonun dışına çıkacak bir girdi sonrası default beep sesi ile
-         uyarılması sonrası tekrardan başa dönecek şekilde tasarlanmıştır.
-         */
         if (input.matches("[0-2]*")) {
             int choose = Integer.parseInt(input);
             if (choose == 0) {
@@ -34,19 +24,19 @@ public abstract class Menu { //Tüm kontrol yönlendirmeleri için temel class
                 if (input.matches("[0-4]*")) {
                     choose = Integer.parseInt(input);
                     if (choose == 0) {
-                        person.addPerson(); //Kişi bilgilerini ekleme
+                        person.addPerson();
                         options();
                     } else if (choose == 1) {
-                        employee.addEmployee(); //Çalışan bilgilerini ekleme
+                        employee.addEmployee();
                         options();
                     } else if (choose == 2) {
-                        management.addManagement(); //Yönetimde bulunan çalışan bilgilerini ekleme
+                        management.addManagement();
                         options();
                     } else if (choose == 3) {
-                        patient.addPatient(); //Hasta bilgilerini ekleme
+                        patient.addPatient();
                         options();
                     } else if (choose == 4) {
-                        appointment.addAppointment(); //Randevu bilgileri ekleme
+                        appointment.addAppointment();
                         options();
                     } else {
                         System.out.println("Please enter right number!\n");
@@ -64,17 +54,17 @@ public abstract class Menu { //Tüm kontrol yönlendirmeleri için temel class
                 if (input.matches("[0-3]*")) {
                     choose = Integer.parseInt(input);
                     if (choose == 0) {
-                        person.viewPerson(); //Kişi bilgilerini görüntüleme
+                        person.viewPerson();
                         options();
                     } else if (choose == 1) {
-                        management.viewManagement(); //Çalışan bilgilerini görüntüleme ki varsa yönetimdeki rolünü
+                        management.viewManagement();
                         // belirtir
                         options();
                     } else if (choose == 2) {
-                        patient.viewPatient(); //Hasta bilgilerini görüntüleme
+                        patient.viewPatient();
                         options();
                     } else if (choose == 3) {
-                        appointment.viewAppointment(); //Yönetimdeki kişinin özelliklerini görüntüleme
+                        appointment.viewAppointment();
                         options();
                     } else {
                         System.out.println("Please enter right number!\n");
@@ -98,31 +88,31 @@ public abstract class Menu { //Tüm kontrol yönlendirmeleri için temel class
                         if (input.matches("[0-8]*")) {
                             choose = Integer.parseInt(input);
                             if (choose == 0) {
-                                person.changeName(); //Kişi ismini düzenleme
+                                person.changeName();
                                 options();
                             } else if (choose == 1) {
-                                person.changeSurname(); //Kişi soyadı düzenleme
+                                person.changeSurname();
                                 options();
                             } else if (choose == 2) {
-                                person.changeBirthdate_day(); //Kişi doğum günü düzenleme
+                                person.changeBirthdate_day();
                                 options();
                             } else if (choose == 3) {
-                                person.changeBirthdate_month(); //Kişi doğum ayını düzenleme
+                                person.changeBirthdate_month();
                                 options();
                             } else if (choose == 4) {
-                                person.changeBirthdate_year(); //Kişi doğum yılını düzenleme
+                                person.changeBirthdate_year();
                                 options();
                             } else if (choose == 5) {
-                                person.changeBloodGroup(); //Kişi kan grubunu düzenleme
+                                person.changeBloodGroup();
                                 options();
                             } else if (choose == 6) {
-                                person.changeAddress(); //Kişi adresini düzenleme
+                                person.changeAddress();
                                 options();
                             } else if (choose == 7) {
-                                person.changePhoneNumber(); //Kişi telefon numarasını düzenleme
+                                person.changePhoneNumber();
                                 options();
                             } else if (choose == 8) {
-                                person.changeEmail(); //Kişi mail adresini düzenleme
+                                person.changeEmail();
                                 options();
                             } else {
                                 System.out.println("Please enter right number!");
@@ -142,25 +132,25 @@ public abstract class Menu { //Tüm kontrol yönlendirmeleri için temel class
                         if (input.matches("[0-6]*")) {
                             choose = Integer.parseInt(input);
                             if (choose == 0) {
-                                employee.changeEmployeeDepartment(); //Çalışan departmanını düzenleme
+                                employee.changeEmployeeDepartment();
                                 options();
                             } else if (choose == 1) {
-                                employee.changeDateOfStart_day(); //Çalışan işe giriş gününü düzenleme
+                                employee.changeDateOfStart_day();
                                 options();
                             } else if (choose == 2) {
-                                employee.changeDateOfStart_month(); //Çalışan işe giriş ayını düzenleme
+                                employee.changeDateOfStart_month();
                                 options();
                             } else if (choose == 3) {
-                                employee.changeDateOfStart_year(); //Çalışan işe giriş yılını düzenleme
+                                employee.changeDateOfStart_year();
                                 options();
                             } else if (choose == 4) {
-                                employee.changeDateOfDismiss_day(); //Çalışan işten çıkış gününü düzenleme
+                                employee.changeDateOfDismiss_day();
                                 options();
                             } else if (choose == 5) {
-                                employee.changeDateOfDismiss_month(); //Çalışan işten çıkış ayını düzenleme
+                                employee.changeDateOfDismiss_month();
                                 options();
                             } else if (choose == 6) {
-                                employee.changeDateOfDismiss_year(); //Çalışan işten çıkış yılını düzenleme
+                                employee.changeDateOfDismiss_year();
                                 options();
                             } else {
                                 System.out.println("Please enter right number!");
@@ -179,7 +169,7 @@ public abstract class Menu { //Tüm kontrol yönlendirmeleri için temel class
                         if (input.matches("[0]*")) {
                             choose = Integer.parseInt(input);
                             if (choose == 0) {
-                                management.changeManagementDepartment(); //Çalışan yöneticinin departmanını düzenleme
+                                management.changeManagementDepartment();
                                 options();
                             } else {
                                 System.out.println("Please enter right number!");
@@ -199,25 +189,25 @@ public abstract class Menu { //Tüm kontrol yönlendirmeleri için temel class
                         if (input.matches("[0-6]*")) {
                             choose = Integer.parseInt(input);
                             if (choose == 0) {
-                                patient.changeDepartment(); //Hastanın yattığı departmanı düzenleme
+                                patient.changeDepartment();
                                 options();
                             } else if (choose == 1) {
-                                patient.changeDateOfHospitalized_day(); //Hastanın yattığı günü düzenleme
+                                patient.changeDateOfHospitalized_day();
                                 options();
                             } else if (choose == 2) {
-                                patient.changeDateOfHospitalized_month(); //Hastanın yattığı ayı düzenleme
+                                patient.changeDateOfHospitalized_month();
                                 options();
                             } else if (choose == 3) {
-                                patient.changeDateOfHospitalized_year(); //Hastanın yattığı yılı düzenleme
+                                patient.changeDateOfHospitalized_year();
                                 options();
                             } else if (choose == 4) {
-                                patient.changeDateOfLeave_day(); //Hastanın hastaneden ayrıldığı günü düzenleme
+                                patient.changeDateOfLeave_day();
                                 options();
                             } else if (choose == 5) {
-                                patient.changeDateOfLeave_month(); //Hastanın hastaneden ayrıldığı ayı düzenleme
+                                patient.changeDateOfLeave_month();
                                 options();
                             } else if (choose == 6) {
-                                patient.changeDateOfLeave_year(); //Hastanın hastaneden ayrıldığı yılı düzenleme
+                                patient.changeDateOfLeave_year();
                                 options();
                             } else {
                                 System.out.println("Please enter right number!");
@@ -237,22 +227,22 @@ public abstract class Menu { //Tüm kontrol yönlendirmeleri için temel class
                         if (input.matches("[0-5]*")) {
                             choose = Integer.parseInt(input);
                             if (choose == 0) {
-                                appointment.changeDoctorName(); //Hastanın radevu doktorunun adını değiştirme
+                                appointment.changeDoctorName();
                                 options();
                             } else if (choose == 1) {
-                                appointment.changeDoctorSurname(); //Hastanın radevu doktorunun soyadını değiştirme
+                                appointment.changeDoctorSurname();
                                 options();
                             } else if (choose == 2) {
-                                appointment.changeAppointmentDepartment(); //Hastanın randevu departmanını değiştirme
+                                appointment.changeAppointmentDepartment();
                                 options();
                             } else if (choose == 3) {
-                                appointment.changeAppointment_day(); //Hastanın randevu günü değiştirme
+                                appointment.changeAppointment_day();
                                 options();
                             } else if (choose == 4) {
-                                appointment.changeAppointment_month(); //Hastanın randevu ayını değiştirme
+                                appointment.changeAppointment_month();
                                 options();
                             } else if (choose == 5) {
-                                appointment.changeAppointment_year(); //Hastanın randevu yılını değiştirme
+                                appointment.changeAppointment_year();
                                 options();
                             } else {
                                 System.out.println("Please enter right number!");

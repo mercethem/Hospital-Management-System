@@ -9,10 +9,6 @@ import java.time.temporal.ChronoUnit;
 import java.util.Scanner;
 
 public class Patient extends Person {
-    /**
-     ATTENTION(UYARI)= Miras alınan Person classı içerisindeki değer düzeni ile aynı içeriğe sahiptir. Düzenleme ve içeriği
-     anlamak için person üzerindeki COMMENT'leri okumanız gerekmektedir çünkü içerik benzer mimaride tasarlanmıştır.
-     */
 
     static Patient patient = new Patient();
     Scanner keyboard = new Scanner(System.in);
