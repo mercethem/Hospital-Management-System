@@ -642,46 +642,55 @@ public class Person extends IdNumbers { //Soyut ID number classından soy alan b
         ederek get eden metodları barındırır
      */
     public void changeName() {
+        person_db();
         setName("Unknown");
         System.out.println("New NAME is " + getName());
     }
 
     public void changeSurname() {
+        person_db();
         setSurname("Unknown");
         System.out.println("New SURNAME is " + getSurname());
     }
 
     public void changeBirthdate_day() {
+        person_db();
         setSurname("Unknown");
         System.out.println("New DAY is " + getBirthdate_day());
     }
 
     public void changeBirthdate_month() {
+        person_db();
         setBirthdate_month(0);
         System.out.println("New MONTH is " + getBirthdate_month());
     }
 
     public void changeBirthdate_year() {
+        person_db();
         setBirthdate_year(0);
         System.out.println("New YEAR is " + getBirthdate_year());
     }
 
     public void changeBloodGroup() {
+        person_db();
         setBloodGroup("Unknown");
         System.out.println("New BLOOD GROUP is " + getBloodGroup());
     }
 
     public void changeAddress() {
+        person_db();
         setAddress("Unknown");
         System.out.println("New ADDRESS is " + getAddress());
     }
 
     public void changePhoneNumber() {
+        person_db();
         setPhoneNumber("Unknown");
         System.out.println("New PHONE NUMBER is " + getPhoneNumber());
     }
 
     public void changeEmail() {
+        person_db();
         setEmail("Unknown");
         System.out.println("New EMAIL is " + getEmail());
     }
