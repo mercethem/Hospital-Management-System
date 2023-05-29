@@ -126,6 +126,7 @@ public class Management extends Employee {
     public void addManagement() {
         super.person_db();
         super.employee_db();
+        management_db();
         setManagementId("Unknown");
         setManagement_department("Unknown");
     }
