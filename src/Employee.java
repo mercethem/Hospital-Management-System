@@ -97,11 +97,6 @@ public class Employee extends Person {
                 myStatement.executeQuery("IF ( '" + super.getCitizenId() + "' =(SELECT citizenId FROM HospitalManagementSystemStock.dbo.employees WHERE citizenId = '" + super.getCitizenId() + "') )\n" +
                         "    UPDATE HospitalManagementSystemStock.dbo.employees SET  department = '" + this.employee_department + "' WHERE citizenId= '" + super.getCitizenId() + "'" +
                         "ELSE INSERT INTO HospitalManagementSystemStock.dbo.employees (department) VALUES ('" + this.employee_department + "')");
-
-//                "IF ( '"+super.getCitizenId()+"' =(SELECT citizenId FROM HospitalManagementSystemStock.dbo.employees WHERE citizenId = '"+super.getCitizenId()+"') )\n" +
-//                        "UPDATE HospitalManagementSystemStock.dbo.employees SET  employeeId = '"+this.employeeId+"' WHERE citizenId = '"+super.getCitizenId()+"'\n" +
-//                        ""
-//
                 myStatement.close(); // close statement
                 DataBaseLayer.myConnection.close(); // close connection
             } catch (Exception e) {
@@ -519,7 +514,7 @@ public class Employee extends Person {
         }
     }
 
-    public long workInterval() { //Çalışma süresini hesaplayarak döndüren metoddur
+    public long workInterval() {
         LocalDate hospitalizedDate = LocalDate.of(getDateOfStart_year(), getDateOfStart_month(), getDateOfStart_day());
         LocalDate leaveDate = LocalDate.of(getDateOfDismiss_year(), getDateOfDismiss_month(), getDateOfDismiss_day());
         LocalDate thisYearsBirthday = hospitalizedDate.with(Year.now());
