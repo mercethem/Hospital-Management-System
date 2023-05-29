@@ -493,36 +493,43 @@ public class Patient extends Person {
 
 
     public void changeDepartment() {
+        patient_db();
         setDepartment("Unknown");
         System.out.println("New Department is " + getDepartment());
     }
 
     public void changeDateOfHospitalized_day() {
+        patient_db();
         setDateOfHospitalized_day(0);
         System.out.println("New DAY is " + getDateOfHospitalized_day());
     }
 
     public void changeDateOfHospitalized_month() {
+        patient_db();
         setDateOfHospitalized_month(0);
         System.out.println("New MONTH is " + getDateOfHospitalized_month());
     }
 
     public void changeDateOfHospitalized_year() {
+        patient_db();
         setDateOfHospitalized_year(0);
         System.out.println("New YEAR is " + getDateOfHospitalized_year());
     }
 
     public void changeDateOfLeave_day() {
+        patient_db();
         setDateOfLeave_day(0);
         System.out.println("New DAY is " + getDateOfLeave_day());
     }
 
     public void changeDateOfLeave_month() {
+        patient_db();
         setDateOfLeave_month(0);
         System.out.println("New MONTH is " + getDateOfLeave_month());
     }
 
     public void changeDateOfLeave_year() {
+        patient_db();
         setDateOfLeave_year(0);
         System.out.println("New YEAR is " + getDateOfLeave_year());
     }
