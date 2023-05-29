@@ -546,41 +546,49 @@ public class Employee extends Person {
     }
 
     public void changeEmployeeId() {
+        employee_db();
         setEmployeeId("Unknown");
         System.out.println("New Employee ID is " + getEmployeeId());
     }
 
     public void changeEmployeeDepartment() {
+        employee_db();
         setEmployeeDepartment("Unknown");
         System.out.println("New Department is " + getEmployeeDepartment());
     }
 
     public void changeDateOfStart_day() {
+        employee_db();
         setDateOfStart_day(0);
         System.out.println("New DAY is " + getDateOfStart_day());
     }
 
     public void changeDateOfStart_month() {
+        employee_db();
         setDateOfStart_month(0);
         System.out.println("New MONTH is " + getDateOfStart_month());
     }
 
     public void changeDateOfStart_year() {
+        employee_db();
         setDateOfStart_year(0);
         System.out.println("New YEAR is " + getDateOfStart_year());
     }
 
     public void changeDateOfDismiss_day() {
+        employee_db();
         setDateOfDismiss_day(0);
         System.out.println("New DAY is " + getDateOfDismiss_day());
     }
 
     public void changeDateOfDismiss_month() {
+        employee_db();
         setDateOfDismiss_month(0);
         System.out.println("New MONTH is " + getDateOfDismiss_month());
     }
 
     public void changeDateOfDismiss_year() {
+        employee_db();
         setDateOfDismiss_year(0);
         System.out.println("New YEAR is " + getDateOfDismiss_year());
     }
