@@ -1,6 +1,8 @@
 # Hospital-Management-System
 
-This project is about Hospital Management System.(1st year 2nd term School Project)
+# (1st Year 2nd Term School Project)
+
+This project is about Hospital Management System.
 Viewing, creating, changing functions have it. This options work with SQL(Microsoft SQL).
 
 
